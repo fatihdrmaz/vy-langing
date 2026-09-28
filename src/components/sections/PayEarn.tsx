@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import { Logo } from "@/components/ui/Logo";
 import { Icon } from "@/components/phone/Icons";
 import styles from "./PayEarn.module.css";
@@ -26,23 +26,18 @@ export function PayEarn() {
         return;
       }
 
+      const desktop = isDesktop();
+      // Pinned scene (all sizes): card flips in, points count up, ledger rows slide in one by one, then the pills
       const counter = { v: 0 };
-      gsap.to(counter, {
-        v: 1240,
-        duration: 1.8,
-        ease: "power2.out",
-        scrollTrigger: { trigger: card, start: "top 75%", once: true },
-        onUpdate: () => {
-          if (numRef.current) numRef.current.textContent = Math.round(counter.v).toLocaleString("tr-TR");
-        },
+      const mtl = gsap.timeline({
+        scrollTrigger: { trigger: el, start: "top top", end: desktop ? "+=110%" : "+=120%", pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true },
       });
-
-      gsap.from(card, { rotateY: -18, rotateX: 8, y: 40, opacity: 0, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: card, start: "top 80%", once: true } });
-      gsap.from(rows, { x: 24, opacity: 0, stagger: 0.12, duration: 0.7, scrollTrigger: { trigger: rows[0], start: "top 85%", once: true } });
-      gsap.from(steps, { y: 20, opacity: 0, stagger: 0.12, duration: 0.7, scrollTrigger: { trigger: steps[0], start: "top 85%", once: true } });
-
-      // Subtle scroll rotation for depth
-      gsap.to(card, { rotateY: 10, rotateX: -4, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: 1 } });
+      mtl.from(card, { rotateY: -40, rotateX: 10, y: 60, opacity: 0, duration: 0.5, ease: "power2.out" }, 0)
+        .to(counter, { v: 1240, duration: 0.6, ease: "power1.out", onUpdate: () => { if (numRef.current) numRef.current.textContent = Math.round(counter.v).toLocaleString("tr-TR"); } }, 0.2)
+        .from(rows, { x: 40, opacity: 0, stagger: 0.25, duration: 0.4, ease: "power2.out" }, 0.5)
+        .from(steps, { y: 16, opacity: 0, stagger: 0.12, duration: 0.3, ease: "power2.out" }, 1.1)
+        .to({}, { duration: 0.2 });
+      if (!desktop) return;
 
       // Pointer tilt (desktop, fine pointer)
       if (!window.matchMedia("(pointer: fine)").matches) return;

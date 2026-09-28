@@ -1,0 +1,11 @@
+.main { padding-top: 140px; min-height: 70vh; }
+.article { max-width: 820px; padding-bottom: 120px; display: flex; flex-direction: column; gap: 22px; }
+.contacts { margin: 8px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+.contacts div { padding: 18px 20px; border-radius: 18px; background: #fff; border: 1px solid var(--paper-line); }
+.contacts dt { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mag-deep); margin-bottom: 6px; }
+.contacts dd { margin: 0; font-weight: 600; }
+.contacts a { text-decoration: underline; text-underline-offset: 3px; }
+.note { grid-column: 1 / -1; font-size: 14px; color: var(--paper-muted); }
+.actions { margin-top: 8px; }
+.back { margin-top: 24px; font-weight: 600; }
+.back a { color: var(--mag-deep); }

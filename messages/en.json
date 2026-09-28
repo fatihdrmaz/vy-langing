@@ -306,7 +306,8 @@
     "errorConsent": "Please tick the consent box to continue.",
     "errorGeneric": "Something went wrong. Please try again.",
     "sending": "Sending…",
-    "badgeHint": "Leave your email and we will notify you at launch"
+    "badgeHint": "Leave your email and we will notify you at launch",
+    "qr": "Scan with your phone"
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -351,6 +352,18 @@
       "9": {
         "q": "How can I get support if I have a problem?",
         "a": "You can create a support request from the Help/Support area in the app or through the current contact channels listed on the website."
+      },
+      "10": {
+        "q": "Can I add my flight to Voyola?",
+        "a": "Where flight-linked personalisation is supported, the relevant options will be made available in the app."
+      },
+      "11": {
+        "q": "Can I cancel or refund a service?",
+        "a": "Cancellation and refund conditions may vary by service and provider. Applicable terms are shown before purchase and in the relevant transaction details."
+      },
+      "12": {
+        "q": "What is Voyola Web?",
+        "a": "Voyola Web is the browser-based application for supported Voyola transactions. Access it through the \"Open Voyola Web\" button in the top navigation."
       }
     },
     "cats": {
@@ -368,7 +381,7 @@
     }
   },
   "footer": {
-    "tagline": "Your airport experience, in one app.",
+    "tagline": "Voyola is a digital travel platform designed to make the airport experience simpler, more connected and more personal.",
     "product": "Product",
     "company": "Company",
     "legal": "Legal",
@@ -378,7 +391,13 @@
     "contact": "Contact",
     "partners": "Become a Partner",
     "rights": "All rights reserved.",
-    "location": "Istanbul, Türkiye"
+    "location": "Istanbul, Türkiye",
+    "about": "About",
+    "help": "Help Centre",
+    "cookies": "Cookie Policy",
+    "distance": "Distance Sales / Pre-contract Information",
+    "refund": "Cancellation / Refund",
+    "social": "Social"
   },
   "tiers": {
     "eyebrow": "Membership levels",
@@ -405,5 +424,52 @@
         "d": "Top-tier privileges"
       }
     }
+  },
+  "pages": {
+    "about": {
+      "title": "About Voyola",
+      "body": "Voyola is being built to bring travellers' airport needs into one digital experience. Our goal is to make the airport journey more seamless and personal — from discovering services and dining to payments and benefits.",
+      "body2": "Our first focus is the Istanbul Airport ecosystem. Participating locations and services are shown up to date in the app."
+    },
+    "contact": {
+      "title": "Contact",
+      "body": "Write to us for questions, partnership proposals and support requests.",
+      "general": "General",
+      "support": "Support",
+      "partners": "Partnerships",
+      "hours": "Phone and opening hours: announced at launch."
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "body": "This page will be updated with the final text before launch. The site uses essential cookies and, subject to your consent, analytics cookies; you can change your preference at any time.",
+      "manage": "Change cookie preferences"
+    },
+    "distance": {
+      "title": "Distance Sales & Pre-contract Information",
+      "body": "This page will be updated with the final text after legal review."
+    },
+    "refund": {
+      "title": "Cancellation & Refund",
+      "body": "Cancellation and refund conditions may vary by service and provider. Applicable terms are shown before purchase and in the transaction details. The final text will be published after legal review."
+    },
+    "privacy": {
+      "title": "Privacy Policy & Privacy Notice",
+      "body": "This page will be updated with the final text prepared by legal counsel before launch. Voyola applies processes and technical/organisational controls in line with applicable data protection legislation (KVKK, GDPR)."
+    },
+    "terms": {
+      "title": "Terms of Use",
+      "body": "This page will be updated with the final terms of use before launch."
+    },
+    "dl": {
+      "title": "Get Voyola",
+      "body": "Once the app is live, this link will take you straight to the store. For now, leave your email to hear about the launch.",
+      "cta": "Join the waitlist"
+    }
+  },
+  "consent": {
+    "text": "We use analytics cookies to improve the experience. Essential cookies are always on.",
+    "accept": "Accept",
+    "essential": "Essential only",
+    "more": "Cookie Policy"
   }
 }

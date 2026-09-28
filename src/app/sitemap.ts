@@ -3,7 +3,7 @@ import { routing } from "@/i18n/routing";
 import { SITE_URL, localePath } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/privacy", "/terms"];
+  const pages = ["", "/about", "/contact", "/privacy", "/terms", "/cookies", "/distance-sales", "/refund"];
   const now = new Date();
   return pages.flatMap((p) =>
     routing.locales.map((l) => ({

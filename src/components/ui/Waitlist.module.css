@@ -5,7 +5,7 @@
 .head b { font-family: var(--font-display); font-size: 18px; }
 .head span { font-size: 14px; color: rgba(255,255,255,0.8); }
 .row { display: flex; gap: 10px; }
-.input { flex: 1; min-width: 0; height: 52px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: #fff; font-size: 15px; outline: none; transition: border-color 0.2s, background 0.2s; }
+.input { flex: 1; min-width: 0; height: 56px; min-height: 56px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.28); background: rgba(255,255,255,0.12); color: #fff; font-size: 16px; line-height: 56px; outline: none; -webkit-appearance: none; appearance: none; box-sizing: border-box; transition: border-color 0.2s, background 0.2s; }
 .input::placeholder { color: rgba(255,255,255,0.55); }
 .input:focus { border-color: #fff; background: rgba(255,255,255,0.12); }
 .input[aria-invalid="true"] { border-color: #ffb3ff; }
@@ -15,4 +15,4 @@
 .link { text-decoration: underline; text-underline-offset: 2px; color: #fff; }
 .err { font-size: 13px; color: #ffd1ff; }
 .success { margin-top: 12px; padding: 18px 22px; border-radius: 16px; background: rgba(255,255,255,0.14); font-family: var(--font-display); font-weight: 700; max-width: 560px; }
-@media (max-width: 520px) { .row { flex-direction: column; } .row .btn { width: 100%; } }
+@media (max-width: 520px) { .row { flex-direction: column; gap: 12px; } .row .btn { width: 100%; min-height: 56px; } .input { width: 100%; } }

@@ -306,7 +306,8 @@
     "errorConsent": "Devam etmek için onay kutusunu işaretleyin.",
     "errorGeneric": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
     "sending": "Gönderiliyor…",
-    "badgeHint": "Lansmanda haber vermemiz için e-postanızı bırakın"
+    "badgeHint": "Lansmanda haber vermemiz için e-postanızı bırakın",
+    "qr": "Telefonunuzla okutun"
   },
   "faq": {
     "eyebrow": "SSS",
@@ -351,6 +352,18 @@
       "9": {
         "q": "Sorun yaşarsam nasıl destek alabilirim?",
         "a": "Uygulamadaki Yardım/Destek alanından veya web sitesinde belirtilen güncel iletişim kanallarından destek talebi oluşturabilirsiniz."
+      },
+      "10": {
+        "q": "Uçuş bilgilerimi Voyola'ya ekleyebilir miyim?",
+        "a": "Uçuşa bağlı kişiselleştirme özellikleri desteklendiğinde, ilgili seçenekler uygulama içinde sunulacaktır."
+      },
+      "11": {
+        "q": "Satın aldığım hizmeti iptal edebilir veya iade alabilir miyim?",
+        "a": "İptal ve iade koşulları satın alınan hizmete ve sağlayıcıya göre değişebilir. Geçerli koşullar satın alma öncesinde ve ilgili işlem detayında gösterilir."
+      },
+      "12": {
+        "q": "Voyola Web nedir?",
+        "a": "Voyola Web, desteklenen Voyola işlemlerine tarayıcı üzerinden erişmenizi sağlayan web uygulamasıdır. Üst menüdeki \"Voyola Web'e Gir\" butonuyla erişebilirsiniz."
       }
     },
     "cats": {
@@ -368,7 +381,7 @@
     }
   },
   "footer": {
-    "tagline": "Havalimanı deneyiminiz, tek uygulamada.",
+    "tagline": "Voyola, havalimanı deneyimini daha kolay, bağlantılı ve kişisel hale getirmek için tasarlanmış dijital seyahat platformudur.",
     "product": "Ürün",
     "company": "Şirket",
     "legal": "Yasal",
@@ -378,7 +391,13 @@
     "contact": "İletişim",
     "partners": "İş Ortağı Olun",
     "rights": "Tüm hakları saklıdır.",
-    "location": "İstanbul, Türkiye"
+    "location": "İstanbul, Türkiye",
+    "about": "Hakkımızda",
+    "help": "Yardım Merkezi",
+    "cookies": "Çerez Politikası",
+    "distance": "Mesafeli Satış / Ön Bilgilendirme",
+    "refund": "İptal / İade",
+    "social": "Sosyal"
   },
   "tiers": {
     "eyebrow": "Üyelik seviyeleri",
@@ -405,5 +424,52 @@
         "d": "En üst seviye ayrıcalıklar"
       }
     }
+  },
+  "pages": {
+    "about": {
+      "title": "Hakkımızda",
+      "body": "Voyola, yolcunun havalimanındaki ihtiyaçlarını tek dijital deneyimde bir araya getirmek amacıyla geliştiriliyor. Hedefimiz; hizmet keşfinden yeme-içmeye, ödemeden avantajlara kadar havalimanı yolculuğunu daha akıcı ve kişisel hale getirmek.",
+      "body2": "İlk odağımız İstanbul Havalimanı ekosistemi. Katılımcı noktalar ve hizmetler uygulama içinde güncel olarak gösterilir."
+    },
+    "contact": {
+      "title": "İletişim",
+      "body": "Sorularınız, iş birliği teklifleriniz ve destek talepleriniz için bize yazın.",
+      "general": "Genel",
+      "support": "Destek",
+      "partners": "İş ortaklığı",
+      "hours": "Çalışma saatleri ve telefon: lansmanla birlikte duyurulacak."
+    },
+    "cookies": {
+      "title": "Çerez Politikası",
+      "body": "Bu sayfa lansman öncesinde nihai metinle güncellenecektir. Sitemiz zorunlu çerezler ile onayınıza bağlı analitik çerezler kullanır; tercihinizi istediğiniz zaman değiştirebilirsiniz.",
+      "manage": "Çerez tercihlerini değiştir"
+    },
+    "distance": {
+      "title": "Mesafeli Satış ve Ön Bilgilendirme",
+      "body": "Bu sayfa hukuk incelemesi sonrası nihai metinle güncellenecektir."
+    },
+    "refund": {
+      "title": "İptal ve İade Koşulları",
+      "body": "İptal ve iade koşulları satın alınan hizmete ve sağlayıcıya göre değişebilir. Geçerli koşullar satın alma öncesinde ve ilgili işlem detayında gösterilir. Nihai metin hukuk incelemesi sonrası yayınlanacaktır."
+    },
+    "privacy": {
+      "title": "Gizlilik Politikası ve Aydınlatma Metni",
+      "body": "Bu sayfa lansman öncesinde hukuk ekibi tarafından hazırlanan nihai metinle güncellenecektir. Voyola, kişisel verilerin işlenmesine ilişkin yürürlükteki mevzuata (KVKK, GDPR) uygun süreçler ve teknik/organizasyonel kontroller uygular."
+    },
+    "terms": {
+      "title": "Kullanım Koşulları",
+      "body": "Bu sayfa lansman öncesinde nihai kullanım koşullarıyla güncellenecektir."
+    },
+    "dl": {
+      "title": "Voyola'yı indirin",
+      "body": "Uygulama mağazalarda yayınlandığında bu bağlantı sizi doğrudan mağazaya götürecek. Şimdilik lansman haberini almak için e-postanızı bırakın.",
+      "cta": "Bekleme listesine katıl"
+    }
+  },
+  "consent": {
+    "text": "Deneyimi iyileştirmek için analitik çerezler kullanıyoruz. Zorunlu çerezler her zaman açıktır.",
+    "accept": "Kabul et",
+    "essential": "Yalnızca gerekli",
+    "more": "Çerez Politikası"
   }
 }

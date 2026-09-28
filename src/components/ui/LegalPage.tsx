@@ -1,27 +1,54 @@
+import { getTranslations } from "next-intl/server";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
+import { ConsentReset } from "./Consent";
+import styles from "./LegalPage.module.css";
 
-// Placeholder legal pages — final KVKK/GDPR text comes from legal counsel before launch.
-const COPY = {
-  privacy: {
-    tr: { title: "Gizlilik Politikası ve Aydınlatma Metni", body: "Bu sayfa lansman öncesinde hukuk ekibi tarafından hazırlanan nihai metinle güncellenecektir. Voyola, kişisel verilerin işlenmesine ilişkin yürürlükteki mevzuata (KVKK, GDPR) uygun süreçler ve teknik/organizasyonel kontroller uygular." },
-    en: { title: "Privacy Policy & Privacy Notice", body: "This page will be updated with the final text prepared by legal counsel before launch. Voyola applies processes and technical/organisational controls in line with applicable data protection legislation (KVKK, GDPR)." },
-  },
-  terms: {
-    tr: { title: "Kullanım Koşulları", body: "Bu sayfa lansman öncesinde nihai kullanım koşullarıyla güncellenecektir." },
-    en: { title: "Terms of Use", body: "This page will be updated with the final terms of use before launch." },
-  },
-} as const;
+export type PageKind = "about" | "contact" | "cookies" | "distance" | "refund" | "privacy" | "terms";
 
-export function LegalPage({ kind, locale }: { kind: keyof typeof COPY; locale: string }) {
-  const c = COPY[kind][locale === "tr" ? "tr" : "en"];
+// Secondary pages share one calm layout; copy lives in messages/*.json under `pages`.
+export async function LegalPage({ kind, locale }: { kind: PageKind; locale: string }) {
+  const t = await getTranslations({ locale, namespace: "pages" });
+  const f = await getTranslations({ locale, namespace: "footer" });
   return (
     <>
       <Nav solid />
-      <main className="light" style={{ paddingTop: 140, minHeight: "70vh" }}>
-        <article className="wrap" style={{ maxWidth: 820, paddingBottom: 120 }}>
-          <h1 className="h2" style={{ marginBottom: 28 }}>{c.title}</h1>
-          <p className="lede muted">{c.body}</p>
+      <main className={`light ${styles.main}`}>
+        <article className={`wrap ${styles.article}`}>
+          <h1 className="h2">{t(`${kind}.title`)}</h1>
+          <p className="lede muted">{t(`${kind}.body`)}</p>
+          {kind === "about" && <p className="lede muted">{t("about.body2")}</p>}
+          {kind === "contact" && (
+            <dl className={styles.contacts}>
+              <div>
+                <dt>{t("contact.general")}</dt>
+                <dd>
+                  <a href="mailto:hello@voyola.com">hello@voyola.com</a>
+                </dd>
+              </div>
+              <div>
+                <dt>{t("contact.support")}</dt>
+                <dd>
+                  <a href="mailto:support@voyola.com">support@voyola.com</a>
+                </dd>
+              </div>
+              <div>
+                <dt>{t("contact.partners")}</dt>
+                <dd>
+                  <a href="mailto:partners@voyola.com">partners@voyola.com</a>
+                </dd>
+              </div>
+              <p className={styles.note}>{t("contact.hours")}</p>
+            </dl>
+          )}
+          {kind === "cookies" && (
+            <div className={styles.actions}>
+              <ConsentReset label={t("cookies.manage")} />
+            </div>
+          )}
+          <p className={styles.back}>
+            <a href={locale === "en" ? "/" : `/${locale}`}>← {f("tagline").split(",")[0]}</a>
+          </p>
         </article>
       </main>
       <Footer />

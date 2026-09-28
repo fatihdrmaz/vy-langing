@@ -3,6 +3,7 @@
 import { useState, useTransition } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { track } from "@/lib/analytics";
 import styles from "./Waitlist.module.css";
 
 type Status = "idle" | "ok" | "invalid" | "consent" | "error";
@@ -31,6 +32,7 @@ export function Waitlist() {
         });
         if (!r.ok) throw new Error(String(r.status));
         setStatus("ok");
+        track("waitlist_submit", { locale });
         form.reset();
       } catch {
         setStatus("error");

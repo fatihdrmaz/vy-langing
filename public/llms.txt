@@ -17,6 +17,8 @@ Contact: hello@voyola.com · Partnerships: partners@voyola.com
 ## Pages
 - [Home (EN)](https://voyola.com/): value proposition, services, how it works, FAQ, waitlist
 - [Ana sayfa (TR)](https://voyola.com/tr)
+- [About](https://voyola.com/about)
+- [Contact](https://voyola.com/contact)
 - [Privacy](https://voyola.com/privacy)
 - [Terms](https://voyola.com/terms)
 

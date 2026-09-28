@@ -3,12 +3,11 @@ import { Archivo, Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { routing, type Locale } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { Interactions } from "@/components/motion/Interactions";
 import { Preloader } from "@/components/ui/Preloader";
+import { Consent } from "@/components/ui/Consent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL, localePath } from "@/lib/seo";
 import "../globals.css";
@@ -73,9 +72,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           <Preloader />
           <SmoothScroll>{children}</SmoothScroll>
           <Interactions />
+          <Consent />
         </NextIntlClientProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

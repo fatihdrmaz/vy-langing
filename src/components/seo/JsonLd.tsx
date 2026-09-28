@@ -8,7 +8,7 @@ export async function JsonLd({ locale }: { locale: Locale }) {
   const faq = await getTranslations({ locale, namespace: "faq" });
   const url = `${SITE_URL}${localePath(locale)}`;
 
-  const faqEntities = Array.from({ length: 10 }, (_, i) => ({
+  const faqEntities = Array.from({ length: 13 }, (_, i) => ({
     "@type": "Question",
     name: faq(`items.${i}.q`),
     acceptedAnswer: { "@type": "Answer", text: faq(`items.${i}.a`) },

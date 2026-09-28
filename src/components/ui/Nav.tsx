@@ -89,7 +89,7 @@ export function Nav({ solid = false }: { solid?: boolean }) {
         <div className={styles.right}>
           <div className={styles.lang} role="group" aria-label={t("langLabel")}>
             {(["tr", "en"] as const).map((l) => (
-              <Link key={l} href={pathname} locale={l} aria-current={locale === l ? "true" : undefined} aria-label={l === "tr" ? "TR · Türkçe" : "EN · English"} className={locale === l ? styles.langOn : undefined}>
+              <Link key={l} href={pathname} locale={l} aria-current={locale === l ? "true" : undefined} aria-label={l === "tr" ? "TR · Türkçe" : "EN · English"} className={locale === l ? styles.langOn : undefined} data-track="language_switch">
                 {l.toUpperCase()}
               </Link>
             ))}

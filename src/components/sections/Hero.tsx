@@ -116,7 +116,7 @@ export function Hero() {
               {t("lede")}
             </p>
             <div className={`${styles.ctas} ${styles.in}`} style={{ animationDelay: "0.7s" }}>
-              <a className="btn btn-primary" href="#indir" data-magnetic="6">
+              <a className="btn btn-primary" href="#indir" data-magnetic="6" data-track="hero_download">
                 {t("primary")}
               </a>
               <a className="btn btn-ghost" href={WEB_APP_URL} rel="noopener" data-magnetic="6">

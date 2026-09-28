@@ -29,15 +29,19 @@ export function Footer() {
         </nav>
         <nav aria-label={t("company")}>
           <b>{t("company")}</b>
-          <a href={`${home}#sss`}>{n("faq")}</a>
-          <a href="mailto:hello@voyola.com">{t("contact")}</a>
+          <Link href="/about">{t("about")}</Link>
+          <Link href="/contact">{t("contact")}</Link>
+          <a href={`${home}#sss`}>{t("help")}</a>
           <a href="mailto:partners@voyola.com">{t("partners")}</a>
         </nav>
         <nav aria-label={t("legal")}>
           <b>{t("legal")}</b>
-          <Link href="/privacy">{t("privacy")}</Link>
           <Link href="/terms">{t("terms")}</Link>
+          <Link href="/privacy">{t("privacy")}</Link>
           <Link href="/privacy">{t("kvkk")}</Link>
+          <Link href="/cookies">{t("cookies")}</Link>
+          <Link href="/distance-sales">{t("distance")}</Link>
+          <Link href="/refund">{t("refund")}</Link>
         </nav>
       </div>
       <div className={`wrap ${styles.bottom}`}>

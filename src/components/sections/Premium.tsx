@@ -69,7 +69,7 @@ export function Premium() {
         </div>
 
         <div className={styles.foot} data-reveal>
-          <a className="btn btn-dark" href="#indir">
+          <a className="btn btn-dark" href="#indir" data-track="service_click">
             {t("cta")}
           </a>
         </div>

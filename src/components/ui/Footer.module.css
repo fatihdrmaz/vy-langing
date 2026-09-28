@@ -1,7 +1,7 @@
 .footer { background: var(--ink); color: var(--muted); border-top: 1px solid var(--line-2); padding-block: 72px 32px; }
-.grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+.grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 40px; }
 .brand { display: flex; flex-direction: column; gap: 16px; }
-.brand p { color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 18px; max-width: 18em; }
+.brand p { color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 1.4; max-width: 24em; }
 .loc { font-size: 13px; color: var(--muted-2); }
 .grid nav { display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
 .grid nav a { padding: 8px 0; display: inline-block; }

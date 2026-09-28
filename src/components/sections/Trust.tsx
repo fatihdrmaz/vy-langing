@@ -14,7 +14,8 @@ export function Trust() {
 
   useGSAP(
     () => {
-      if (prefersReducedMotion() || isDesktop()) return;
+      if (prefersReducedMotion()) return;
+      const desktop = isDesktop();
       const el = root.current!;
       const items = gsap.utils.toArray<HTMLElement>(`.${styles.list} li`);
       const receipt = el.querySelector(`.${styles.receipt}`)!;
@@ -22,7 +23,7 @@ export function Trust() {
       const a = el.querySelector(`.${styles.chatA}`)!;
       const enc = el.querySelector(`.${styles.enc}`)!;
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: el, start: "top top", end: "+=140%", pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true },
+        scrollTrigger: { trigger: el, start: "top top", end: desktop ? "+=120%" : "+=140%", pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true },
       });
       tl.from(items, { y: 24, opacity: 0, stagger: 0.12, duration: 0.5, ease: "power2.out" }, 0)
         .from(receipt, { y: 60, opacity: 0, scale: 0.94, duration: 0.6, ease: "power2.out" }, 0.4)
@@ -98,7 +99,6 @@ export function Trust() {
                   <dd className={styles.mono}>VY-8F2K-••••-41Q7</dd>
                 </div>
               </dl>
-              <div className={styles.perf} />
             </article>
 
             <div className={`${styles.chat} ${styles.chatQ}`} data-reveal data-reveal-delay="2">

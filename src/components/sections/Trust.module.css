@@ -1,5 +1,6 @@
-.sec { position: relative; padding-block: clamp(80px, 9vw, 130px); background: #fff; color: var(--paper-ink); overflow: hidden; }
-.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; }
+.sec { position: relative; padding-block: 0; background: #fff; color: var(--paper-ink); overflow: hidden; }
+.sec [data-reveal] { opacity: 1; transform: none; transition: none; }
+.grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 64px; align-items: center; min-height: 100svh; padding-block: 100px 60px; }
 .copy { display: flex; flex-direction: column; gap: 20px; }
 .copy :global(.eyebrow) { color: var(--mag-deep); }
 .copy :global(.muted) { color: var(--paper-muted); }
@@ -33,12 +34,12 @@
 .rIc { width: 40px; height: 40px; border-radius: 12px; background: var(--soft); color: var(--violet); display: grid; place-items: center; }
 .rAmount { font-family: var(--font-display); font-size: 40px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; }
 .rMeta { margin: 0; display: flex; flex-direction: column; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--paper-line); }
+.receipt::after { content: ""; position: absolute; left: 18px; right: 18px; bottom: 0; height: 1px; background: repeating-linear-gradient(90deg, var(--paper-line) 0 6px, transparent 6px 12px); }
 .rMeta div { display: flex; justify-content: space-between; gap: 12px; font-size: 12.5px; }
 .rMeta dt { color: #6b6880; }
 .rMeta dd { margin: 0; font-weight: 700; }
 .rMeta div:first-child dd { color: var(--violet); }
 .mono { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
-.perf { position: absolute; left: 0; right: 0; bottom: -1px; height: 10px; background: radial-gradient(circle at 8px -2px, transparent 7px, #fff 7.5px) -8px 0 / 16px 10px repeat-x; transform: scaleY(-1); filter: drop-shadow(0 -1px 0 rgba(0,0,0,0.04)); }
 
 .chat { position: absolute; border-radius: 18px; padding: 12px 14px; font-size: 13px; line-height: 1.4; max-width: 280px; box-shadow: var(--shadow-dark-2); }
 .chatQ { right: 6%; top: 12%; background: var(--mag); color: #fff; border-bottom-right-radius: 6px; }
@@ -50,8 +51,6 @@
 .enc span { width: 24px; height: 24px; border-radius: 50%; background: #5ec165; display: grid; place-items: center; color: #fff; }
 
 @media (max-width: 1023px) {
-  /* mobile: the pinned timeline drives these, not the reveal observer */
-  .sec [data-reveal] { opacity: 1; transform: none; transition: none; }
   .sec { padding-block: 0; }
   .grid { grid-template-columns: 1fr; gap: 16px; min-height: 100svh; align-content: start; padding-top: 84px; padding-bottom: 16px; }
   .copy { gap: 10px; }
@@ -63,10 +62,10 @@
   .list b { font-size: 14px; margin: 0; }
   .list p { display: none; }
   .ic { width: 34px; height: 34px; border-radius: 10px; background: #fff; }
-  .panel { min-height: 0; padding: 22px 18px 64px; border-radius: 26px; }
-  .receipt { width: min(300px, 82%); margin: 0 auto 0 0; padding: 14px 16px 22px; }
+  .panel { min-height: 0; padding: 18px 16px 18px; border-radius: 26px; display: flex; flex-direction: column; gap: 10px; }
+  .receipt { width: 100%; margin: 0; padding: 14px 16px 18px; }
   .rAmount { font-size: 32px; }
-  .chatQ { top: 6%; right: 4%; max-width: 46%; font-size: 12px; }
-  .chatA { right: 3%; bottom: 14%; max-width: 62%; font-size: 12px; }
-  .enc { left: 18px; bottom: 16px; font-size: 11px; }
+  .chatQ { position: static; align-self: flex-end; max-width: 80%; font-size: 13px; }
+  .chatA { position: static; align-self: flex-start; max-width: 92%; font-size: 13px; }
+  .enc { position: static; align-self: flex-start; font-size: 11px; margin-top: 2px; }
 }
