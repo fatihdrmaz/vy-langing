@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "./Logo";
+import { LiveStrip } from "./LiveStrip";
 import { WEB_APP_URL } from "@/lib/seo";
 import styles from "./Footer.module.css";
 
@@ -16,6 +17,7 @@ export function Footer() {
           <Logo height={30} ink="#fff" />
           <p>{t("tagline")}</p>
           <span className={styles.loc}>{t("location")}</span>
+          <LiveStrip />
         </div>
         <nav aria-label={t("product")}>
           <b>{t("product")}</b>

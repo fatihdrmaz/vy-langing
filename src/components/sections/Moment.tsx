@@ -6,6 +6,7 @@ import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion, isDesktop } from "@
 import { Phone, StatusBar } from "@/components/phone/Phone";
 import { Icon, type IconName } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
+import { RollingNumber } from "@/components/motion/RollingNumber";
 import styles from "./Moment.module.css";
 
 type StateKey = "relaxed" | "dine" | "hurry" | "rush";
@@ -21,8 +22,8 @@ const START = 150;
 export function Moment() {
   const t = useTranslations("moment");
   const root = useRef<HTMLElement>(null);
-  const numRef = useRef<HTMLSpanElement>(null);
   const [idx, setIdx] = useState(0);
+  const [minutes, setMinutes] = useState(START);
   const idxRef = useRef(0);
 
   useGSAP(
@@ -32,7 +33,7 @@ export function Moment() {
       const dots = gsap.utils.toArray<HTMLElement>(`.${styles.dot}`);
       if (prefersReducedMotion()) {
         setIdx(1);
-        if (numRef.current) numRef.current.textContent = "70";
+        setMinutes(75);
         return;
       }
       const desktop = isDesktop();
@@ -43,15 +44,8 @@ export function Moment() {
       const setStage = (i: number) => {
         if (i === stage && shown.v === STOPS[i]) return;
         stage = i;
-        gsap.to(shown, {
-          v: STOPS[i],
-          duration: 0.6,
-          ease: "power2.out",
-          overwrite: true,
-          onUpdate: () => {
-            if (numRef.current) numRef.current.textContent = String(Math.round(shown.v));
-          },
-        });
+        shown.v = STOPS[i];
+        setMinutes(STOPS[i]);
         gsap.to(ring, { strokeDashoffset: 1 - i / 3, duration: 0.6, ease: "power2.out", overwrite: true });
         dots.forEach((d, k) => d.classList.toggle(styles.dotOn, k <= i));
         idxRef.current = i;
@@ -97,7 +91,7 @@ export function Moment() {
             <div className={styles.timerTxt}>
               <small>{t("timerLabel")}</small>
               <b>
-                <span ref={numRef}>{START}</span> <em>{t("minutes")}</em>
+                <RollingNumber value={minutes} digits={3} /> <em>{t("minutes")}</em>
               </b>
             </div>
           </div>

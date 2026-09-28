@@ -1,0 +1,9 @@
+.curtain {
+  position: fixed; inset: 0; z-index: 200; background: var(--ink); display: grid; place-items: center; pointer-events: none;
+  animation: lift 0.55s cubic-bezier(0.7, 0, 0.3, 1) 0.75s forwards;
+}
+.mark { animation: markIn 0.6s var(--ease-out) both, markOut 0.3s ease-in 0.7s forwards; filter: drop-shadow(0 0 24px rgba(239,46,242,0.55)); }
+@keyframes markIn { from { opacity: 0; transform: scale(0.6) translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes markOut { to { opacity: 0; transform: scale(1.4); } }
+@keyframes lift { to { transform: translateY(-100%); border-radius: 0 0 40px 40px; } }
+@media (prefers-reduced-motion: reduce) { .curtain { display: none; } }

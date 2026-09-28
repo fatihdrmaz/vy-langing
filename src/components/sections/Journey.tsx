@@ -3,18 +3,13 @@
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
-import { Phone, StatusBar } from "@/components/phone/Phone";
-import { Icon, type IconName } from "@/components/phone/Icons";
+import { Phone } from "@/components/phone/Phone";
+import { DashboardScreen, DASH_ROWS } from "@/components/phone/DashboardScreen";
+import { Icon } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
 import styles from "./Journey.module.css";
 
-const CARDS: { key: "food" | "premium" | "pay" | "benefits" | "discover"; icon: IconName }[] = [
-  { key: "food", icon: "food" },
-  { key: "premium", icon: "lounge" },
-  { key: "pay", icon: "qr" },
-  { key: "benefits", icon: "gift" },
-  { key: "discover", icon: "pin" },
-];
+const CARDS = DASH_ROWS;
 
 // Section 02: five service cards orbit the phone, then get "pulled in" as the app rows light up.
 export function Journey() {
@@ -47,7 +42,7 @@ export function Journey() {
   );
 
   return (
-    <section ref={root} id="hizmetler" className={`${styles.sec} light`} aria-labelledby="journey-title">
+    <section ref={root} id="hizmetler" className={`${styles.sec} light no-bridge`} aria-labelledby="journey-title">
       <div className={`wrap ${styles.stage}`}>
         <div className={styles.head}>
           <span className="eyebrow" data-reveal>
@@ -63,46 +58,11 @@ export function Journey() {
 
         <div className={styles.orbit}>
           <Phone className={styles.phone}>
-            <StatusBar />
-            <div className={s.app}>
-              <div className={s.top}>
-                <div>
-                  <small>Istanbul Airport · IST</small>
-                  <b>{t("greeting")}</b>
-                </div>
-                <span className={s.pill}>Voyola</span>
-              </div>
-              <div className={s.hero}>
-                <small>TK 1985 · IST → LHR</small>
-                <span className={s.big}>02:45</span>
-                <div className={s.tags}>
-                  <span>Gate F7</span>
-                  <span>Boarding 18:05</span>
-                </div>
-              </div>
-              <div className={s.label}>{t("eyebrow")}</div>
-              {CARDS.map((c) => (
-                <div key={c.key} className={s.row} data-row>
-                  <span className={s.ic}>{Icon[c.icon]()}</span>
-                  <span className={s.tx}>
-                    <b>{t(`cards.${c.key}.t`)}</b>
-                    <span>{t(`cards.${c.key}.d`)}</span>
-                  </span>
-                  <span className={s.go}>›</span>
-                </div>
-              ))}
-              <div className={s.tabbar}>
-                <span className={s.tabOn}><i />Home</span>
-                <span><i />Services</span>
-                <span><i className={s.fab} />Pay</span>
-                <span><i />Purchases</span>
-                <span><i />Wallet</span>
-              </div>
-            </div>
+            <DashboardScreen rowAttr={{ "data-row": "" }} />
           </Phone>
 
           {CARDS.map((c, i) => (
-            <article key={c.key} className={`${styles.card} ${styles[`c${i}` as "c0"]}`}>
+            <article key={c.key} className={`${styles.card} ${styles[`c${i}` as "c0"]}`} data-magnetic="5">
               <span className={styles.cardIc}>{Icon[c.icon]({ size: 22 })}</span>
               <h3>{t(`cards.${c.key}.t`)}</h3>
               <p>{t(`cards.${c.key}.d`)}</p>

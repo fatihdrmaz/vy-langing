@@ -92,7 +92,7 @@ export function Tiers() {
 
         <div className={styles.deck}>
           {TIERS.map((key, i) => (
-            <div key={key} className={`${styles.card} ${styles[key]}`}>
+            <div key={key} className={`${styles.card} ${styles[key]}`} data-magnetic="8">
               <div className={styles.cardIn}>
                 <div className={styles.row}>
                   <b className={styles.brand}>voyola</b>

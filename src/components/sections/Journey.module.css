@@ -9,11 +9,11 @@
 
 .card {
   position: absolute; width: 260px; padding: 22px 22px 20px; border-radius: 22px;
-  background: #fff; border: 1px solid var(--paper-line); box-shadow: 0 20px 50px rgba(33,10,96,0.08);
+  background: #fff; border: 1px solid var(--paper-line); box-shadow: var(--shadow-1);
   display: flex; flex-direction: column; gap: 8px; z-index: 1; will-change: transform, opacity;
   transition: transform 0.35s var(--ease), box-shadow 0.35s;
 }
-.card:hover { transform: translateY(-4px); box-shadow: 0 26px 60px rgba(33,10,96,0.14); }
+.card:hover { box-shadow: var(--shadow-2); }
 .card h3 { font-size: 20px; letter-spacing: -0.02em; }
 .card p { font-size: 14px; color: var(--paper-muted); }
 .cardIc { width: 46px; height: 46px; border-radius: 14px; background: var(--soft); color: var(--violet); display: grid; place-items: center; }

@@ -16,7 +16,8 @@
 .links a { white-space: nowrap; transition: color 0.2s; position: relative; }
 .links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 1px; background: var(--mag); transition: right 0.3s var(--ease); }
 .links a:hover { color: #fff; }
-.links a:hover::after { right: 0; }
+.links a:hover::after, .links a[aria-current="true"]::after { right: 0; }
+.links a[aria-current="true"] { color: #fff; }
 .right { display: flex; align-items: center; gap: 10px; }
 .lang { display: flex; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 4px; font-size: 12px; font-weight: 700; }
 .lang a { height: 34px; min-width: 44px; justify-content: center; padding: 0 12px; border-radius: 999px; display: flex; align-items: center; color: var(--muted); transition: background 0.2s, color 0.2s; }

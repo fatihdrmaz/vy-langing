@@ -13,12 +13,38 @@ export function Nav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string>("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Scroll-spy: the last nav section whose top has passed the viewport middle wins (robust to GSAP pin re-parenting)
+  useEffect(() => {
+    const ids = ["kesfet", "hizmetler", "avantajlar", "nasil", "sss"];
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const mid = window.innerHeight * 0.5;
+      let current = "";
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= mid) current = `#${id}`;
+      }
+      setActive((prev) => (prev === current ? prev : current));
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   useEffect(() => {
@@ -43,7 +69,7 @@ export function Nav() {
 
         <nav className={styles.links} aria-label="Primary">
           {links.map(([href, label]) => (
-            <a key={href} href={href} onClick={() => setOpen(false)}>
+            <a key={href} href={href} aria-current={active === href ? "true" : undefined} onClick={() => setOpen(false)}>
               {label}
             </a>
           ))}
@@ -60,7 +86,7 @@ export function Nav() {
           <a className={`btn btn-ghost btn-sm ${styles.hideSm}`} href={WEB_APP_URL} rel="noopener">
             {t("web")}
           </a>
-          <a className="btn btn-primary btn-sm" href="#indir">
+          <a className="btn btn-primary btn-sm" href="#indir" data-magnetic="4">
             {t("download")}
           </a>
           <button className={styles.burger} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? t("close") : t("menu")} onClick={() => setOpen((v) => !v)}>

@@ -93,7 +93,7 @@
   background: linear-gradient(135deg, rgba(33,10,96,0.72), rgba(16,5,53,0.62));
   color: #fff; border: 1px solid rgba(255,255,255,0.16);
   backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
-  box-shadow: 0 24px 60px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.14);
+  box-shadow: var(--shadow-dark-2), inset 0 1px 0 rgba(255,255,255,0.14);
   opacity: 0; will-change: transform, opacity; min-width: 230px;
 }
 .note::before {
@@ -113,6 +113,14 @@
 .note0 { left: 18%; top: 56%; }
 .note1 { left: 44%; top: 36%; }
 .note2 { left: 62%; top: 16%; }
+
+/* ── Hand-off phone + curtain ── */
+.zoom {
+  position: absolute; left: 50%; top: 50%; z-index: 4; width: min(300px, 62vw);
+  transform: translate(-50%, -50%); transform-origin: 50% 38%; opacity: 0; will-change: transform, opacity; pointer-events: none;
+}
+.zoomPhone { width: 100%; }
+.curtain { position: absolute; inset: 0; z-index: 5; background: var(--paper); opacity: 0; pointer-events: none; }
 
 .scrollHint {
   position: absolute; left: var(--gut); bottom: 24px; z-index: 3;

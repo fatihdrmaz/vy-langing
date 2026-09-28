@@ -7,6 +7,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { routing, type Locale } from "@/i18n/routing";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
+import { Interactions } from "@/components/motion/Interactions";
+import { Preloader } from "@/components/ui/Preloader";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE_URL, localePath } from "@/lib/seo";
 import "../globals.css";
@@ -68,7 +70,9 @@ export default async function LocaleLayout({ children, params }: { children: Rea
       <body>
         <NextIntlClientProvider>
           <JsonLd locale={locale as Locale} />
+          <Preloader />
           <SmoothScroll>{children}</SmoothScroll>
+          <Interactions />
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
