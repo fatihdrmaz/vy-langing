@@ -141,7 +141,7 @@ export function Moment() {
                 <span className={s.tag}>{t(`states.${st.key}.tag`)}</span>
                 <div className={styles.sugHead}>
                   <span className={s.ic}>{Icon[st.icon]()}</span>
-                  <h4>{t(`states.${st.key}.title`)}</h4>
+                  <b className={styles.sugTitle}>{t(`states.${st.key}.title`)}</b>
                 </div>
                 <p>{t(`states.${st.key}.desc`)}</p>
                 <span className={`${s.cta} ${st.soon ? s.disabled : ""}`}>

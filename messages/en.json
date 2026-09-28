@@ -68,7 +68,8 @@
         "t": "Discover",
         "d": "Find nearby services and offers more easily."
       }
-    }
+    },
+    "greeting": "Welcome back"
   },
   "moment": {
     "eyebrow": "Right service, right moment",
@@ -276,7 +277,8 @@
     "success": "Thank you! We'll let you know at launch.",
     "errorInvalid": "Please enter a valid email address.",
     "errorConsent": "Please tick the consent box to continue.",
-    "errorGeneric": "Something went wrong. Please try again."
+    "errorGeneric": "Something went wrong. Please try again.",
+    "sending": "Sending…"
   },
   "faq": {
     "eyebrow": "FAQ",

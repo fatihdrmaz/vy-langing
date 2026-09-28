@@ -54,7 +54,7 @@ export function Hero() {
         },
       });
 
-      tl.to(figure, { xPercent: 120, yPercent: -18, scale: 0.62, ease: "none", duration: 1 }, 0)
+      tl.to(figure, { xPercent: 105, yPercent: -22, scale: 0.55, ease: "none", duration: 1 }, 0)
         .to(ground, { xPercent: -22, ease: "none", duration: 1 }, 0)
         .to(bg, { scale: 1.16, xPercent: -3, ease: "none", duration: 1 }, 0)
         .to(scrollHint, { opacity: 0, duration: 0.1 }, 0)
@@ -76,7 +76,7 @@ export function Hero() {
       <div className={styles.stage}>
         {/* Cinematic backdrop */}
         <div className={styles.bg} aria-hidden="true">
-          <Image src="/media/hero-poster.jpg" alt="" fill priority sizes="100vw" className={styles.bgImg} quality={78} />
+          <Image src="/media/hero-poster-blur.jpg" alt="" fill priority sizes="100vw" className={styles.bgImg} quality={78} />
           <div className={styles.tint} />
           <div className={styles.scrim} />
         </div>

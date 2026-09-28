@@ -102,6 +102,7 @@ img, video { display: block; max-width: 100%; }
 :focus-visible { outline: 2px solid var(--mag); outline-offset: 3px; border-radius: 8px; }
 ::selection { background: var(--mag); color: #fff; }
 
+.skip-link:focus-visible { position: fixed; top: 12px; left: 12px; z-index: 100; width: auto; height: auto; padding: 10px 16px; margin: 0; clip: auto; overflow: visible; background: #fff; color: var(--ink); border-radius: 999px; font-weight: 700; }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
@@ -112,6 +113,7 @@ img, video { display: block; max-width: 100%; }
 .sec { padding-block: clamp(80px, 10vw, 150px); }
 .light { background: var(--paper); color: var(--paper-ink); }
 .light .muted { color: var(--paper-muted); }
+.light .eyebrow { color: var(--mag-deep); }
 .muted { color: var(--muted); }
 
 .eyebrow {
@@ -132,8 +134,8 @@ img, video { display: block; max-width: 100%; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
-.btn-primary { background: var(--mag); color: #fff; }
-.btn-primary:hover { background: #ff4dff; }
+.btn-primary { background: var(--mag-deep); color: #fff; box-shadow: 0 10px 30px rgba(161,5,164,0.35); }
+.btn-primary:hover { background: #b80bbb; }
 .btn-ghost { border-color: rgba(255,255,255,0.22); color: #fff; font-weight: 600; }
 .btn-ghost:hover { border-color: var(--mag); }
 .btn-light { background: #fff; color: var(--ink); }

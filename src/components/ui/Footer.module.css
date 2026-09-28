@@ -3,7 +3,8 @@
 .brand { display: flex; flex-direction: column; gap: 16px; }
 .brand p { color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 18px; max-width: 18em; }
 .loc { font-size: 13px; color: var(--muted-2); }
-.grid nav { display: flex; flex-direction: column; gap: 12px; font-size: 15px; }
+.grid nav { display: flex; flex-direction: column; gap: 4px; font-size: 15px; }
+.grid nav a { padding: 8px 0; display: inline-block; }
 .grid nav b { color: #fff; font-family: var(--font-display); font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; }
 .grid nav a:hover { color: #fff; }
 .bottom { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--line-2); font-size: 13px; color: var(--muted-2); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }

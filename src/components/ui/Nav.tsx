@@ -52,7 +52,7 @@ export function Nav() {
         <div className={styles.right}>
           <div className={styles.lang} role="group" aria-label={t("langLabel")}>
             {(["tr", "en"] as const).map((l) => (
-              <Link key={l} href={pathname} locale={l} aria-current={locale === l ? "true" : undefined} className={locale === l ? styles.langOn : undefined}>
+              <Link key={l} href={pathname} locale={l} aria-current={locale === l ? "true" : undefined} aria-label={l === "tr" ? "Türkçe" : "English"} className={locale === l ? styles.langOn : undefined}>
                 {l.toUpperCase()}
               </Link>
             ))}

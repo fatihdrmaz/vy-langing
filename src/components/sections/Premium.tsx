@@ -56,7 +56,7 @@ export function Premium() {
           {ITEMS.map((it, i) => (
             <article key={it.key} className={styles.card} style={{ ["--i" as string]: i }}>
               <div className={styles.media}>
-                <Image src={it.img} alt="" fill sizes="(max-width: 1023px) 100vw, 60vw" quality={72} />
+                <Image src={it.img} alt={t(`items.${it.key}.t`)} fill sizes="(max-width: 1023px) 100vw, 60vw" quality={72} />
               </div>
               <div className={styles.body}>
                 <span className={styles.num}>0{i + 1}</span>

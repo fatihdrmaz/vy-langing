@@ -67,7 +67,7 @@ export function Journey() {
               <div className={s.top}>
                 <div>
                   <small>Istanbul Airport · IST</small>
-                  <b>Merhaba 👋</b>
+                  <b>{t("greeting")}</b>
                 </div>
                 <span className={s.pill}>Voyola</span>
               </div>

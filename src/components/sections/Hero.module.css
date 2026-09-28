@@ -13,7 +13,7 @@
 
 /* ── Backdrop ── */
 .bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
-.bgImg { object-fit: cover; object-position: 60% 40%; transform-origin: 50% 50%; will-change: transform; filter: blur(9px) saturate(0.9); transform: scale(1.06); }
+.bgImg { object-fit: cover; object-position: 60% 40%; transform-origin: 50% 50%; will-change: transform; transform: scale(1.06); }
 .tint { position: absolute; inset: 0; background: var(--brand-purple); mix-blend-mode: color; opacity: 0.55; }
 .scrim {
   position: absolute; inset: 0;
@@ -71,8 +71,8 @@
 /* ── Traveller ── */
 .figureWrap { position: relative; height: 100%; min-height: 420px; }
 .figure {
-  position: absolute; left: 6%; bottom: 12svh;
-  width: clamp(180px, 20vw, 300px);
+  position: absolute; left: 2%; bottom: 7svh;
+  width: clamp(240px, 27vw, 410px);
   transform-origin: 50% 100%;
   will-change: transform;
   filter: drop-shadow(0 30px 40px rgba(0,0,0,0.45));

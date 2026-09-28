@@ -60,8 +60,8 @@ export function Waitlist() {
         </label>
         <input id="wl-email" name="email" type="email" inputMode="email" autoComplete="email" placeholder={t("email")} className={styles.input} required aria-invalid={status === "invalid"} />
         <input type="text" name="website" tabIndex={-1} autoComplete="off" className={styles.hp} aria-hidden="true" />
-        <button className="btn btn-light" type="submit" disabled={pending}>
-          {pending ? "…" : t("submit")}
+        <button className="btn btn-light" type="submit" disabled={pending} aria-busy={pending}>
+          {pending ? t("sending") : t("submit")}
         </button>
       </div>
       <label className={styles.consent}>

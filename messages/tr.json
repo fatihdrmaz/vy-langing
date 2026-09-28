@@ -68,7 +68,8 @@
         "t": "Keşfet",
         "d": "Yakınınızdaki hizmet ve fırsatları daha kolay bulun."
       }
-    }
+    },
+    "greeting": "Hoş geldiniz"
   },
   "moment": {
     "eyebrow": "Doğru anda doğru hizmet",
@@ -276,7 +277,8 @@
     "success": "Teşekkürler! Lansmanda size haber vereceğiz.",
     "errorInvalid": "Geçerli bir e-posta adresi girin.",
     "errorConsent": "Devam etmek için onay kutusunu işaretleyin.",
-    "errorGeneric": "Bir şeyler ters gitti. Lütfen tekrar deneyin."
+    "errorGeneric": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "sending": "Gönderiliyor…"
   },
   "faq": {
     "eyebrow": "SSS",

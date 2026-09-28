@@ -20,7 +20,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
 
   return (
     <>
-      <a href="#main" className="sr-only">
+      <a href="#main" className="sr-only skip-link">
         Skip to content
       </a>
       <Nav />
