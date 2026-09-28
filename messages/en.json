@@ -29,9 +29,18 @@
     "scroll": "Scroll",
     "walkerAlt": "A traveller walking towards the terminal with a suitcase",
     "steps": {
-      "0": { "k": "Entrance", "v": "Terminal" },
-      "1": { "k": "Check-in", "v": "Done" },
-      "2": { "k": "Gate", "v": "F7" }
+      "0": {
+        "k": "Terminal entrance",
+        "v": "Journey started"
+      },
+      "1": {
+        "k": "Check-in",
+        "v": "Done · 2 min"
+      },
+      "2": {
+        "k": "Gate F7",
+        "v": "Boarding 18:05"
+      }
     }
   },
   "journey": {
@@ -39,11 +48,26 @@
     "h2": "Everything your journey needs, in one place",
     "intro": "Voyola brings different airport needs into one digital experience. Discover, choose, buy or pay — and spend more time on your journey.",
     "cards": {
-      "food": { "t": "Food & Drink", "d": "Discover participating restaurants and cafés across the airport." },
-      "premium": { "t": "Premium Services", "d": "Access lounges, Fast Track, Buggy and selected airport services." },
-      "pay": { "t": "Payments", "d": "Enjoy an easy Voyola payment experience at participating locations." },
-      "benefits": { "t": "Benefits", "d": "Discover Voyola-only offers and rewards." },
-      "discover": { "t": "Discover", "d": "Find nearby services and offers more easily." }
+      "food": {
+        "t": "Food & Drink",
+        "d": "Discover participating restaurants and cafés across the airport."
+      },
+      "premium": {
+        "t": "Premium Services",
+        "d": "Access lounges, Fast Track, Buggy and selected airport services."
+      },
+      "pay": {
+        "t": "Payments",
+        "d": "Enjoy an easy Voyola payment experience at participating locations."
+      },
+      "benefits": {
+        "t": "Benefits",
+        "d": "Discover Voyola-only offers and rewards."
+      },
+      "discover": {
+        "t": "Discover",
+        "d": "Find nearby services and offers more easily."
+      }
     }
   },
   "moment": {
@@ -54,10 +78,30 @@
     "minutes": "min",
     "hint": "Scroll: time passes, the suggestion changes.",
     "states": {
-      "relaxed": { "tag": "Time to spare", "title": "Breathe in the lounge", "desc": "More than two hours before boarding: a calm space, coffee and a desk.", "cta": "See lounges" },
-      "dine": { "tag": "A relaxed meal", "title": "Dining nearby", "desc": "Participating restaurants within walking distance of your gate, plus offers for you.", "cta": "Browse menus" },
-      "hurry": { "tag": "Running short", "title": "Speed up with Fast Track", "desc": "A faster airport experience at eligible checkpoints.", "cta": "Fast Track" },
-      "rush": { "tag": "Gate is far", "title": "Call a buggy", "desc": "Cover longer distances inside the terminal more comfortably.", "cta": "Call a buggy" }
+      "relaxed": {
+        "tag": "Time to spare",
+        "title": "Breathe in the lounge",
+        "desc": "More than two hours before boarding: a calm space, coffee and a desk.",
+        "cta": "See lounges"
+      },
+      "dine": {
+        "tag": "A relaxed meal",
+        "title": "Dining nearby",
+        "desc": "Participating restaurants within walking distance of your gate, plus offers for you.",
+        "cta": "Browse menus"
+      },
+      "hurry": {
+        "tag": "Running short",
+        "title": "Speed up with Fast Track",
+        "desc": "A faster airport experience at eligible checkpoints.",
+        "cta": "Fast Track"
+      },
+      "rush": {
+        "tag": "Gate is far",
+        "title": "Call a buggy",
+        "desc": "Cover longer distances inside the terminal more comfortably.",
+        "cta": "Call a buggy"
+      }
     },
     "soon": "Coming soon",
     "gate": "Gate",
@@ -69,14 +113,54 @@
     "text": "Discover participating food and beverage locations in Voyola, explore relevant options and offers, and access supported transaction steps in one place.",
     "cta": "Explore Food & Drink",
     "micro": "Participating locations and features may vary by location.",
-    "filters": { "all": "All", "coffee": "Coffee", "quick": "Quick", "sit": "Sit-down", "near": "Near me" },
+    "filters": {
+      "all": "All",
+      "coffee": "Coffee",
+      "quick": "Quick",
+      "sit": "Sit-down",
+      "near": "Near me"
+    },
     "payTitle": "Pay with QR at the till",
-    "paySteps": { "0": "Scan the QR at the till", "1": "Confirm the amount", "2": "Paid. Points in your account." },
+    "paySteps": {
+      "0": "Scan the QR at the till",
+      "1": "Confirm the amount",
+      "2": "Paid. Points in your account."
+    },
     "sample": {
-      "0": { "n": "Coffee & Bakery", "m": "Gate F · 3 min walk", "tag": "Offer" },
-      "1": { "n": "Bistro", "m": "Sit-down · 25 min", "tag": "Popular" },
-      "2": { "n": "Quick Bites", "m": "Takeaway · 8 min", "tag": "" },
-      "3": { "n": "Meze & Grill", "m": "Sit-down · 35 min", "tag": "New" }
+      "0": {
+        "n": "Coffee & Bakery",
+        "m": "Gate F · 3 min walk",
+        "tag": "Offer"
+      },
+      "1": {
+        "n": "Bistro",
+        "m": "Sit-down · 25 min",
+        "tag": "Popular"
+      },
+      "2": {
+        "n": "Quick Bites",
+        "m": "Takeaway · 8 min",
+        "tag": ""
+      },
+      "3": {
+        "n": "Meze & Grill",
+        "m": "Sit-down · 35 min",
+        "tag": "New"
+      }
+    },
+    "beats": {
+      "0": {
+        "t": "Discover what's nearby",
+        "d": "Participating restaurants and cafés within walking distance of your gate; filter and spot the offer."
+      },
+      "1": {
+        "t": "Pay with QR at the till",
+        "d": "Scan the QR at the till and confirm the amount. Card, Apple Pay or Google Pay — in seconds."
+      },
+      "2": {
+        "t": "Points land instantly",
+        "d": "Earn Voyola Points on eligible transactions; your history lives in the app."
+      }
     }
   },
   "premium": {
@@ -86,10 +170,22 @@
     "cta": "View Premium Services",
     "soon": "Coming soon",
     "items": {
-      "lounge": { "t": "Lounge", "d": "A comfortable lounge experience to relax, work or spend time before your flight." },
-      "fasttrack": { "t": "Fast Track", "d": "A faster airport experience at eligible checkpoints." },
-      "buggy": { "t": "Buggy", "d": "A convenient mobility service for covering longer distances inside the terminal." },
-      "other": { "t": "Meet & Greet and more", "d": "Meet & Greet, valet/parking and other eligible services can be added as the offering expands." }
+      "lounge": {
+        "t": "Lounge",
+        "d": "A comfortable lounge experience to relax, work or spend time before your flight."
+      },
+      "fasttrack": {
+        "t": "Fast Track",
+        "d": "A faster airport experience at eligible checkpoints."
+      },
+      "buggy": {
+        "t": "Buggy",
+        "d": "A convenient mobility service for covering longer distances inside the terminal."
+      },
+      "other": {
+        "t": "Meet & Greet and more",
+        "d": "Meet & Greet, valet/parking and other eligible services can be added as the offering expands."
+      }
     }
   },
   "payearn": {
@@ -100,21 +196,46 @@
     "cta": "Explore Benefits",
     "cardLabel": "Voyola Points",
     "cardHint": "Earn at different locations, use wherever you like.",
-    "steps": { "0": "Pay", "1": "Earn", "2": "Use" },
+    "steps": {
+      "0": "Pay",
+      "1": "Earn",
+      "2": "Use"
+    },
     "ledger": {
-      "0": { "n": "Coffee & Bakery", "a": "+24" },
-      "1": { "n": "Bistro", "a": "+86" },
-      "2": { "n": "Lounge entry", "a": "−400" }
+      "0": {
+        "n": "Coffee & Bakery",
+        "a": "+24"
+      },
+      "1": {
+        "n": "Bistro",
+        "a": "+86"
+      },
+      "2": {
+        "n": "Lounge entry",
+        "a": "−400"
+      }
     }
   },
   "how": {
     "eyebrow": "How it works",
     "h2": "Get started in four steps",
     "steps": {
-      "0": { "t": "Download or open the web", "d": "Download Voyola or open Voyola Web." },
-      "1": { "t": "Create your account", "d": "Create your account and personalise your journey." },
-      "2": { "t": "Discover", "d": "Discover dining, premium services and relevant offers." },
-      "3": { "t": "Choose and earn", "d": "Choose the right service, complete your transaction and track your benefits." }
+      "0": {
+        "t": "Download or open the web",
+        "d": "Download Voyola or open Voyola Web."
+      },
+      "1": {
+        "t": "Create your account",
+        "d": "Create your account and personalise your journey."
+      },
+      "2": {
+        "t": "Discover",
+        "d": "Discover dining, premium services and relevant offers."
+      },
+      "3": {
+        "t": "Choose and earn",
+        "d": "Choose the right service, complete your transaction and track your benefits."
+      }
     }
   },
   "trust": {
@@ -122,10 +243,22 @@
     "h2": "Your trust matters as much as your journey",
     "cta": "Security & Privacy",
     "items": {
-      "data": { "t": "Data", "d": "Clear and accessible information on how personal data is processed." },
-      "pay": { "t": "Payments", "d": "Payment processes are handled through authorised/licensed payment infrastructure where applicable." },
-      "clear": { "t": "Transparency", "d": "A clear experience designed to help you track transactions and related information in the app." },
-      "support": { "t": "Support", "d": "Easy access to help and support when you need it." }
+      "data": {
+        "t": "Data",
+        "d": "Clear and accessible information on how personal data is processed."
+      },
+      "pay": {
+        "t": "Payments",
+        "d": "Payment processes are handled through authorised/licensed payment infrastructure where applicable."
+      },
+      "clear": {
+        "t": "Transparency",
+        "d": "A clear experience designed to help you track transactions and related information in the app."
+      },
+      "support": {
+        "t": "Support",
+        "d": "Easy access to help and support when you need it."
+      }
     }
   },
   "download": {
@@ -149,16 +282,46 @@
     "eyebrow": "FAQ",
     "h2": "Frequently Asked Questions",
     "items": {
-      "0": { "q": "What is Voyola?", "a": "Voyola is a travel and services app designed to simplify the airport experience on a single digital platform. It brings together participating food and beverage locations, selected premium airport services, a payment experience and Voyola benefits in one place." },
-      "1": { "q": "Who can use Voyola?", "a": "Voyola is intended for travellers using a compatible mobile device or web browser in supported markets and service locations. Terms of use may vary for some services." },
-      "2": { "q": "Which airport can I use Voyola at?", "a": "The Voyola experience is being developed with a focus on the Istanbul Airport ecosystem. Current participating locations and services will be shown in the app." },
-      "3": { "q": "Which services can I access with Voyola?", "a": "The initial scope will include participating food and beverage locations and selected premium services such as Lounge, Fast Track and Buggy. The scope will expand over time." },
-      "4": { "q": "Can I pay with Voyola?", "a": "You can use the payment options offered through Voyola at supported locations and transaction types. Available methods are shown during the transaction." },
-      "5": { "q": "How do Voyola benefits work?", "a": "Voyola-only benefits may be offered on eligible campaigns and transactions. Campaign terms, earning and redemption details are shown on the relevant offer screen." },
-      "6": { "q": "Do I need an account to use the app?", "a": "You can browse Voyola without creating a new account; for features such as purchases, payments, personalisation or benefits you can easily continue from there." },
-      "7": { "q": "Why is location requested?", "a": "When you grant location permission, Voyola may use location data to show nearby services and relevant suggestions. Details are explained in the Privacy Policy." },
-      "8": { "q": "How is my personal data protected?", "a": "Voyola applies processes and technical/organisational controls in line with applicable legislation on the processing of personal data. Details are provided in the Privacy Notice and Privacy Policy." },
-      "9": { "q": "How can I get support if I have a problem?", "a": "You can create a support request from the Help/Support area in the app or through the current contact channels listed on the website." }
+      "0": {
+        "q": "What is Voyola?",
+        "a": "Voyola is a travel and services app designed to simplify the airport experience on a single digital platform. It brings together participating food and beverage locations, selected premium airport services, a payment experience and Voyola benefits in one place."
+      },
+      "1": {
+        "q": "Who can use Voyola?",
+        "a": "Voyola is intended for travellers using a compatible mobile device or web browser in supported markets and service locations. Terms of use may vary for some services."
+      },
+      "2": {
+        "q": "Which airport can I use Voyola at?",
+        "a": "The Voyola experience is being developed with a focus on the Istanbul Airport ecosystem. Current participating locations and services will be shown in the app."
+      },
+      "3": {
+        "q": "Which services can I access with Voyola?",
+        "a": "The initial scope will include participating food and beverage locations and selected premium services such as Lounge, Fast Track and Buggy. The scope will expand over time."
+      },
+      "4": {
+        "q": "Can I pay with Voyola?",
+        "a": "You can use the payment options offered through Voyola at supported locations and transaction types. Available methods are shown during the transaction."
+      },
+      "5": {
+        "q": "How do Voyola benefits work?",
+        "a": "Voyola-only benefits may be offered on eligible campaigns and transactions. Campaign terms, earning and redemption details are shown on the relevant offer screen."
+      },
+      "6": {
+        "q": "Do I need an account to use the app?",
+        "a": "You can browse Voyola without creating a new account; for features such as purchases, payments, personalisation or benefits you can easily continue from there."
+      },
+      "7": {
+        "q": "Why is location requested?",
+        "a": "When you grant location permission, Voyola may use location data to show nearby services and relevant suggestions. Details are explained in the Privacy Policy."
+      },
+      "8": {
+        "q": "How is my personal data protected?",
+        "a": "Voyola applies processes and technical/organisational controls in line with applicable legislation on the processing of personal data. Details are provided in the Privacy Notice and Privacy Policy."
+      },
+      "9": {
+        "q": "How can I get support if I have a problem?",
+        "a": "You can create a support request from the Help/Support area in the app or through the current contact channels listed on the website."
+      }
     }
   },
   "footer": {
@@ -173,5 +336,31 @@
     "partners": "Become a Partner",
     "rights": "All rights reserved.",
     "location": "Istanbul, Türkiye"
+  },
+  "tiers": {
+    "eyebrow": "Membership levels",
+    "h2": "Four membership levels from day one",
+    "text": "Eligible transactions raise your level; every level unlocks more Voyola benefits. Your level and rewards are always in the app.",
+    "level": "Level",
+    "cta": "Explore Benefits",
+    "note": "Level conditions and benefit details are shown in the app.",
+    "items": {
+      "0": {
+        "n": "Silver",
+        "d": "Starter benefits"
+      },
+      "1": {
+        "n": "Gold",
+        "d": "More rewards"
+      },
+      "2": {
+        "n": "Platinum",
+        "d": "Priority offers"
+      },
+      "3": {
+        "n": "Diamond",
+        "d": "Top-tier privileges"
+      }
+    }
   }
 }

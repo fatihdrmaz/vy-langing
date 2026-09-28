@@ -29,9 +29,18 @@
     "scroll": "Kaydırın",
     "walkerAlt": "Bavuluyla terminale doğru yürüyen bir yolcu",
     "steps": {
-      "0": { "k": "Kapı", "v": "Giriş" },
-      "1": { "k": "Check-in", "v": "Tamamlandı" },
-      "2": { "k": "Gate", "v": "F7" }
+      "0": {
+        "k": "Terminal girişi",
+        "v": "Yolculuk başladı"
+      },
+      "1": {
+        "k": "Check-in",
+        "v": "Tamamlandı · 2 dk"
+      },
+      "2": {
+        "k": "Gate F7",
+        "v": "Boarding 18:05"
+      }
     }
   },
   "journey": {
@@ -39,11 +48,26 @@
     "h2": "Yolculuğunuz için gerekenler tek yerde",
     "intro": "Voyola, havalimanındaki farklı ihtiyaçları tek bir dijital deneyimde bir araya getirir. Keşfedin, seçin, satın alın veya ödeyin; yolculuğunuza daha fazla zaman ayırın.",
     "cards": {
-      "food": { "t": "Yeme & İçme", "d": "Havalimanındaki katılımcı restoran ve kafeleri keşfedin." },
-      "premium": { "t": "Premium Hizmetler", "d": "Lounge, Fast Track, Buggy ve seçili havalimanı hizmetlerine ulaşın." },
-      "pay": { "t": "Ödeme", "d": "Katılımcı noktalarda Voyola ile kolay ödeme deneyiminden yararlanın." },
-      "benefits": { "t": "Avantajlar", "d": "Voyola'ya özel fırsatları ve kazanımları takip edin." },
-      "discover": { "t": "Keşfet", "d": "Yakınınızdaki hizmet ve fırsatları daha kolay bulun." }
+      "food": {
+        "t": "Yeme & İçme",
+        "d": "Havalimanındaki katılımcı restoran ve kafeleri keşfedin."
+      },
+      "premium": {
+        "t": "Premium Hizmetler",
+        "d": "Lounge, Fast Track, Buggy ve seçili havalimanı hizmetlerine ulaşın."
+      },
+      "pay": {
+        "t": "Ödeme",
+        "d": "Katılımcı noktalarda Voyola ile kolay ödeme deneyiminden yararlanın."
+      },
+      "benefits": {
+        "t": "Avantajlar",
+        "d": "Voyola'ya özel fırsatları ve kazanımları takip edin."
+      },
+      "discover": {
+        "t": "Keşfet",
+        "d": "Yakınınızdaki hizmet ve fırsatları daha kolay bulun."
+      }
     }
   },
   "moment": {
@@ -54,10 +78,30 @@
     "minutes": "dk",
     "hint": "Kaydırdıkça zaman akar, öneri değişir.",
     "states": {
-      "relaxed": { "tag": "Zamanınız var", "title": "Lounge'da nefes alın", "desc": "Uçuşa 2 saatten fazla varsa: sakin bir alan, kahve ve çalışma masası.", "cta": "Lounge'u gör" },
-      "dine": { "tag": "Rahat bir öğün", "title": "Yakınınızda yemek", "desc": "Gate'inize yürüme mesafesindeki katılımcı restoranlar ve size özel fırsatlar.", "cta": "Menüye bak" },
-      "hurry": { "tag": "Süre daralıyor", "title": "Fast Track ile hızlanın", "desc": "Uygun geçiş noktalarında daha hızlı bir havalimanı deneyimi.", "cta": "Fast Track" },
-      "rush": { "tag": "Gate uzak", "title": "Buggy çağırın", "desc": "Terminal içinde uzun mesafeleri daha rahat katedin.", "cta": "Buggy çağır" }
+      "relaxed": {
+        "tag": "Zamanınız var",
+        "title": "Lounge'da nefes alın",
+        "desc": "Uçuşa 2 saatten fazla varsa: sakin bir alan, kahve ve çalışma masası.",
+        "cta": "Lounge'u gör"
+      },
+      "dine": {
+        "tag": "Rahat bir öğün",
+        "title": "Yakınınızda yemek",
+        "desc": "Gate'inize yürüme mesafesindeki katılımcı restoranlar ve size özel fırsatlar.",
+        "cta": "Menüye bak"
+      },
+      "hurry": {
+        "tag": "Süre daralıyor",
+        "title": "Fast Track ile hızlanın",
+        "desc": "Uygun geçiş noktalarında daha hızlı bir havalimanı deneyimi.",
+        "cta": "Fast Track"
+      },
+      "rush": {
+        "tag": "Gate uzak",
+        "title": "Buggy çağırın",
+        "desc": "Terminal içinde uzun mesafeleri daha rahat katedin.",
+        "cta": "Buggy çağır"
+      }
     },
     "soon": "Yakında",
     "gate": "Gate",
@@ -69,14 +113,54 @@
     "text": "Katılımcı yeme-içme noktalarını Voyola'dan keşfedin; size uygun seçenekleri, fırsatları ve desteklenen işlem adımlarını tek yerden görüntüleyin.",
     "cta": "Yeme & İçmeyi Keşfet",
     "micro": "Katılımcı noktalar ve özellikler lokasyona göre değişebilir.",
-    "filters": { "all": "Tümü", "coffee": "Kahve", "quick": "Hızlı", "sit": "Oturarak", "near": "Yakınımda" },
+    "filters": {
+      "all": "Tümü",
+      "coffee": "Kahve",
+      "quick": "Hızlı",
+      "sit": "Oturarak",
+      "near": "Yakınımda"
+    },
     "payTitle": "Kasada QR ile ödeyin",
-    "paySteps": { "0": "Kasadaki QR'ı okutun", "1": "Tutarı onaylayın", "2": "Ödendi. Puan hesabınızda." },
+    "paySteps": {
+      "0": "Kasadaki QR'ı okutun",
+      "1": "Tutarı onaylayın",
+      "2": "Ödendi. Puan hesabınızda."
+    },
     "sample": {
-      "0": { "n": "Kahve & Fırın", "m": "Gate F yürüyüş 3 dk", "tag": "Fırsat" },
-      "1": { "n": "Bistro", "m": "Oturarak · 25 dk", "tag": "Popüler" },
-      "2": { "n": "Hızlı Lezzet", "m": "Paket · 8 dk", "tag": "" },
-      "3": { "n": "Meze & Grill", "m": "Oturarak · 35 dk", "tag": "Yeni" }
+      "0": {
+        "n": "Kahve & Fırın",
+        "m": "Gate F yürüyüş 3 dk",
+        "tag": "Fırsat"
+      },
+      "1": {
+        "n": "Bistro",
+        "m": "Oturarak · 25 dk",
+        "tag": "Popüler"
+      },
+      "2": {
+        "n": "Hızlı Lezzet",
+        "m": "Paket · 8 dk",
+        "tag": ""
+      },
+      "3": {
+        "n": "Meze & Grill",
+        "m": "Oturarak · 35 dk",
+        "tag": "Yeni"
+      }
+    },
+    "beats": {
+      "0": {
+        "t": "Yakınınızdakileri keşfedin",
+        "d": "Gate'inize yürüme mesafesindeki katılımcı restoran ve kafeler; filtreleyin, fırsatı görün."
+      },
+      "1": {
+        "t": "Kasada QR ile ödeyin",
+        "d": "Kasadaki QR'ı okutun, tutarı onaylayın. Kart, Apple Pay veya Google Pay — saniyeler içinde."
+      },
+      "2": {
+        "t": "Puanınız anında hesabınızda",
+        "d": "Uygun işlemlerde Voyola Puan kazanın; işlem geçmişiniz uygulamada."
+      }
     }
   },
   "premium": {
@@ -86,10 +170,22 @@
     "cta": "Premium Hizmetleri Gör",
     "soon": "Yakında",
     "items": {
-      "lounge": { "t": "Lounge", "d": "Uçuş öncesinde dinlenmek, çalışmak veya zaman geçirmek için konforlu lounge deneyimi." },
-      "fasttrack": { "t": "Fast Track", "d": "Uygun geçiş noktalarında daha hızlı bir havalimanı deneyimi." },
-      "buggy": { "t": "Buggy", "d": "Terminal içinde uzun mesafeleri daha rahat katetmeye yardımcı ulaşım hizmeti." },
-      "other": { "t": "Meet & Greet ve diğerleri", "d": "Meet & Greet, vale/otopark ve diğer uygun hizmetler kapsam genişledikçe eklenebilir." }
+      "lounge": {
+        "t": "Lounge",
+        "d": "Uçuş öncesinde dinlenmek, çalışmak veya zaman geçirmek için konforlu lounge deneyimi."
+      },
+      "fasttrack": {
+        "t": "Fast Track",
+        "d": "Uygun geçiş noktalarında daha hızlı bir havalimanı deneyimi."
+      },
+      "buggy": {
+        "t": "Buggy",
+        "d": "Terminal içinde uzun mesafeleri daha rahat katetmeye yardımcı ulaşım hizmeti."
+      },
+      "other": {
+        "t": "Meet & Greet ve diğerleri",
+        "d": "Meet & Greet, vale/otopark ve diğer uygun hizmetler kapsam genişledikçe eklenebilir."
+      }
     }
   },
   "payearn": {
@@ -100,21 +196,46 @@
     "cta": "Avantajları Keşfet",
     "cardLabel": "Voyola Puan",
     "cardHint": "Farklı noktalarda kazanın, istediğiniz yerde kullanın.",
-    "steps": { "0": "Ödeyin", "1": "Kazanın", "2": "Kullanın" },
+    "steps": {
+      "0": "Ödeyin",
+      "1": "Kazanın",
+      "2": "Kullanın"
+    },
     "ledger": {
-      "0": { "n": "Kahve & Fırın", "a": "+24" },
-      "1": { "n": "Bistro", "a": "+86" },
-      "2": { "n": "Lounge girişi", "a": "−400" }
+      "0": {
+        "n": "Kahve & Fırın",
+        "a": "+24"
+      },
+      "1": {
+        "n": "Bistro",
+        "a": "+86"
+      },
+      "2": {
+        "n": "Lounge girişi",
+        "a": "−400"
+      }
     }
   },
   "how": {
     "eyebrow": "Nasıl çalışır?",
     "h2": "Dört adımda başlayın",
     "steps": {
-      "0": { "t": "İndirin veya web'i açın", "d": "Voyola'yı indirin veya Voyola Web'i açın." },
-      "1": { "t": "Hesabınızı oluşturun", "d": "Hesabınızı oluşturun ve yolculuğunuzu kişiselleştirin." },
-      "2": { "t": "Keşfedin", "d": "Yeme-içme, premium hizmetler ve size özel fırsatları keşfedin." },
-      "3": { "t": "Seçin ve kazanın", "d": "Uygun hizmeti seçin, işleminizi tamamlayın ve avantajlarınızı takip edin." }
+      "0": {
+        "t": "İndirin veya web'i açın",
+        "d": "Voyola'yı indirin veya Voyola Web'i açın."
+      },
+      "1": {
+        "t": "Hesabınızı oluşturun",
+        "d": "Hesabınızı oluşturun ve yolculuğunuzu kişiselleştirin."
+      },
+      "2": {
+        "t": "Keşfedin",
+        "d": "Yeme-içme, premium hizmetler ve size özel fırsatları keşfedin."
+      },
+      "3": {
+        "t": "Seçin ve kazanın",
+        "d": "Uygun hizmeti seçin, işleminizi tamamlayın ve avantajlarınızı takip edin."
+      }
     }
   },
   "trust": {
@@ -122,10 +243,22 @@
     "h2": "Yolculuğunuz kadar güveniniz de önemli",
     "cta": "Güvenlik ve Gizlilik",
     "items": {
-      "data": { "t": "Veri", "d": "Kişisel verilerin işlenmesine ilişkin açık ve erişilebilir bilgilendirme." },
-      "pay": { "t": "Ödeme", "d": "Ödeme süreçleri, geçerli olduğu ölçüde yetkili/lisanslı ödeme altyapıları üzerinden yürütülür." },
-      "clear": { "t": "Şeffaflık", "d": "İşlemlerinizi ve ilgili bilgileri uygulama içinden takip edebileceğiniz sade bir deneyim." },
-      "support": { "t": "Destek", "d": "İhtiyaç duyduğunuzda yardım ve destek kanallarına kolay erişim." }
+      "data": {
+        "t": "Veri",
+        "d": "Kişisel verilerin işlenmesine ilişkin açık ve erişilebilir bilgilendirme."
+      },
+      "pay": {
+        "t": "Ödeme",
+        "d": "Ödeme süreçleri, geçerli olduğu ölçüde yetkili/lisanslı ödeme altyapıları üzerinden yürütülür."
+      },
+      "clear": {
+        "t": "Şeffaflık",
+        "d": "İşlemlerinizi ve ilgili bilgileri uygulama içinden takip edebileceğiniz sade bir deneyim."
+      },
+      "support": {
+        "t": "Destek",
+        "d": "İhtiyaç duyduğunuzda yardım ve destek kanallarına kolay erişim."
+      }
     }
   },
   "download": {
@@ -149,16 +282,46 @@
     "eyebrow": "SSS",
     "h2": "Sıkça Sorulan Sorular",
     "items": {
-      "0": { "q": "Voyola nedir?", "a": "Voyola, havalimanı deneyimini tek dijital platformda kolaylaştırmak için tasarlanmış bir seyahat ve hizmet uygulamasıdır. Katılımcı yeme-içme noktalarını, seçili premium havalimanı hizmetlerini, ödeme deneyimini ve Voyola avantajlarını tek yerde bir araya getirir." },
-      "1": { "q": "Voyola'yı kimler kullanabilir?", "a": "Voyola, desteklenen pazarlarda ve hizmet noktalarında uygun mobil cihaz veya web tarayıcısı kullanan yolcuların kullanımına yöneliktir. Bazı hizmetlerin kullanım koşulları farklılık gösterebilir." },
-      "2": { "q": "Voyola hangi havalimanında kullanılabilir?", "a": "Voyola deneyimi İstanbul Havalimanı ekosistemi odağında geliştirilmektedir. Güncel katılımcı noktalar ve hizmetler uygulama içinde gösterilecektir." },
-      "3": { "q": "Voyola ile hangi hizmetlere ulaşabilirim?", "a": "İlk kapsamda katılımcı yeme-içme noktaları ile Lounge, Fast Track ve Buggy gibi seçili premium hizmetler yer alacaktır. Kapsam zaman içinde genişleyecektir." },
-      "4": { "q": "Voyola ile ödeme yapabilir miyim?", "a": "Desteklenen nokta ve işlem türlerinde Voyola üzerinden sunulan ödeme seçeneklerini kullanabilirsiniz. Kullanılabilir yöntemler işlem sırasında gösterilir." },
-      "5": { "q": "Voyola avantajları nasıl çalışır?", "a": "Uygun kampanya ve işlemlerde Voyola'ya özel avantajlar sunulabilir. Kampanya koşulları, kazanım ve kullanım detayları ilgili teklif ekranında gösterilir." },
-      "6": { "q": "Uygulamayı kullanmak için hesap açmam gerekir mi?", "a": "Voyola'yı herhangi bir yeni hesap açmadan görüntüleyebilir; satın alma, ödeme, kişiselleştirme veya avantajlardan yararlanma gibi özellikler için kolayca ilerleyebilirsiniz." },
-      "7": { "q": "Konum bilgisi neden istenir?", "a": "Konum izni verdiğinizde Voyola, yakınınızdaki hizmetleri ve ilgili önerileri göstermek için konum verisini kullanabilir. Ayrıntılar Gizlilik Politikası'nda açıklanır." },
-      "8": { "q": "Kişisel verilerim nasıl korunur?", "a": "Voyola, kişisel verilerin işlenmesine ilişkin yürürlükteki mevzuata uygun süreçler ve teknik/organizasyonel kontroller uygular. Detaylar Aydınlatma Metni ve Gizlilik Politikası'nda yer alır." },
-      "9": { "q": "Sorun yaşarsam nasıl destek alabilirim?", "a": "Uygulamadaki Yardım/Destek alanından veya web sitesinde belirtilen güncel iletişim kanallarından destek talebi oluşturabilirsiniz." }
+      "0": {
+        "q": "Voyola nedir?",
+        "a": "Voyola, havalimanı deneyimini tek dijital platformda kolaylaştırmak için tasarlanmış bir seyahat ve hizmet uygulamasıdır. Katılımcı yeme-içme noktalarını, seçili premium havalimanı hizmetlerini, ödeme deneyimini ve Voyola avantajlarını tek yerde bir araya getirir."
+      },
+      "1": {
+        "q": "Voyola'yı kimler kullanabilir?",
+        "a": "Voyola, desteklenen pazarlarda ve hizmet noktalarında uygun mobil cihaz veya web tarayıcısı kullanan yolcuların kullanımına yöneliktir. Bazı hizmetlerin kullanım koşulları farklılık gösterebilir."
+      },
+      "2": {
+        "q": "Voyola hangi havalimanında kullanılabilir?",
+        "a": "Voyola deneyimi İstanbul Havalimanı ekosistemi odağında geliştirilmektedir. Güncel katılımcı noktalar ve hizmetler uygulama içinde gösterilecektir."
+      },
+      "3": {
+        "q": "Voyola ile hangi hizmetlere ulaşabilirim?",
+        "a": "İlk kapsamda katılımcı yeme-içme noktaları ile Lounge, Fast Track ve Buggy gibi seçili premium hizmetler yer alacaktır. Kapsam zaman içinde genişleyecektir."
+      },
+      "4": {
+        "q": "Voyola ile ödeme yapabilir miyim?",
+        "a": "Desteklenen nokta ve işlem türlerinde Voyola üzerinden sunulan ödeme seçeneklerini kullanabilirsiniz. Kullanılabilir yöntemler işlem sırasında gösterilir."
+      },
+      "5": {
+        "q": "Voyola avantajları nasıl çalışır?",
+        "a": "Uygun kampanya ve işlemlerde Voyola'ya özel avantajlar sunulabilir. Kampanya koşulları, kazanım ve kullanım detayları ilgili teklif ekranında gösterilir."
+      },
+      "6": {
+        "q": "Uygulamayı kullanmak için hesap açmam gerekir mi?",
+        "a": "Voyola'yı herhangi bir yeni hesap açmadan görüntüleyebilir; satın alma, ödeme, kişiselleştirme veya avantajlardan yararlanma gibi özellikler için kolayca ilerleyebilirsiniz."
+      },
+      "7": {
+        "q": "Konum bilgisi neden istenir?",
+        "a": "Konum izni verdiğinizde Voyola, yakınınızdaki hizmetleri ve ilgili önerileri göstermek için konum verisini kullanabilir. Ayrıntılar Gizlilik Politikası'nda açıklanır."
+      },
+      "8": {
+        "q": "Kişisel verilerim nasıl korunur?",
+        "a": "Voyola, kişisel verilerin işlenmesine ilişkin yürürlükteki mevzuata uygun süreçler ve teknik/organizasyonel kontroller uygular. Detaylar Aydınlatma Metni ve Gizlilik Politikası'nda yer alır."
+      },
+      "9": {
+        "q": "Sorun yaşarsam nasıl destek alabilirim?",
+        "a": "Uygulamadaki Yardım/Destek alanından veya web sitesinde belirtilen güncel iletişim kanallarından destek talebi oluşturabilirsiniz."
+      }
     }
   },
   "footer": {
@@ -173,5 +336,31 @@
     "partners": "İş Ortağı Olun",
     "rights": "Tüm hakları saklıdır.",
     "location": "İstanbul, Türkiye"
+  },
+  "tiers": {
+    "eyebrow": "Üyelik seviyeleri",
+    "h2": "İlk günden dört üyelik seviyesi",
+    "text": "Uygun işlemlerle seviyeniz yükselir; her seviye daha fazla Voyola avantajı açar. Seviyeniz ve kazanımlarınız her zaman uygulamada.",
+    "level": "Seviye",
+    "cta": "Avantajları Keşfet",
+    "note": "Seviye koşulları ve avantaj detayları uygulama içinde gösterilir.",
+    "items": {
+      "0": {
+        "n": "Silver",
+        "d": "Başlangıç avantajları"
+      },
+      "1": {
+        "n": "Gold",
+        "d": "Daha fazla kazanım"
+      },
+      "2": {
+        "n": "Platinum",
+        "d": "Öncelikli fırsatlar"
+      },
+      "3": {
+        "n": "Diamond",
+        "d": "En üst seviye ayrıcalıklar"
+      }
+    }
   }
 }

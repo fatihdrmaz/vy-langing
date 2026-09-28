@@ -9,6 +9,13 @@ import { SplitText } from "@/components/motion/SplitText";
 import { WEB_APP_URL } from "@/lib/seo";
 import styles from "./Hero.module.css";
 
+const ico = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+const NOTE_ICONS = [
+  <svg key="door" {...ico}><path d="M4 21V5a2 2 0 0 1 2-2h8v18M14 21h6M17 3h1a2 2 0 0 1 2 2v16M11 12h.01" /></svg>,
+  <svg key="check" {...ico}><path d="M4 8h16v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zM4 12h16M8 4v4M16 4v4" /><path d="m9.5 15.5 1.7 1.7 3.3-3.4" /></svg>,
+  <svg key="plane" {...ico}><path d="M2 16l20-8-6 14-3-6zM13 16l-4-4" /></svg>,
+];
+
 export function Hero() {
   const t = useTranslations("hero");
   const root = useRef<HTMLElement>(null);
@@ -39,11 +46,11 @@ export function Hero() {
         scrollTrigger: {
           trigger: el,
           start: "top top",
-          end: "+=150%",
+          end: "+=48%",
           pin: stage,
           scrub: 0.6,
           anticipatePin: 1,
-          onUpdate: (self) => walker.current?.setProgress(self.progress, 4),
+          onUpdate: (self) => walker.current?.setProgress(self.progress, 1),
         },
       });
 
@@ -51,13 +58,14 @@ export function Hero() {
         .to(ground, { xPercent: -22, ease: "none", duration: 1 }, 0)
         .to(bg, { scale: 1.16, xPercent: -3, ease: "none", duration: 1 }, 0)
         .to(scrollHint, { opacity: 0, duration: 0.1 }, 0)
-        .to(copy, { yPercent: -6, opacity: 0.0, ease: "power1.in", duration: 0.28 }, 0.72);
+        .to(copy, { yPercent: -2, ease: "none", duration: 1 }, 0);
 
       // Journey notes pop in along the path
+      // Journey notes: appear one after another and stay (a growing trail), previous ones dim slightly
       notes.forEach((n, i) => {
-        const at = 0.1 + i * 0.28;
-        tl.fromTo(n, { opacity: 0, y: 18, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.08, ease: "power2.out" }, at)
-          .to(n, { opacity: 0, y: -10, duration: 0.08 }, at + 0.22);
+        const at = 0.04 + i * 0.3;
+        tl.fromTo(n, { opacity: 0, y: 22, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.1, ease: "back.out(1.6)" }, at);
+        if (i < notes.length - 1) tl.to(n, { opacity: 0.55, scale: 0.96, duration: 0.1 }, at + 0.3);
       });
     },
     { scope: root },
@@ -113,14 +121,15 @@ export function Hero() {
             </div>
             {[0, 1, 2].map((i) => (
               <div key={i} className={`${styles.note} ${styles[`note${i}` as "note0"]}`} aria-hidden="true">
-                <span className={styles.noteMark}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 6l6 6-6 6" />
-                  </svg>
-                </span>
-                <span>
+                <span className={styles.noteMark}>{NOTE_ICONS[i]}</span>
+                <span className={styles.noteTx}>
                   <b>{t(`steps.${i}.k`)}</b>
                   <small>{t(`steps.${i}.v`)}</small>
+                </span>
+                <span className={styles.noteStep}>
+                  {[0, 1, 2].map((j) => (
+                    <i key={j} className={j <= i ? styles.on : undefined} />
+                  ))}
                 </span>
               </div>
             ))}

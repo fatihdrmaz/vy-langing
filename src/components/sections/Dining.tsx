@@ -9,7 +9,7 @@ import { Icon } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
 import styles from "./Dining.module.css";
 
-// Section 04: full-bleed dining photo with parallax; phone shows discovery → QR pay in three scroll beats.
+// Section 04: sticky copy + sticky phone; three beats scroll past on the right and switch the phone screen.
 export function Dining() {
   const t = useTranslations("dining");
   const root = useRef<HTMLElement>(null);
@@ -22,40 +22,33 @@ export function Dining() {
       const screens = gsap.utils.toArray<HTMLElement>(`.${styles.screen}`);
       const scan = el.querySelector<HTMLElement>(`.${styles.scan}`);
 
-      if (prefersReducedMotion()) {
-        gsap.set(screens[0], { autoAlpha: 1 });
+      const showOnly = (i: number, animate: boolean) => {
+        screens.forEach((sc, k) => {
+          if (animate) gsap.to(sc, { autoAlpha: k === i ? 1 : 0, y: k === i ? 0 : 14, duration: k === i ? 0.5 : 0.3, overwrite: true });
+          else gsap.set(sc, { autoAlpha: k === i ? 1 : 0, y: 0 });
+        });
+      };
+
+      if (prefersReducedMotion() || !isDesktop()) {
+        showOnly(0, false);
         beats.forEach((b) => b.classList.add(styles.beatOn));
         return;
       }
 
       gsap.to(img, { yPercent: 12, ease: "none", scrollTrigger: { trigger: el, start: "top bottom", end: "bottom top", scrub: true } });
-
-      if (!isDesktop()) {
-        gsap.set(screens[0], { autoAlpha: 1 });
-        beats.forEach((b) => b.classList.add(styles.beatOn));
-        return;
-      }
-
-      gsap.set(screens, { autoAlpha: 0 });
-      gsap.set(screens[0], { autoAlpha: 1 });
+      showOnly(0, false);
       if (scan) gsap.to(scan, { top: "calc(100% - 14px)", duration: 1.6, ease: "sine.inOut", repeat: -1, yoyo: true });
 
       beats.forEach((b, i) => {
-        gsap.timeline({
-          scrollTrigger: {
-            trigger: b,
-            start: "top 60%",
-            end: "bottom 60%",
-            onToggle: (st) => {
-              b.classList.toggle(styles.beatOn, st.isActive);
-              if (st.isActive) {
-                gsap.to(screens, { autoAlpha: 0, y: 14, duration: 0.35, overwrite: true });
-                gsap.to(screens[i], { autoAlpha: 1, y: 0, duration: 0.5, overwrite: true });
-              }
-            },
-          },
+        ScrollTriggerToggle(b, () => {
+          beats.forEach((x, k) => x.classList.toggle(styles.beatOn, k === i));
+          showOnly(i, true);
         });
       });
+
+      function ScrollTriggerToggle(trigger: HTMLElement, onEnter: () => void) {
+        gsap.timeline({ scrollTrigger: { trigger, start: "top 55%", end: "bottom 55%", onEnter, onEnterBack: onEnter } });
+      }
     },
     { scope: root },
   );
@@ -70,30 +63,30 @@ export function Dining() {
       </div>
 
       <div className={`wrap ${styles.grid}`}>
+        {/* Col 1: copy (sticky) */}
         <div className={styles.copy}>
-          <div className={styles.sticky}>
-            <span className="eyebrow" data-reveal>
-              {t("eyebrow")}
-            </span>
-            <h2 id="dining-title" className="h2" data-reveal data-reveal-delay="1">
-              {t("h2")}
-            </h2>
-            <p className="lede muted" data-reveal data-reveal-delay="2">
-              {t("text")}
-            </p>
-            <div data-reveal data-reveal-delay="3">
-              <a className="btn btn-light" href="#indir">
-                {t("cta")}
-              </a>
-              <p className={styles.micro}>{t("micro")}</p>
-            </div>
+          <span className="eyebrow" data-reveal>
+            {t("eyebrow")}
+          </span>
+          <h2 id="dining-title" className={`h2 ${styles.h2}`} data-reveal data-reveal-delay="1">
+            {t("h2")}
+          </h2>
+          <p className={`lede muted ${styles.lede}`} data-reveal data-reveal-delay="2">
+            {t("text")}
+          </p>
+          <div data-reveal data-reveal-delay="3">
+            <a className="btn btn-light" href="#indir">
+              {t("cta")}
+            </a>
+            <p className={styles.micro}>{t("micro")}</p>
           </div>
         </div>
 
-        <div className={styles.beats}>
-          <div className={styles.phoneSticky}>
-            <Phone className={styles.phone}>
-              <StatusBar />
+        {/* Col 2: phone (sticky) */}
+        <div className={styles.phoneCol}>
+          <Phone className={styles.phone}>
+            <StatusBar />
+            <div className={styles.screens}>
               {/* Screen 1: discovery */}
               <div className={`${s.app} ${styles.screen}`}>
                 <div className={s.top}>
@@ -121,7 +114,7 @@ export function Dining() {
                 ))}
               </div>
               {/* Screen 2: scanning */}
-              <div className={`${s.app} ${styles.screen} ${styles.abs}`}>
+              <div className={`${s.app} ${styles.screen}`}>
                 <div className={s.top}>
                   <div>
                     <small>Pay</small>
@@ -137,9 +130,14 @@ export function Dining() {
                     </svg>
                   </div>
                 </div>
+                <div className={s.sheet}>
+                  <span className={s.merchant}>{t("sample.0.n")}</span>
+                  <b className={s.amt}>₺186,00</b>
+                  <span className={s.cta}>{t("paySteps.1")}</span>
+                </div>
               </div>
-              {/* Screen 3: confirm → paid */}
-              <div className={`${s.app} ${styles.screen} ${styles.abs} ${styles.paid}`}>
+              {/* Screen 3: paid */}
+              <div className={`${s.app} ${styles.screen}`}>
                 <div className={s.top}>
                   <div>
                     <small>Pay</small>
@@ -153,19 +151,20 @@ export function Dining() {
                   <span className={styles.pts}>+24 Voyola Points</span>
                 </div>
               </div>
-            </Phone>
-          </div>
-
-          <ol className={styles.beatList}>
-            {[0, 1, 2].map((i) => (
-              <li key={i} className={styles.beat}>
-                <span className={styles.beatNum}>0{i + 1}</span>
-                <h3>{i === 0 ? t("h2") : i === 1 ? t("payTitle") : t("paySteps.2")}</h3>
-                <p>{i === 0 ? t("text") : i === 1 ? `${t("paySteps.0")} → ${t("paySteps.1")}` : t("micro")}</p>
-              </li>
-            ))}
-          </ol>
+            </div>
+          </Phone>
         </div>
+
+        {/* Col 3: beats */}
+        <ol className={styles.beatList}>
+          {[0, 1, 2].map((i) => (
+            <li key={i} className={styles.beat}>
+              <span className={styles.beatNum}>0{i + 1}</span>
+              <h3>{t(`beats.${i}.t`)}</h3>
+              <p>{t(`beats.${i}.d`)}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   );

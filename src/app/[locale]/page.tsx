@@ -8,6 +8,7 @@ import { Moment } from "@/components/sections/Moment";
 import { Dining } from "@/components/sections/Dining";
 import { Premium } from "@/components/sections/Premium";
 import { PayEarn } from "@/components/sections/PayEarn";
+import { Tiers } from "@/components/sections/Tiers";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { Trust } from "@/components/sections/Trust";
 import { Download } from "@/components/sections/Download";
@@ -31,6 +32,7 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
         <Dining />
         <Premium />
         <PayEarn />
+        <Tiers />
         <HowItWorks />
         <Trust />
         <Download />
