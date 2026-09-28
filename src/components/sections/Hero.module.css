@@ -116,11 +116,10 @@
 
 /* ── Hand-off phone + curtain ── */
 .zoom {
-  position: absolute; left: 50%; top: 50%; z-index: 4; width: min(300px, 62vw);
+  position: absolute; left: 50%; top: 52%; z-index: 4; width: min(320px, 62vw);
   transform: translate(-50%, -50%); transform-origin: 50% 38%; opacity: 0; will-change: transform, opacity; pointer-events: none;
 }
 .zoomPhone { width: 100%; }
-.curtain { position: absolute; inset: 0; z-index: 5; background: var(--paper); opacity: 0; pointer-events: none; }
 
 .scrollHint {
   position: absolute; left: var(--gut); bottom: 24px; z-index: 3;

@@ -34,7 +34,6 @@ export function Hero() {
       const notes = gsap.utils.toArray<HTMLElement>(`.${styles.note}`);
       const scrollHint = el.querySelector<HTMLElement>(`.${styles.scrollHint}`)!;
       const zoom = el.querySelector<HTMLElement>(`.${styles.zoom}`)!;
-      const curtain = el.querySelector<HTMLElement>(`.${styles.curtain}`)!;
       const figureWrap = el.querySelector<HTMLElement>(`.${styles.figureWrap}`)!;
 
       if (prefersReducedMotion()) {
@@ -52,7 +51,7 @@ export function Hero() {
         scrollTrigger: {
           trigger: el,
           start: "top top",
-          end: "+=100%",
+          end: "+=85%",
           pin: stage,
           scrub: 0.6,
           anticipatePin: 1,
@@ -66,12 +65,9 @@ export function Hero() {
         .to(scrollHint, { opacity: 0, duration: 0.1 }, 0)
         .to(copy, { yPercent: -2, ease: "none", duration: 0.45 }, 0)
         // hand-off: phone emerges near the traveller, settles centre, then its screen swallows the viewport
-        .fromTo(zoom, { opacity: 0, scale: 0.3, yPercent: 30, xPercent: 50 }, { opacity: 1, scale: 0.9, yPercent: 0, xPercent: 0, duration: 0.25, ease: "power2.out" }, 0.45)
+        .fromTo(zoom, { opacity: 0, scale: 0.3, yPercent: 30, xPercent: 50 }, { opacity: 1, scale: 1, yPercent: 0, xPercent: 0, duration: 0.3, ease: "power2.out" }, 0.45)
         .to([copy, figureWrap], { opacity: 0, duration: 0.15, ease: "power1.in" }, 0.5)
-        // gentle push-in: the phone grows a little while the light surface cross-fades over it
-        .to(zoom, { scale: 1.6, yPercent: 6, duration: 0.3, ease: "power1.inOut" }, 0.7)
-        .to(curtain, { opacity: 1, duration: 0.22, ease: "power1.inOut" }, 0.76)
-        .to(zoom, { opacity: 0.5, duration: 0.1 }, 0.9);
+        .to(zoom, { yPercent: -3, duration: 0.25, ease: "none" }, 0.75);
 
       // Journey notes pop in along the path
       // Journey notes: appear one after another and stay (a growing trail), previous ones dim slightly
@@ -155,7 +151,6 @@ export function Hero() {
             <DashboardScreen />
           </Phone>
         </div>
-        <div className={styles.curtain} aria-hidden="true" />
 
         <div className={styles.scrollHint} aria-hidden="true">
           <span>{t("scroll")}</span>
