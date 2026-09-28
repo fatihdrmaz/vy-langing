@@ -11,7 +11,9 @@ if (typeof window !== "undefined") {
 
 export { gsap, ScrollTrigger, useGSAP };
 
+// Reduced motion, or a viewport too short for pinned scenes (phone in landscape): sections fall back to static flow.
 export const prefersReducedMotion = () =>
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  typeof window !== "undefined" &&
+  (window.matchMedia("(prefers-reduced-motion: reduce)").matches || window.matchMedia("(max-height: 520px)").matches);
 
 export const isDesktop = () => typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches;

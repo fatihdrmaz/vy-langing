@@ -231,3 +231,8 @@ main section .eyebrow::after { content: ""; width: 18px; height: 1px; background
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* Short viewports (phone landscape): pinned scenes are disabled in JS; give sections natural height */
+@media (max-height: 520px) {
+  main section [class*="stage"], main section [class*="grid"], main section [class*="inner"] { min-height: 0 !important; }
+}
