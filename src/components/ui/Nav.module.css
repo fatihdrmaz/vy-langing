@@ -4,13 +4,14 @@
   border-bottom: 1px solid transparent;
 }
 .scrolled {
-  background: rgba(16, 5, 53, 0.72);
+  background: rgba(16, 5, 53, 0.86);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
   border-color: var(--line-2);
 }
 .bar { height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.logo { display: inline-flex; align-items: center; color: #fff; }
+.logo { display: inline-flex; align-items: center; color: #fff; filter: drop-shadow(0 2px 10px rgba(16,5,53,0.6)); transition: transform 0.3s var(--ease); }
+.logo:hover { transform: scale(1.03); }
 .links { display: flex; gap: 28px; font-size: 15px; font-weight: 500; color: var(--muted); }
 .links a { white-space: nowrap; transition: color 0.2s; position: relative; }
 .links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -6px; height: 1px; background: var(--mag); transition: right 0.3s var(--ease); }

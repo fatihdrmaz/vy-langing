@@ -237,6 +237,16 @@
         "t": "Seçin ve kazanın",
         "d": "Uygun hizmeti seçin, işleminizi tamamlayın ve avantajlarınızı takip edin."
       }
+    },
+    "intro": "Kurulum bir dakikadan kısa sürer. Hesap açmadan da göz atabilir, ödeme ve avantajlar için sonra devam edebilirsiniz.",
+    "mini": {
+      "store": "App Store · Google Play",
+      "qr": "QR ile indir",
+      "phone": "+90 5•• ••• •• ••",
+      "otp": "Doğrulama kodu",
+      "near": "Gate F yakınında",
+      "earn": "+24 Voyola Puan",
+      "paid": "Ödeme tamamlandı"
     }
   },
   "trust": {
@@ -260,7 +270,24 @@
         "t": "Destek",
         "d": "İhtiyaç duyduğunuzda yardım ve destek kanallarına kolay erişim."
       }
-    }
+    },
+    "intro": "Her işlem şeffaf, her veri korunur. Güvenlik bir özellik değil, varsayılan ayardır.",
+    "receipt": {
+      "title": "İşlem detayı",
+      "merchant": "Kahve & Fırın · Gate F",
+      "amount": "₺186,00",
+      "status": "Tamamlandı",
+      "points": "+24 puan",
+      "id": "İşlem no",
+      "method": "Apple Pay •••• 4821",
+      "time": "Bugün, 16:24"
+    },
+    "support": {
+      "q": "Faturamı nasıl alabilirim?",
+      "a": "İşlem detayından tek dokunuşla indirebilirsiniz.",
+      "label": "Destek · genellikle dakikalar içinde"
+    },
+    "enc": "Uçtan uca şifreli bağlantı"
   },
   "download": {
     "h2": "Bir sonraki yolculuğunuz Voyola ile başlasın.",

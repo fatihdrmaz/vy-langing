@@ -237,6 +237,16 @@
         "t": "Choose and earn",
         "d": "Choose the right service, complete your transaction and track your benefits."
       }
+    },
+    "intro": "Setup takes under a minute. Browse without an account; continue later for payments and benefits.",
+    "mini": {
+      "store": "App Store · Google Play",
+      "qr": "Download via QR",
+      "phone": "+44 7••• ••••••",
+      "otp": "Verification code",
+      "near": "Near Gate F",
+      "earn": "+24 Voyola Points",
+      "paid": "Payment complete"
     }
   },
   "trust": {
@@ -260,7 +270,24 @@
         "t": "Support",
         "d": "Easy access to help and support when you need it."
       }
-    }
+    },
+    "intro": "Every transaction is transparent and every piece of data protected. Security is the default, not a feature.",
+    "receipt": {
+      "title": "Transaction detail",
+      "merchant": "Coffee & Bakery · Gate F",
+      "amount": "₺186.00",
+      "status": "Completed",
+      "points": "+24 points",
+      "id": "Transaction ID",
+      "method": "Apple Pay •••• 4821",
+      "time": "Today, 16:24"
+    },
+    "support": {
+      "q": "How do I get my receipt?",
+      "a": "Download it in one tap from the transaction detail.",
+      "label": "Support · usually within minutes"
+    },
+    "enc": "End-to-end encrypted connection"
   },
   "download": {
     "h2": "Let your next journey start with Voyola.",

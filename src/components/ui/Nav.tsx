@@ -38,7 +38,7 @@ export function Nav() {
     <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`wrap ${styles.bar}`}>
         <a href="#top" className={styles.logo} aria-label="Voyola">
-          <Logo height={26} />
+          <Logo height={34} />
         </a>
 
         <nav className={styles.links} aria-label="Primary">
