@@ -2,12 +2,12 @@
 
 import { useEffect } from "react";
 
-// Adds .is-in to every [data-reveal] once it enters the viewport. One observer for the whole page.
+// Adds .is-in to every [data-reveal] once it enters the viewport. One IntersectionObserver for the page;
+// a MutationObserver picks up elements added later (client navigation, HMR, lazy content).
 export function RevealObserver() {
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
     if (!("IntersectionObserver" in window)) {
-      els.forEach((el) => el.classList.add("is-in"));
+      document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => el.classList.add("is-in"));
       return;
     }
     const io = new IntersectionObserver(
@@ -19,10 +19,27 @@ export function RevealObserver() {
           }
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.05 },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const observe = (root: ParentNode) => {
+      root.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-in)").forEach((el) => io.observe(el));
+    };
+    observe(document);
+    const mo = new MutationObserver((muts) => {
+      for (const m of muts) {
+        m.addedNodes.forEach((n) => {
+          if (n instanceof HTMLElement) {
+            if (n.hasAttribute("data-reveal")) io.observe(n);
+            observe(n);
+          }
+        });
+      }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      mo.disconnect();
+      io.disconnect();
+    };
   }, []);
   return null;
 }
