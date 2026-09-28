@@ -13,13 +13,15 @@
 .media { position: relative; min-height: 320px; }
 .media img { object-fit: cover; }
 .body { padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 14px; justify-content: center; align-items: flex-start; }
-.num { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--mag); letter-spacing: 0.08em; }
+.num { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--mag-deep); letter-spacing: 0.08em; }
 .body h3 { font-size: clamp(30px, 3.4vw, 48px); letter-spacing: -0.03em; }
 .body p { color: var(--paper-muted); font-size: 17px; max-width: 26em; }
 .body .badge { margin-top: 8px; }
 .foot { display: flex; justify-content: center; margin-top: 56px; }
 
 @media (max-width: 1023px) {
-  .card { position: relative; top: auto; grid-template-columns: 1fr; min-height: 0; }
-  .media { min-height: 220px; }
+  .card { top: calc(76px + var(--i) * 12px); grid-template-columns: 1fr; min-height: 0; }
+  .media { min-height: 200px; }
+  .body { padding: 22px 22px 26px; gap: 10px; }
+  .body p { font-size: 15px; }
 }

@@ -23,21 +23,22 @@ export function Journey() {
 
   useGSAP(
     () => {
-      if (prefersReducedMotion() || !isDesktop()) return;
+      if (prefersReducedMotion()) return;
       const el = root.current!;
+      const desktop = isDesktop();
       const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
       const rows = gsap.utils.toArray<HTMLElement>(`.${styles.stage} [data-row]`);
       const phone = el.querySelector<HTMLElement>(`.${styles.phone}`)!;
 
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: el, start: "top top", end: "+=160%", pin: true, scrub: 0.8, anticipatePin: 1 },
+        scrollTrigger: { trigger: el, start: "top top", end: desktop ? "+=160%" : "+=130%", pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true },
       });
 
       tl.from(phone, { y: 80, scale: 0.92, duration: 0.3, ease: "power2.out" }, 0)
         .from(cards, { opacity: 0, y: 30, stagger: 0.03, duration: 0.14, ease: "power2.out" }, 0);
       cards.forEach((c, i) => {
         const at = 0.2 + i * 0.14;
-        tl.to(c, { x: 0, y: 0, xPercent: 0, yPercent: 0, left: "50%", top: "50%", scale: 0.35, opacity: 0, duration: 0.18, ease: "power2.in" }, at);
+        tl.to(c, { x: 0, y: 0, xPercent: -50, yPercent: -50, left: "50%", top: "50%", right: "auto", bottom: "auto", scale: 0.3, opacity: 0, duration: 0.18, ease: "power2.in" }, at);
         if (rows[i]) tl.add(() => rows[i].classList.toggle(s.rowOn, tl.scrollTrigger!.direction > 0), at + 0.14);
       });
       tl.to({}, { duration: 0.15 });

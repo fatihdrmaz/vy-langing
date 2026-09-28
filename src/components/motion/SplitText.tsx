@@ -22,12 +22,9 @@ export function SplitText({ text, as = "span", className, delay = 0, stagger = 0
     () => {
       if (!ref.current) return;
       const targets = ref.current.querySelectorAll<HTMLElement>(".split-word > span");
-      if (prefersReducedMotion()) {
-        gsap.set(targets, { y: 0 });
-        return;
-      }
-      gsap.to(targets, {
-        y: 0,
+      if (prefersReducedMotion()) return;
+      gsap.from(targets, {
+        yPercent: 110,
         duration: 1.1,
         ease: "power4.out",
         stagger,
@@ -40,7 +37,8 @@ export function SplitText({ text, as = "span", className, delay = 0, stagger = 0
 
   const Tag = as as React.ElementType;
   return (
-    <Tag ref={ref} className={className} aria-label={text}>
+    <Tag ref={ref} className={className}>
+      <span className="sr-only">{text}</span>
       {words.map((w, i) => (
         <span key={i} className="split-word" aria-hidden="true">
           <span className={accentFrom !== undefined && i >= accentFrom ? "accent" : undefined}>{w}</span>

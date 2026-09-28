@@ -69,7 +69,8 @@
 
 /* ── Base ── */
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+main { overflow-x: clip; }
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
@@ -177,10 +178,9 @@ img, video { display: block; max-width: 100%; }
 
 /* ── Split text ── */
 .split-word { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: 0.08em; margin-bottom: -0.08em; }
-.split-word > span { display: inline-block; transform: translateY(110%); }
+.split-word > span { display: inline-block; will-change: transform; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
   [data-reveal] { opacity: 1; transform: none; }
-  .split-word > span { transform: none; }
 }

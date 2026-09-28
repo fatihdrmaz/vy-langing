@@ -83,12 +83,12 @@ export function Hero() {
 
         {/* Panning terminal strip at the traveller's feet */}
         <div className={styles.ground} aria-hidden="true">
-          <Image src="/traveler/airport-bg.webp" alt="" width={1524} height={400} className={styles.groundImg} priority />
+          <Image src="/traveler/airport-bg.webp" alt="" width={1524} height={400} className={styles.groundImg} sizes="140vw" />
         </div>
 
         <div className={`wrap ${styles.inner}`}>
           <div className={styles.copy}>
-            <span className={styles.chip} data-reveal>
+            <span className={`${styles.chip} ${styles.in}`} style={{ animationDelay: "0.1s" }}>
               <i />
               {t("eyebrow")}
             </span>
@@ -96,10 +96,10 @@ export function Hero() {
               <SplitText text={t("h1a")} as="span" trigger={false} delay={0.2} className={styles.line} />
               <SplitText text={t("h1b")} as="span" trigger={false} delay={0.45} className={`${styles.line} ${styles.accent}`} />
             </h1>
-            <p className={`lede ${styles.lede}`} data-reveal data-reveal-delay="2">
+            <p className={`lede ${styles.lede} ${styles.in}`} style={{ animationDelay: "0.55s" }}>
               {t("lede")}
             </p>
-            <div className={styles.ctas} data-reveal data-reveal-delay="3">
+            <div className={`${styles.ctas} ${styles.in}`} style={{ animationDelay: "0.7s" }}>
               <a className="btn btn-primary" href="#indir">
                 {t("primary")}
               </a>
@@ -107,7 +107,7 @@ export function Hero() {
                 {t("secondary")}
               </a>
             </div>
-            <p className={styles.micro} data-reveal data-reveal-delay="3">
+            <p className={`${styles.micro} ${styles.in}`} style={{ animationDelay: "0.85s" }}>
               <span>{t("micro1")}</span>
               <span>{t("micro2")}</span>
               <span className={styles.microAccent}>{t("micro3")}</span>

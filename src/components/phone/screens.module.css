@@ -25,7 +25,7 @@
 .tx b { font-size: 13px; }
 .tx span { font-size: 11px; color: #6b6880; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .go { font-size: 11px; font-weight: 700; color: var(--mag-deep); white-space: nowrap; }
-.soon { font-size: 10px; font-weight: 700; color: var(--violet); background: var(--soft); border-radius: 999px; padding: 3px 8px; }
+.soon { font-size: 10px; font-weight: 700; color: var(--mag-deep); background: var(--soft); border-radius: 999px; padding: 3px 8px; }
 
 .tabbar {
   margin-top: auto; border-radius: 18px; background: var(--ink); color: var(--muted-2);

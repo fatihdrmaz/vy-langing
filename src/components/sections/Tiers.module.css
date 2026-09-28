@@ -65,10 +65,15 @@
 @keyframes sheen { 0%, 60% { background-position: 120% 0; } 100% { background-position: -20% 0; } }
 
 @media (max-width: 1023px) {
-  .inner { min-height: 0; padding-block: 80px 40px; }
-  .head { grid-template-columns: 1fr; }
-  .deck { height: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 36px; }
-  .card { position: relative; left: auto; margin: 0; width: auto; height: 210px; transform: none !important; }
+  .inner { min-height: 100svh; padding-block: 84px 24px; justify-content: flex-start; }
+  .head { grid-template-columns: 1fr; gap: 12px; }
+  .head :global(.h2) { font-size: clamp(28px, 7.5vw, 40px); }
+  .headRight { gap: 12px; }
+  .headRight :global(.lede) { font-size: 15px; }
+  .headRight :global(.btn) { display: none; }
+  .deck { height: 280px; margin-top: 28px; }
+  .card { width: min(320px, 84vw); margin-left: calc(min(320px, 84vw) / -2); height: 210px; transform-origin: 50% 0; }
+  .cardIn { padding: 20px; }
   .cardIn h3 { font-size: 30px; }
+  .foot { margin-top: 24px; }
 }
-@media (max-width: 560px) { .deck { grid-template-columns: 1fr; } }

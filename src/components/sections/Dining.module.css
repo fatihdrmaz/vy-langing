@@ -46,9 +46,15 @@
   .beatList { grid-column: 1; }
 }
 @media (max-width: 1023px) {
-  .grid { grid-template-columns: 1fr; gap: 36px; padding-block: 80px; }
+  .grid { grid-template-columns: 1fr; gap: 24px; padding-block: 80px 60px; }
   .copy { position: static; }
-  .phoneCol { position: static; grid-row: auto; grid-column: auto; }
-  .phone { width: 280px; }
-  .beat { min-height: 0 !important; padding: 14px 0 !important; opacity: 1; transform: none; }
+  .phoneCol {
+    position: sticky; top: 64px; z-index: 2; grid-row: auto; grid-column: auto;
+    padding: 8px 0 28px; background: linear-gradient(180deg, var(--ink) 0%, var(--ink) 78%, transparent 100%);
+  }
+  .phone { width: min(250px, 62vw); }
+  .beatList { position: relative; z-index: 1; padding-top: 10vh; padding-bottom: 20vh; }
+  .beat { min-height: 55vh !important; justify-content: flex-start !important; padding: 0 !important; }
+  .beat:last-child { min-height: 30vh !important; }
+  .beat h3 { font-size: 24px; }
 }

@@ -48,6 +48,9 @@
   padding-top: 76px;
 }
 .copy { position: relative; z-index: 3; will-change: transform, opacity; }
+.in { animation: heroIn 0.9s var(--ease-out) both; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .in { animation: none; } }
 
 .chip {
   display: inline-flex; align-items: center; gap: 10px; height: 38px; padding: 0 16px 0 8px;

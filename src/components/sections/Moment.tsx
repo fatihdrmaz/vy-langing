@@ -50,9 +50,10 @@ export function Moment() {
         ease: "none",
         scrollTrigger: {
           trigger: el,
-          start: desktop ? "top top" : "top 60%",
-          end: desktop ? "+=220%" : "bottom 90%",
-          pin: desktop,
+          start: "top top",
+          end: desktop ? "+=220%" : "+=170%",
+          pin: true,
+          invalidateOnRefresh: true,
           scrub: 0.5,
           anticipatePin: 1,
           onUpdate: (self) => {
@@ -92,6 +93,7 @@ export function Moment() {
             {t("text")}
           </p>
 
+          <div className={styles.timerRow}>
           <div className={styles.timer} data-reveal data-reveal-delay="3">
             <svg className={styles.ring} viewBox="0 0 120 120" aria-hidden="true">
               <circle className={styles.ringBg} cx="60" cy="60" r="54" pathLength={1} />
@@ -112,6 +114,7 @@ export function Moment() {
               </li>
             ))}
           </ol>
+          </div>
           <p className={styles.hint}>{t("hint")}</p>
         </div>
 

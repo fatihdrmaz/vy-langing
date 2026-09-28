@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
+import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import styles from "./Premium.module.css";
 
 const ITEMS = [
@@ -20,7 +20,7 @@ export function Premium() {
 
   useGSAP(
     () => {
-      if (prefersReducedMotion() || !isDesktop()) return;
+      if (prefersReducedMotion()) return;
       const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
       cards.forEach((card, i) => {
         if (i === cards.length - 1) return;

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
+import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { Phone, StatusBar } from "@/components/phone/Phone";
 import { Icon } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
@@ -29,7 +29,7 @@ export function Dining() {
         });
       };
 
-      if (prefersReducedMotion() || !isDesktop()) {
+      if (prefersReducedMotion()) {
         showOnly(0, false);
         beats.forEach((b) => b.classList.add(styles.beatOn));
         return;

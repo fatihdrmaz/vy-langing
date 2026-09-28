@@ -16,7 +16,22 @@ export function Tiers() {
     () => {
       const el = root.current!;
       const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
-      if (prefersReducedMotion() || !isDesktop()) return;
+      if (prefersReducedMotion()) return;
+
+      if (!isDesktop()) {
+        // Phone: cards slide up one after another and stack on the previous one
+        const H = () => window.innerHeight * 0.75;
+        cards.forEach((c, k) => gsap.set(c, { y: k === 0 ? 0 : H(), zIndex: k + 1 }));
+        const mtl = gsap.timeline({
+          scrollTrigger: { trigger: el, start: "top top", end: "+=" + cards.length * 60 + "%", pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true },
+        });
+        for (let k = 1; k < cards.length; k++) {
+          mtl.to(cards[k], { y: k * 14, duration: 1, ease: "power2.out" }, (k - 1) * 1.05);
+          for (let j = 0; j < k; j++) mtl.to(cards[j], { scale: 1 - (k - j) * 0.045, y: j * 14 - (k - j) * 4, duration: 1, ease: "power2.out" }, (k - 1) * 1.05);
+        }
+        mtl.from(el.querySelector(`.${styles.foot}`), { opacity: 0, duration: 0.4 }, (cards.length - 2) * 1.05 + 0.6);
+        return;
+      }
 
       const spread = () => Math.min(330, (Math.min(el.clientWidth, 1280) - 300) / 3);
 
