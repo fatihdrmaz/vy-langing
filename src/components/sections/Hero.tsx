@@ -83,7 +83,7 @@ export function Hero() {
 
         {/* Panning terminal strip at the traveller's feet */}
         <div className={styles.ground} aria-hidden="true">
-          <Image src="/traveler/airport-bg.webp" alt="" width={1524} height={400} className={styles.groundImg} sizes="140vw" />
+          <Image src="/traveler/airport-bg.webp" alt="" width={1524} height={400} className={styles.groundImg} sizes="140vw" priority fetchPriority="high" />
         </div>
 
         <div className={`wrap ${styles.inner}`}>
