@@ -22,6 +22,7 @@ export function Hero() {
   const t = useTranslations("hero");
   const root = useRef<HTMLElement>(null);
   const walker = useRef<SpriteWalkerHandle>(null);
+  const reflection = useRef<SpriteWalkerHandle>(null);
 
   useGSAP(
     () => {
@@ -38,6 +39,7 @@ export function Hero() {
 
       if (prefersReducedMotion()) {
         walker.current?.setFrame(4);
+        reflection.current?.setFrame(4);
         gsap.set(notes, { opacity: 1, y: 0 });
         gsap.set(zoom, { display: "none" });
         return;
@@ -55,7 +57,11 @@ export function Hero() {
           pin: stage,
           scrub: 0.6,
           anticipatePin: 1,
-          onUpdate: (self) => walker.current?.setProgress(Math.min(1, self.progress / 0.45), 1),
+          onUpdate: (self) => {
+            const p = Math.min(1, self.progress / 0.45);
+            walker.current?.setProgress(p, 1);
+            reflection.current?.setProgress(p, 1);
+          },
         },
       });
 
@@ -128,6 +134,9 @@ export function Hero() {
             <div className={styles.figure}>
               <div className={styles.shadow} aria-hidden="true" />
               <SpriteWalker ref={walker} alt={t("walkerAlt")} className={styles.canvas} />
+              <div className={styles.reflection} aria-hidden="true">
+                <SpriteWalker ref={reflection} alt="" className={styles.canvas} />
+              </div>
             </div>
             {[0, 1, 2].map((i) => (
               <div key={i} className={`${styles.note} ${styles[`note${i}` as "note0"]}`} aria-hidden="true">

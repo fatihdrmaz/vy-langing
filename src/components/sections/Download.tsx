@@ -1,3 +1,5 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import { Phone, StatusBar } from "@/components/phone/Phone";
 import { Waitlist } from "@/components/ui/Waitlist";
@@ -6,6 +8,17 @@ import s from "@/components/phone/screens.module.css";
 import styles from "./Download.module.css";
 
 // Section 09: conversion band. Store badges are disabled until launch; the waitlist is the real CTA.
+function focusWaitlist() {
+  const input = document.getElementById("wl-email") as HTMLInputElement | null;
+  if (!input) return;
+  input.scrollIntoView({ behavior: "smooth", block: "center" });
+  input.focus({ preventScroll: true });
+  const form = input.closest("form");
+  form?.classList.remove("flash");
+  void form?.offsetWidth;
+  form?.classList.add("flash");
+}
+
 export function Download() {
   const t = useTranslations("download");
 
@@ -21,20 +34,20 @@ export function Download() {
           </p>
 
           <div className={styles.stores} data-reveal data-reveal-delay="2">
-            <span className={styles.store} aria-disabled="true">
+            <button type="button" className={styles.store} onClick={focusWaitlist} title={t("badgeHint")}>
               <AppleIcon />
               <span>
                 <small>{t("soon")}</small>
                 <b>App Store</b>
               </span>
-            </span>
-            <span className={styles.store} aria-disabled="true">
+            </button>
+            <button type="button" className={styles.store} onClick={focusWaitlist} title={t("badgeHint")}>
               <PlayIcon />
               <span>
                 <small>{t("soon")}</small>
                 <b>Google Play</b>
               </span>
-            </span>
+            </button>
             <a className={`btn btn-ghost ${styles.webBtn}`} href={WEB_APP_URL} rel="noopener">
               {t("web")}
             </a>

@@ -29,11 +29,21 @@ export function Journey() {
         scrollTrigger: { trigger: el, start: "top top", end: desktop ? "+=160%" : "+=130%", pin: true, scrub: 0.8, anticipatePin: 1, invalidateOnRefresh: true },
       });
 
-      tl.from(phone, { y: 80, scale: 0.92, duration: 0.3, ease: "power2.out" }, 0)
-        .from(cards, { opacity: 0, y: 30, stagger: 0.03, duration: 0.14, ease: "power2.out" }, 0);
+      tl.from(phone, { y: 80, scale: 0.92, duration: 0.3, ease: "power2.out" }, 0);
+      if (desktop) tl.from(cards, { opacity: 0, y: 30, stagger: 0.03, duration: 0.14, ease: "power2.out" }, 0);
       cards.forEach((c, i) => {
         const at = 0.2 + i * 0.14;
-        tl.to(c, { x: 0, y: 0, xPercent: -50, yPercent: -50, left: "50%", top: "50%", right: "auto", bottom: "auto", scale: 0.3, opacity: 0, duration: 0.18, ease: "power2.in" }, at);
+        if (desktop) {
+          tl.to(c, { x: 0, y: 0, xPercent: -50, yPercent: -50, left: "50%", top: "50%", right: "auto", bottom: "auto", scale: 0.3, opacity: 0, duration: 0.18, ease: "power2.in" }, at);
+        } else {
+          const delta = (axis: "x" | "y") => {
+            const pr = phone.getBoundingClientRect();
+            const cr = c.getBoundingClientRect();
+            const cur = Number(gsap.getProperty(c, axis)) || 0;
+            return axis === "x" ? pr.left + pr.width / 2 - (cr.left - cur + cr.width / 2) : pr.top + pr.height * 0.45 - (cr.top - cur + cr.height / 2);
+          };
+          tl.to(c, { x: () => delta("x"), y: () => delta("y"), scale: 0.25, opacity: 0, duration: 0.18, ease: "power2.in" }, at);
+        }
         if (rows[i]) tl.add(() => rows[i].classList.toggle(s.rowOn, tl.scrollTrigger!.direction > 0), at + 0.14);
       });
       tl.to({}, { duration: 0.15 });
@@ -61,13 +71,15 @@ export function Journey() {
             <DashboardScreen rowAttr={{ "data-row": "" }} />
           </Phone>
 
-          {CARDS.map((c, i) => (
-            <article key={c.key} className={`${styles.card} ${styles[`c${i}` as "c0"]}`} data-magnetic="5">
-              <span className={styles.cardIc}>{Icon[c.icon]({ size: 22 })}</span>
-              <h3>{t(`cards.${c.key}.t`)}</h3>
-              <p>{t(`cards.${c.key}.d`)}</p>
-            </article>
-          ))}
+          <div className={styles.pills}>
+            {CARDS.map((c, i) => (
+              <article key={c.key} className={`${styles.card} ${styles[`c${i}` as "c0"]}`} data-magnetic="5">
+                <span className={styles.cardIc}>{Icon[c.icon]({ size: 22 })}</span>
+                <h3>{t(`cards.${c.key}.t`)}</h3>
+                <p>{t(`cards.${c.key}.d`)}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

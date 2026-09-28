@@ -131,6 +131,15 @@ body::after {
 /* ── Optical alignment for display type (Archivo's side bearings are generous) ── */
 .h2, h1 { text-indent: -0.03em; }
 
+/* ── Scroll progress line (under the nav) ── */
+.scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: linear-gradient(90deg, var(--violet), var(--mag)); transform-origin: left; transform: scaleX(0); pointer-events: none; box-shadow: 0 0 12px rgba(239,46,242,0.6); }
+
+/* ── Section counters: "01 / 09 ·" before each eyebrow ── */
+main { counter-reset: sec; }
+main section .eyebrow { display: inline-flex; align-items: center; gap: 10px; }
+main section .eyebrow::before { counter-increment: sec; content: counter(sec, decimal-leading-zero) " / 09"; font-variant-numeric: tabular-nums; opacity: 0.55; letter-spacing: 0.06em; }
+main section .eyebrow::after { content: ""; width: 18px; height: 1px; background: currentColor; opacity: 0.4; order: -1; margin-right: -4px; display: none; }
+
 /* ── Magnetic elements never snap ── */
 [data-magnetic] { will-change: transform; }
 

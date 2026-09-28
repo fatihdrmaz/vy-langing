@@ -11,7 +11,8 @@
   transform-origin: 50% 0; will-change: transform;
 }
 .media { position: relative; min-height: 320px; }
-.media img { object-fit: cover; }
+.media img { object-fit: cover; transition: transform 6s cubic-bezier(0.2, 0.6, 0.2, 1); transform: scale(1.01); }
+.card:hover .media img { transform: scale(1.06); }
 .body { padding: clamp(28px, 4vw, 56px); display: flex; flex-direction: column; gap: 14px; justify-content: center; align-items: flex-start; }
 .num { font-family: var(--font-display); font-weight: 800; font-size: 14px; color: var(--mag-deep); letter-spacing: 0.08em; }
 .body h3 { font-size: clamp(30px, 3.4vw, 48px); letter-spacing: -0.03em; }

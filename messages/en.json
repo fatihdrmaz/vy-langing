@@ -305,7 +305,8 @@
     "errorInvalid": "Please enter a valid email address.",
     "errorConsent": "Please tick the consent box to continue.",
     "errorGeneric": "Something went wrong. Please try again.",
-    "sending": "Sending…"
+    "sending": "Sending…",
+    "badgeHint": "Leave your email and we will notify you at launch"
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -351,6 +352,19 @@
         "q": "How can I get support if I have a problem?",
         "a": "You can create a support request from the Help/Support area in the app or through the current contact channels listed on the website."
       }
+    },
+    "cats": {
+      "all": "All",
+      "general": "General",
+      "pay": "Payments",
+      "privacy": "Privacy",
+      "support": "Support"
+    },
+    "more": {
+      "t": "Still have a question?",
+      "d": "Write to us and the team will get back.",
+      "cta": "hello@voyola.com",
+      "meta": "Usually within minutes"
     }
   },
   "footer": {

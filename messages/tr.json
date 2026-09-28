@@ -305,7 +305,8 @@
     "errorInvalid": "Geçerli bir e-posta adresi girin.",
     "errorConsent": "Devam etmek için onay kutusunu işaretleyin.",
     "errorGeneric": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
-    "sending": "Gönderiliyor…"
+    "sending": "Gönderiliyor…",
+    "badgeHint": "Lansmanda haber vermemiz için e-postanızı bırakın"
   },
   "faq": {
     "eyebrow": "SSS",
@@ -351,6 +352,19 @@
         "q": "Sorun yaşarsam nasıl destek alabilirim?",
         "a": "Uygulamadaki Yardım/Destek alanından veya web sitesinde belirtilen güncel iletişim kanallarından destek talebi oluşturabilirsiniz."
       }
+    },
+    "cats": {
+      "all": "Tümü",
+      "general": "Genel",
+      "pay": "Ödeme",
+      "privacy": "Gizlilik",
+      "support": "Destek"
+    },
+    "more": {
+      "t": "Sorunuz cevapsız mı kaldı?",
+      "d": "Yazın, ekibimiz dönsün.",
+      "cta": "hello@voyola.com",
+      "meta": "Genellikle dakikalar içinde"
     }
   },
   "footer": {

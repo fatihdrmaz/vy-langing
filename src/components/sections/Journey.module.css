@@ -5,7 +5,8 @@
 .intro { max-width: 40em; }
 
 .orbit { position: relative; height: 600px; display: grid; place-items: center; }
-.phone { position: relative; z-index: 2; width: 290px; }
+.pills { display: contents; }
+.phone { position: relative; z-index: 2; --ps: 0.9; }
 
 .card {
   position: absolute; width: 260px; padding: 22px 22px 20px; border-radius: 22px;
@@ -29,16 +30,15 @@
   .head { gap: 10px; }
   .h2 { font-size: clamp(28px, 7.5vw, 40px); }
   .intro { display: none; }
-  .orbit { height: min(460px, calc(100svh - 250px)); }
-  .phone { width: min(200px, 52vw); }
-  .card { width: 42%; max-width: 180px; padding: 12px; border-radius: 16px; gap: 4px; z-index: 3; box-shadow: 0 16px 40px rgba(33,10,96,0.16); }
-  .card h3 { font-size: 14px; }
-  .card p { font-size: 11.5px; line-height: 1.35; }
-  .cardIc { width: 32px; height: 32px; border-radius: 10px; }
-  .cardIc svg { width: 16px; height: 16px; }
-  .c0 { left: 0; top: 0; }
-  .c1 { right: 0; top: 4%; left: auto; }
-  .c2 { left: 0; bottom: 4%; top: auto; }
-  .c3 { right: 0; bottom: 2%; left: auto; }
-  .c4 { right: 0; top: 44%; left: auto; }
+  .orbit { height: auto; display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .phone { --ps: 0.58; order: 2; }
+  .pills { order: 1; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; }
+  .card {
+    position: relative; inset: auto; width: auto; max-width: none; padding: 8px 12px 8px 8px; border-radius: 999px; gap: 8px;
+    flex-direction: row; align-items: center; z-index: 3; box-shadow: 0 10px 24px rgba(33,10,96,0.12);
+  }
+  .card h3 { font-size: 13px; white-space: nowrap; }
+  .card p { display: none; }
+  .cardIc { width: 28px; height: 28px; border-radius: 50%; }
+  .cardIc svg { width: 14px; height: 14px; }
 }

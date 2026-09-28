@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "./Logo";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { WEB_APP_URL } from "@/lib/seo";
 import styles from "./Nav.module.css";
 
@@ -15,9 +16,26 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
 
+  const [hidden, setHidden] = useState(false);
+
+  // Scrolled state + hide-on-scroll-down (app-like), always visible near the top or while the menu is open
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
+    let last = window.scrollY;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      const delta = y - last;
+      if (y < 120) setHidden(false);
+      else if (delta > 6) setHidden(true);
+      else if (delta < -6) setHidden(false);
+      last = y;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -61,7 +79,7 @@ export function Nav() {
   ] as const;
 
   return (
-    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""} ${hidden && !open ? styles.hidden : ""}`}>
       <div className={`wrap ${styles.bar}`}>
         <a href="#top" className={styles.logo} aria-label="Voyola">
           <Logo height={34} />
@@ -96,6 +114,7 @@ export function Nav() {
         </div>
       </div>
 
+      <ScrollProgress />
       <div id="mobile-menu" className={`${styles.sheet} ${open ? styles.sheetOpen : ""}`} hidden={!open}>
         {links.map(([href, label]) => (
           <a key={href} href={href} onClick={() => setOpen(false)}>

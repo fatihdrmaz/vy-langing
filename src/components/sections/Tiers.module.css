@@ -39,14 +39,15 @@
 .row { display: flex; justify-content: space-between; align-items: center; }
 .brand { font-family: var(--font-display); font-weight: 800; font-size: 22px; letter-spacing: -0.045em; }
 .row span { font-size: 13px; font-weight: 600; opacity: 0.85; }
-.chip { display: block; width: 46px; height: 34px; border-radius: 7px; position: relative; overflow: hidden; background: linear-gradient(135deg, #f3e3a6, #b8913a); }
+.chip { display: block; width: 46px; height: 34px; transform: translate(calc(var(--ry) * 0.6px), calc(var(--rx) * -0.6px)); transition: transform 0.4s var(--ease); border-radius: 7px; position: relative; overflow: hidden; background: linear-gradient(135deg, #f3e3a6, #b8913a); }
 .chip::after {
   content: ""; position: absolute; inset: 7px 9px; border: 1px solid rgba(15,6,52,0.35); border-radius: 4px;
   background: linear-gradient(90deg, transparent 46%, rgba(15,6,52,0.3) 46% 54%, transparent 54%), linear-gradient(0deg, transparent 46%, rgba(15,6,52,0.3) 46% 54%, transparent 54%);
 }
 .cardIn h3 { font-size: 40px; letter-spacing: -0.03em; margin-top: 10px; }
 .cardIn p { font-size: 13px; opacity: 0.8; margin-top: 4px; }
-.nfc { position: absolute; right: 26px; bottom: 30px; opacity: 0.55; }
+.nfc { position: absolute; right: 26px; bottom: 30px; opacity: 0.55; transform: translate(calc(var(--ry) * 1.1px), calc(var(--rx) * -1.1px)); transition: transform 0.4s var(--ease); }
+.cardIn h3 { transform: translate(calc(var(--ry) * 0.35px), calc(var(--rx) * -0.35px)); transition: transform 0.4s var(--ease); }
 
 .silver .cardIn { background: linear-gradient(145deg, #e9ebf0, #bfc3cf); color: var(--ink); }
 .gold .cardIn { background: linear-gradient(145deg, #f4d98c, #c99a2e); color: var(--ink); }

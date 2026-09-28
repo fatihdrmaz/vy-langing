@@ -19,7 +19,7 @@
 .micro { margin-top: 14px; font-size: 13px; color: var(--muted-2); }
 
 .phoneCol { position: sticky; top: calc(50vh - 330px); align-self: start; display: grid; place-items: center; }
-.phone { width: 320px; }
+.phone { --ps: 1; }
 .screens { position: relative; flex: 1; min-height: 0; }
 .screen { position: absolute; inset: 0; }
 .scan { top: 12px; }
@@ -41,7 +41,7 @@
 
 @media (max-width: 1200px) {
   .grid { grid-template-columns: minmax(0, 1fr) 300px; }
-  .phone { width: 290px; }
+  .phone { --ps: 0.9; }
   .phoneCol { top: calc(50vh - 300px); grid-row: 1 / span 2; grid-column: 2; }
   .beatList { grid-column: 1; }
 }
@@ -52,7 +52,7 @@
     position: sticky; top: 64px; z-index: 2; grid-row: auto; grid-column: auto;
     padding: 8px 0 28px; background: linear-gradient(180deg, var(--ink) 0%, var(--ink) 78%, transparent 100%);
   }
-  .phone { width: min(250px, 62vw); }
+  .phone { --ps: 0.72; }
   .beatList { position: relative; z-index: 1; padding-top: 10vh; padding-bottom: 20vh; }
   .beat { min-height: 55vh !important; justify-content: flex-start !important; padding: 0 !important; }
   .beat:last-child { min-height: 30vh !important; }
