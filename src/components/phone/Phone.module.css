@@ -1,0 +1,27 @@
+.phone { position: relative; width: 320px; max-width: 100%; aspect-ratio: 320 / 660; }
+.glow {
+  position: absolute; inset: -20% -30%; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, rgba(171,4,242,0.42), rgba(239,46,242,0.12) 40%, rgba(16,5,53,0) 68%);
+  filter: blur(10px);
+}
+.body {
+  position: relative; width: 100%; height: 100%;
+  border-radius: 52px; padding: 10px;
+  background: linear-gradient(160deg, #2a1e5a, #120a3a 60%, #1a0f47);
+  box-shadow: 0 50px 120px rgba(16,5,53,0.6), inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.island { position: absolute; top: 20px; left: 50%; width: 96px; height: 28px; transform: translateX(-50%); border-radius: 999px; background: #05020f; z-index: 3; }
+.screen {
+  position: relative; height: 100%; border-radius: 42px; overflow: hidden;
+  background: var(--paper); color: var(--paper-ink);
+  display: flex; flex-direction: column;
+  font-family: var(--font-text); font-size: 12px; line-height: 1.35;
+}
+.home { position: absolute; bottom: 18px; left: 50%; width: 110px; height: 4px; transform: translateX(-50%); border-radius: 4px; background: rgba(0,0,0,0.35); z-index: 3; }
+
+.status { height: 52px; padding: 18px 26px 0; display: flex; justify-content: space-between; align-items: center; font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--ink); flex-shrink: 0; }
+.statusDark { color: #fff; }
+.statusIcons { display: flex; gap: 6px; align-items: center; }
+.sig { width: 16px; height: 10px; background: currentColor; border-radius: 2px; clip-path: polygon(0 60%, 25% 60%, 25% 40%, 50% 40%, 50% 20%, 75% 20%, 75% 0, 100% 0, 100% 100%, 0 100%); }
+.bat { width: 22px; height: 11px; border: 1.5px solid currentColor; border-radius: 3px; position: relative; }
+.bat::after { content: ""; position: absolute; inset: 1.5px; right: 3px; background: currentColor; border-radius: 1px; }

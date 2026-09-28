@@ -1,0 +1,26 @@
+# Voyola
+
+> Voyola is a travel and services app designed to simplify the airport experience on a single digital platform, developed with a focus on the Istanbul Airport (IST) ecosystem. It brings together participating food & beverage locations, selected premium airport services (Lounge, Fast Track, Buggy — coming soon), an easy payment experience at participating locations, and Voyola-only benefits and rewards.
+
+Tagline: "Your airport experience, in one app." / "Havalimanı deneyiminiz, tek uygulamada."
+Languages: English (https://voyola.com/), Turkish (https://voyola.com/tr)
+Status: mobile app coming soon on the App Store and Google Play; web app at https://app.voyola.com
+Contact: hello@voyola.com · Partnerships: partners@voyola.com
+
+## What Voyola does
+- Food & Drink: discover participating restaurants and cafés across the airport; see options near your gate.
+- Payments: pay with QR at participating locations; track transactions in the app.
+- Benefits: earn Voyola Points on eligible transactions and use them on your journey.
+- Premium services (coming soon): Lounge, Fast Track, Buggy, Meet & Greet, valet/parking.
+- Right moment, right service: suggestions based on your flight timing and location.
+
+## Pages
+- [Home (EN)](https://voyola.com/): value proposition, services, how it works, FAQ, waitlist
+- [Ana sayfa (TR)](https://voyola.com/tr)
+- [Privacy](https://voyola.com/privacy)
+- [Terms](https://voyola.com/terms)
+
+## FAQ (short)
+- Which airport? Istanbul Airport ecosystem; participating locations are shown in the app.
+- Do I need an account? You can browse without one; purchases, payments and benefits need an account.
+- Is it live? The app is coming soon — join the waitlist on the home page.

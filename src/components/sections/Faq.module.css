@@ -1,0 +1,18 @@
+.sec { padding-block: clamp(80px, 10vw, 150px); }
+.grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 64px; align-items: start; }
+.head { position: sticky; top: 110px; display: flex; flex-direction: column; gap: 16px; }
+.list { display: flex; flex-direction: column; border-top: 1px solid var(--paper-line); }
+.item { border-bottom: 1px solid var(--paper-line); }
+.item summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding: 24px 0; font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em;
+}
+.item summary::-webkit-details-marker { display: none; }
+.item summary i { position: relative; width: 28px; height: 28px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--paper-line); transition: transform 0.4s var(--ease), background 0.3s; }
+.item summary i::before, .item summary i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 1.5px; background: var(--ink); transform: translate(-50%, -50%); transition: transform 0.3s; }
+.item summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+.item[open] summary i { background: var(--ink); border-color: var(--ink); transform: rotate(45deg); }
+.item[open] summary i::before, .item[open] summary i::after { background: #fff; }
+.body { padding: 0 48px 26px 0; color: var(--paper-muted); font-size: 16px; line-height: 1.6; animation: faqIn 0.4s var(--ease-out); }
+@keyframes faqIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 32px; } .head { position: static; } .item summary { font-size: 17px; } }

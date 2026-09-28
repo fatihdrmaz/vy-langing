@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "title": "Voyola — Your airport experience, in one app",
+    "description": "From dining and premium airport services to payments and benefits, access everything you need at Istanbul Airport with Voyola.",
+    "ogAlt": "Voyola — your Istanbul Airport experience, in one app"
+  },
+  "nav": {
+    "discover": "Discover Voyola",
+    "services": "Services",
+    "benefits": "Benefits",
+    "how": "How It Works",
+    "faq": "FAQ",
+    "web": "Open Voyola Web",
+    "download": "Download the App",
+    "menu": "Menu",
+    "close": "Close",
+    "langLabel": "Language"
+  },
+  "hero": {
+    "eyebrow": "A new way to experience Istanbul Airport",
+    "h1a": "Your airport experience,",
+    "h1b": "in one app.",
+    "lede": "From dining and premium airport services to payments and benefits, access what you need with Voyola.",
+    "primary": "Download the App",
+    "secondary": "Open Voyola Web",
+    "micro1": "Fast.",
+    "micro2": "Simple.",
+    "micro3": "Built around your journey.",
+    "scroll": "Scroll",
+    "walkerAlt": "A traveller walking towards the terminal with a suitcase",
+    "steps": {
+      "0": { "k": "Entrance", "v": "Terminal" },
+      "1": { "k": "Check-in", "v": "Done" },
+      "2": { "k": "Gate", "v": "F7" }
+    }
+  },
+  "journey": {
+    "eyebrow": "One app, one journey",
+    "h2": "Everything your journey needs, in one place",
+    "intro": "Voyola brings different airport needs into one digital experience. Discover, choose, buy or pay — and spend more time on your journey.",
+    "cards": {
+      "food": { "t": "Food & Drink", "d": "Discover participating restaurants and cafés across the airport." },
+      "premium": { "t": "Premium Services", "d": "Access lounges, Fast Track, Buggy and selected airport services." },
+      "pay": { "t": "Payments", "d": "Enjoy an easy Voyola payment experience at participating locations." },
+      "benefits": { "t": "Benefits", "d": "Discover Voyola-only offers and rewards." },
+      "discover": { "t": "Discover", "d": "Find nearby services and offers more easily." }
+    }
+  },
+  "moment": {
+    "eyebrow": "Right service, right moment",
+    "h2": "Right when you need it",
+    "text": "Voyola is designed to surface relevant services and offers based on your journey, timing and location. Instead of searching, discover what matters at the right moment.",
+    "timerLabel": "Time to your flight",
+    "minutes": "min",
+    "hint": "Scroll: time passes, the suggestion changes.",
+    "states": {
+      "relaxed": { "tag": "Time to spare", "title": "Breathe in the lounge", "desc": "More than two hours before boarding: a calm space, coffee and a desk.", "cta": "See lounges" },
+      "dine": { "tag": "A relaxed meal", "title": "Dining nearby", "desc": "Participating restaurants within walking distance of your gate, plus offers for you.", "cta": "Browse menus" },
+      "hurry": { "tag": "Running short", "title": "Speed up with Fast Track", "desc": "A faster airport experience at eligible checkpoints.", "cta": "Fast Track" },
+      "rush": { "tag": "Gate is far", "title": "Call a buggy", "desc": "Cover longer distances inside the terminal more comfortably.", "cta": "Call a buggy" }
+    },
+    "soon": "Coming soon",
+    "gate": "Gate",
+    "boarding": "Boarding"
+  },
+  "dining": {
+    "eyebrow": "Food & Drink",
+    "h2": "Spend less time searching for what to eat",
+    "text": "Discover participating food and beverage locations in Voyola, explore relevant options and offers, and access supported transaction steps in one place.",
+    "cta": "Explore Food & Drink",
+    "micro": "Participating locations and features may vary by location.",
+    "filters": { "all": "All", "coffee": "Coffee", "quick": "Quick", "sit": "Sit-down", "near": "Near me" },
+    "payTitle": "Pay with QR at the till",
+    "paySteps": { "0": "Scan the QR at the till", "1": "Confirm the amount", "2": "Paid. Points in your account." },
+    "sample": {
+      "0": { "n": "Coffee & Bakery", "m": "Gate F · 3 min walk", "tag": "Offer" },
+      "1": { "n": "Bistro", "m": "Sit-down · 25 min", "tag": "Popular" },
+      "2": { "n": "Quick Bites", "m": "Takeaway · 8 min", "tag": "" },
+      "3": { "n": "Meze & Grill", "m": "Sit-down · 35 min", "tag": "New" }
+    }
+  },
+  "premium": {
+    "eyebrow": "Premium airport services",
+    "h2": "Make your journey more comfortable",
+    "intro": "Discover selected premium services through Voyola and access the right service quickly.",
+    "cta": "View Premium Services",
+    "soon": "Coming soon",
+    "items": {
+      "lounge": { "t": "Lounge", "d": "A comfortable lounge experience to relax, work or spend time before your flight." },
+      "fasttrack": { "t": "Fast Track", "d": "A faster airport experience at eligible checkpoints." },
+      "buggy": { "t": "Buggy", "d": "A convenient mobility service for covering longer distances inside the terminal." },
+      "other": { "t": "Meet & Greet and more", "d": "Meet & Greet, valet/parking and other eligible services can be added as the offering expands." }
+    }
+  },
+  "payearn": {
+    "eyebrow": "Payments, loyalty and benefits",
+    "h2": "Pay. Earn. Make more of your journey.",
+    "text": "Voyola is designed to connect payments at participating locations with a benefits and loyalty layer. Track eligible rewards and enjoy Voyola-only offers.",
+    "sub": "One experience: payment + benefits + transaction history.",
+    "cta": "Explore Benefits",
+    "cardLabel": "Voyola Points",
+    "cardHint": "Earn at different locations, use wherever you like.",
+    "steps": { "0": "Pay", "1": "Earn", "2": "Use" },
+    "ledger": {
+      "0": { "n": "Coffee & Bakery", "a": "+24" },
+      "1": { "n": "Bistro", "a": "+86" },
+      "2": { "n": "Lounge entry", "a": "−400" }
+    }
+  },
+  "how": {
+    "eyebrow": "How it works",
+    "h2": "Get started in four steps",
+    "steps": {
+      "0": { "t": "Download or open the web", "d": "Download Voyola or open Voyola Web." },
+      "1": { "t": "Create your account", "d": "Create your account and personalise your journey." },
+      "2": { "t": "Discover", "d": "Discover dining, premium services and relevant offers." },
+      "3": { "t": "Choose and earn", "d": "Choose the right service, complete your transaction and track your benefits." }
+    }
+  },
+  "trust": {
+    "eyebrow": "Trust and support",
+    "h2": "Your trust matters as much as your journey",
+    "cta": "Security & Privacy",
+    "items": {
+      "data": { "t": "Data", "d": "Clear and accessible information on how personal data is processed." },
+      "pay": { "t": "Payments", "d": "Payment processes are handled through authorised/licensed payment infrastructure where applicable." },
+      "clear": { "t": "Transparency", "d": "A clear experience designed to help you track transactions and related information in the app." },
+      "support": { "t": "Support", "d": "Easy access to help and support when you need it." }
+    }
+  },
+  "download": {
+    "h2": "Let your next journey start with Voyola.",
+    "text": "Download Voyola to discover airport services, access benefits and make your journey easier.",
+    "appstore": "Download on the App Store",
+    "play": "Get it on Google Play",
+    "web": "Open Voyola Web",
+    "soon": "Coming soon",
+    "waitTitle": "Be the first to know at launch",
+    "waitText": "Leave your email and we'll let you know when the app is live.",
+    "email": "Your email address",
+    "submit": "Notify me",
+    "consent": "I agree to receive launch and campaign updates from Voyola. <privacy>Privacy Notice</privacy>",
+    "success": "Thank you! We'll let you know at launch.",
+    "errorInvalid": "Please enter a valid email address.",
+    "errorConsent": "Please tick the consent box to continue.",
+    "errorGeneric": "Something went wrong. Please try again."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "h2": "Frequently Asked Questions",
+    "items": {
+      "0": { "q": "What is Voyola?", "a": "Voyola is a travel and services app designed to simplify the airport experience on a single digital platform. It brings together participating food and beverage locations, selected premium airport services, a payment experience and Voyola benefits in one place." },
+      "1": { "q": "Who can use Voyola?", "a": "Voyola is intended for travellers using a compatible mobile device or web browser in supported markets and service locations. Terms of use may vary for some services." },
+      "2": { "q": "Which airport can I use Voyola at?", "a": "The Voyola experience is being developed with a focus on the Istanbul Airport ecosystem. Current participating locations and services will be shown in the app." },
+      "3": { "q": "Which services can I access with Voyola?", "a": "The initial scope will include participating food and beverage locations and selected premium services such as Lounge, Fast Track and Buggy. The scope will expand over time." },
+      "4": { "q": "Can I pay with Voyola?", "a": "You can use the payment options offered through Voyola at supported locations and transaction types. Available methods are shown during the transaction." },
+      "5": { "q": "How do Voyola benefits work?", "a": "Voyola-only benefits may be offered on eligible campaigns and transactions. Campaign terms, earning and redemption details are shown on the relevant offer screen." },
+      "6": { "q": "Do I need an account to use the app?", "a": "You can browse Voyola without creating a new account; for features such as purchases, payments, personalisation or benefits you can easily continue from there." },
+      "7": { "q": "Why is location requested?", "a": "When you grant location permission, Voyola may use location data to show nearby services and relevant suggestions. Details are explained in the Privacy Policy." },
+      "8": { "q": "How is my personal data protected?", "a": "Voyola applies processes and technical/organisational controls in line with applicable legislation on the processing of personal data. Details are provided in the Privacy Notice and Privacy Policy." },
+      "9": { "q": "How can I get support if I have a problem?", "a": "You can create a support request from the Help/Support area in the app or through the current contact channels listed on the website." }
+    }
+  },
+  "footer": {
+    "tagline": "Your airport experience, in one app.",
+    "product": "Product",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "kvkk": "Privacy Notice",
+    "contact": "Contact",
+    "partners": "Become a Partner",
+    "rights": "All rights reserved.",
+    "location": "Istanbul, Türkiye"
+  }
+}

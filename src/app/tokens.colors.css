@@ -1,0 +1,109 @@
+/* Voyola — color tokens. Values transcribed verbatim from "Voyola 2.fig".
+   The source file defines no Figma Variable collections, so the naming
+   hierarchy below is authored here; every hex is exact from the design. */
+
+:root{
+  /* ── Level 1 · raw ramps ─────────────────────────────────────── */
+  /* Indigo — blue-purples: headers, dark sections, gradient head */
+  --brand-indigo-950:#0F0634;
+  --brand-indigo-900:#1E0D5E;
+  --brand-indigo-800:#271768;
+  --brand-indigo-600:#2C1AA4;
+  /* Violet / magenta — the "Aura" end of the ramp */
+  --brand-violet-800:#581686;
+  --brand-violet-700:#A105A4;
+  --brand-violet-500:#9D28ED;
+  --brand-violet-400:#DC48EE;
+  --brand-magenta-500:#EF2EF2;
+
+  /* Neutrals */
+  --n-0:#FFFFFF;
+  --n-25:#FAFAFA;
+  --n-50:#F3F5F6;
+  --n-100:#EDEDED;
+  --n-150:#E8E8E8;
+  --n-200:#E3E3E3;
+  --n-250:#E0E0E0;
+  --n-300:#D9D9D9;
+  --n-350:#D4D4D4;
+  --n-400:#BCBCBC;
+  --n-500:#9A9A9A;
+  --n-550:#979797;
+  --n-600:#7E7E7E;
+  --n-700:#545454;
+  --n-900:#191B1F;
+  --n-1000:#000000;
+  --n-slate-400:#A5ACBF; /* only used for muted text on indigo */
+
+  /* Semantic hues */
+  --green-500:#5EC165;
+  --red-500:#ED1C24;
+  /* Warm ramp — appears once, on the "Şans Kutusu" banner */
+  --warm-lime:#CFDC19;
+  --warm-amber:#D59A26;
+  --warm-orange:#ED6A28;
+  --warm-red:#EE4B48;
+
+  /* Alphas */
+  --alpha-white-10:rgba(255,255,255,.1);
+  --alpha-white-20:rgba(255,255,255,.2);
+  --alpha-black-30:rgba(0,0,0,.3);
+  --alpha-n300-10:rgba(217,217,217,.1);
+
+  /* ── Level 2 · gradients ─────────────────────────────────────── */
+  /* Signature "Aura" gradient. Angle varies per placement in the source
+     (222.203° / 230.233° / 237.053° / 248.150° / 254.964°); stops are
+     constant. 237.053° is the homepage wallet card. */
+  --gradient-aura:linear-gradient(237.053deg,#1E0D5E -2.23%,#2C1AA4 37.66%,#9D28ED 72.24%,#DC48EE 104.69%); /* @kind color */
+  --gradient-aura-icon:linear-gradient(222.203deg,#1E0D5E -5.57%,#2C1AA4 35.32%,#9D28ED 70.76%,#DC48EE 104.02%); /* @kind color */
+  --gradient-aura-card:linear-gradient(230.233deg,#1E0D5E -3.71%,#2C1AA4 36.63%,#9D28ED 71.59%,#DC48EE 104.39%); /* @kind color */
+  --gradient-lucky-box:linear-gradient(252.464deg,#CFDC19 .35%,#D59A26 39.48%,#ED6A28 73.39%,#EE4B48 105.22%); /* @kind color */
+
+  /* ── Level 3 · semantic aliases ──────────────────────────────── */
+  /* Surfaces */
+  --surface-app:var(--n-25);
+  --surface-sheet:var(--n-50);
+  --surface-card:var(--n-0);
+  --surface-field:var(--n-50);
+  --surface-header:var(--brand-indigo-900);
+  --surface-dark-card:var(--brand-indigo-950);
+  --surface-dark-section:var(--brand-indigo-600);
+  --surface-accent-card:var(--brand-violet-500);
+  --surface-image-placeholder:var(--n-300);
+  --surface-image-tint:var(--brand-indigo-800);
+  --surface-control-track:var(--brand-indigo-600);
+  --surface-control-thumb:var(--n-0);
+
+  /* Text */
+  --text-primary:var(--n-1000);
+  --text-primary-alt:var(--n-900);
+  --text-secondary:var(--n-700);
+  --text-tertiary:var(--n-550);
+  --text-accent:var(--brand-magenta-500);
+  --text-on-dark:var(--n-0);
+  --text-on-dark-dim:var(--n-350);
+  --text-on-dark-muted:var(--n-slate-400);
+
+  /* Lines & icons */
+  --border-hairline:var(--n-100);
+  --border-divider:var(--n-150);
+  --border-card:var(--n-200);
+  --border-strong:var(--n-400);
+  --divider-on-dark:var(--alpha-white-10);
+  --icon-muted:var(--n-600);
+  --route-dot:var(--n-500);
+  --route-path:var(--alpha-black-30);
+
+  /* Actions & status */
+  --action-primary-bg:var(--brand-magenta-500);
+  --action-primary-fg:var(--n-0);
+  --action-secondary-bg:var(--brand-indigo-950);
+  --action-secondary-fg:var(--n-0);
+  --badge-offer-bg:var(--brand-violet-500);
+  --badge-offer-fg:var(--n-0);
+  --tag-purple-bg:var(--brand-violet-700);
+  --tag-plum-bg:var(--brand-violet-800);
+  --status-success:var(--green-500);
+  --status-notify:var(--red-500);
+  --overlay-pill:var(--alpha-white-20);
+}

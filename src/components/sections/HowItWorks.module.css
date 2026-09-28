@@ -1,0 +1,17 @@
+.sec { padding-block: clamp(80px, 10vw, 150px); }
+.head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 64px; }
+.steps { list-style: none; margin: 0; padding: 0; position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.line { position: absolute; left: 24px; right: 24px; top: 24px; height: 2px; background: var(--paper-line); }
+.fill { height: 100%; background: linear-gradient(90deg, var(--violet), var(--mag)); transform-origin: left; }
+.step { position: relative; display: flex; flex-direction: column; gap: 10px; padding-top: 72px; }
+.dot { position: absolute; top: 0; left: 0; width: 50px; height: 50px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; box-shadow: 0 0 0 8px var(--paper); }
+.num { font-family: var(--font-display); font-weight: 800; font-size: 13px; color: var(--mag); letter-spacing: 0.08em; }
+.step h3 { font-size: 24px; letter-spacing: -0.02em; }
+.step p { color: var(--paper-muted); font-size: 15px; }
+
+@media (max-width: 900px) {
+  .steps { grid-template-columns: 1fr; gap: 28px; padding-left: 0; }
+  .line { left: 24px; right: auto; top: 0; bottom: 0; width: 2px; height: auto; }
+  .fill { width: 100%; height: 100%; transform-origin: top; background: linear-gradient(180deg, var(--violet), var(--mag)); }
+  .step { padding-top: 0; padding-left: 76px; min-height: 60px; }
+}
