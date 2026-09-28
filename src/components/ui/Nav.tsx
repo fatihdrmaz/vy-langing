@@ -16,21 +16,11 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
 
-  const [hidden, setHidden] = useState(false);
-
-  // Scrolled state + hide-on-scroll-down (app-like), always visible near the top or while the menu is open
   useEffect(() => {
-    let last = window.scrollY;
     let raf = 0;
     const update = () => {
       raf = 0;
-      const y = window.scrollY;
-      setScrolled(y > 24);
-      const delta = y - last;
-      if (y < 120) setHidden(false);
-      else if (delta > 6) setHidden(true);
-      else if (delta < -6) setHidden(false);
-      last = y;
+      setScrolled(window.scrollY > 24);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);
@@ -79,7 +69,7 @@ export function Nav() {
   ] as const;
 
   return (
-    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""} ${hidden && !open ? styles.hidden : ""}`}>
+    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={`wrap ${styles.bar}`}>
         <a href="#top" className={styles.logo} aria-label="Voyola">
           <Logo height={34} />
