@@ -1,13 +1,14 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Logo } from "./Logo";
 import { LiveStrip } from "./LiveStrip";
-import { WEB_APP_URL } from "@/lib/seo";
+import { WEB_APP_URL, localePath } from "@/lib/seo";
 import styles from "./Footer.module.css";
 
 export function Footer() {
   const t = useTranslations("footer");
   const n = useTranslations("nav");
+  const home = localePath(useLocale());
   const year = new Date().getFullYear();
 
   return (
@@ -21,14 +22,14 @@ export function Footer() {
         </div>
         <nav aria-label={t("product")}>
           <b>{t("product")}</b>
-          <a href="#hizmetler">{n("services")}</a>
-          <a href="#avantajlar">{n("benefits")}</a>
-          <a href="#nasil">{n("how")}</a>
+          <a href={`${home}#hizmetler`}>{n("services")}</a>
+          <a href={`${home}#avantajlar`}>{n("benefits")}</a>
+          <a href={`${home}#nasil`}>{n("how")}</a>
           <a href={WEB_APP_URL} rel="noopener">{n("web")}</a>
         </nav>
         <nav aria-label={t("company")}>
           <b>{t("company")}</b>
-          <a href="#sss">{n("faq")}</a>
+          <a href={`${home}#sss`}>{n("faq")}</a>
           <a href="mailto:hello@voyola.com">{t("contact")}</a>
           <a href="mailto:partners@voyola.com">{t("partners")}</a>
         </nav>

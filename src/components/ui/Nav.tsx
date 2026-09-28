@@ -5,7 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { Logo } from "./Logo";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
-import { WEB_APP_URL } from "@/lib/seo";
+import { WEB_APP_URL, localePath } from "@/lib/seo";
 import styles from "./Nav.module.css";
 
 export function Nav({ solid = false }: { solid?: boolean }) {
@@ -60,6 +60,9 @@ export function Nav({ solid = false }: { solid?: boolean }) {
     return () => document.documentElement.classList.remove("lenis-stopped");
   }, [open]);
 
+  // On the home page anchors scroll; on other pages (privacy, terms) they navigate home first.
+  const onHome = pathname === "/";
+  const to = (hash: string) => `${localePath(locale)}${hash}`;
   const links = [
     ["#kesfet", t("discover")],
     ["#hizmetler", t("services")],
@@ -71,13 +74,13 @@ export function Nav({ solid = false }: { solid?: boolean }) {
   return (
     <header className={`${styles.nav} ${scrolled || solid ? styles.scrolled : ""}`}>
       <div className={`wrap ${styles.bar}`}>
-        <a href="#top" className={styles.logo} aria-label="Voyola">
+        <Link href="/" className={styles.logo} aria-label="Voyola">
           <Logo height={34} />
-        </a>
+        </Link>
 
         <nav className={styles.links} aria-label="Primary">
           {links.map(([href, label]) => (
-            <a key={href} href={href} aria-current={active === href ? "true" : undefined} onClick={() => setOpen(false)}>
+            <a key={href} href={to(href)} aria-current={onHome && active === href ? "true" : undefined} onClick={() => setOpen(false)}>
               {label}
             </a>
           ))}
@@ -94,7 +97,7 @@ export function Nav({ solid = false }: { solid?: boolean }) {
           <a className={`btn btn-ghost btn-sm ${styles.hideSm}`} href={WEB_APP_URL} rel="noopener">
             {t("web")}
           </a>
-          <a className="btn btn-primary btn-sm" href="#indir" data-magnetic="4">
+          <a className="btn btn-primary btn-sm" href={to("#indir")} data-magnetic="4">
             {t("download")}
           </a>
           <button className={styles.burger} aria-expanded={open} aria-controls="mobile-menu" aria-label={open ? t("close") : t("menu")} onClick={() => setOpen((v) => !v)}>
@@ -107,11 +110,11 @@ export function Nav({ solid = false }: { solid?: boolean }) {
       <ScrollProgress />
       <div id="mobile-menu" className={`${styles.sheet} ${open ? styles.sheetOpen : ""}`} hidden={!open}>
         {links.map(([href, label]) => (
-          <a key={href} href={href} onClick={() => setOpen(false)}>
+          <a key={href} href={to(href)} onClick={() => setOpen(false)}>
             {label}
           </a>
         ))}
-        <a className="btn btn-primary" href="#indir" onClick={() => setOpen(false)}>
+        <a className="btn btn-primary" href={to("#indir")} onClick={() => setOpen(false)}>
           {t("download")}
         </a>
         <a className="btn btn-ghost" href={WEB_APP_URL} rel="noopener">

@@ -23,16 +23,29 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     // Anchor links go through Lenis so pinned sections offset correctly
     const onClick = (e: MouseEvent) => {
-      const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href^="#"]');
+      const a = (e.target as HTMLElement).closest<HTMLAnchorElement>("a[href]");
       if (!a) return;
-      const id = a.getAttribute("href")!.slice(1);
+      let url: URL;
+      try {
+        url = new URL(a.href, location.href);
+      } catch {
+        return;
+      }
+      if (url.origin !== location.origin || url.pathname !== location.pathname || !url.hash) return;
+      const id = decodeURIComponent(url.hash.slice(1));
       const el = id && document.getElementById(id);
       if (!el) return;
       e.preventDefault();
       lenis.scrollTo(el, { offset: -72, duration: 1.4 });
-      history.replaceState(null, "", `#${id}`);
+      history.replaceState(null, "", url.hash);
     };
     document.addEventListener("click", onClick);
+
+    // Arrived from another page with a hash (e.g. /privacy → /#sss): let pinned sections lay out, then go there
+    if (location.hash) {
+      const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el) setTimeout(() => lenis.scrollTo(el, { offset: -72, duration: 1.2 }), 400);
+    }
 
     return () => {
       document.removeEventListener("click", onClick);
