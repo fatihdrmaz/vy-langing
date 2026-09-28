@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import { Phone, StatusBar } from "@/components/phone/Phone";
 import { Icon, type IconName } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
@@ -16,14 +16,6 @@ const STATES: { key: StateKey; from: number; icon: IconName; soon: boolean }[] =
   { key: "rush", from: 20, icon: "buggy", soon: true },
 ];
 const START = 150;
-const END = 8;
-
-function stateFor(min: number): number {
-  if (min > 95) return 0;
-  if (min > 45) return 1;
-  if (min > 20) return 2;
-  return 3;
-}
 
 // Section 03: the signature scroll — minutes-to-boarding count down as you scroll; the suggestion follows.
 export function Moment() {
@@ -44,33 +36,36 @@ export function Moment() {
         return;
       }
       const desktop = isDesktop();
-      const state = { min: START };
-      gsap.to(state, {
-        min: END,
-        ease: "none",
-        scrollTrigger: {
-          trigger: el,
-          start: "top top",
-          end: desktop ? "+=220%" : "+=170%",
-          pin: true,
-          invalidateOnRefresh: true,
-          scrub: 0.5,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            const p = self.progress;
-            ring.style.strokeDashoffset = String(Math.round((1 - p) * 1000) / 1000);
-            dots.forEach((d, i) => d.classList.toggle(styles.dotOn, p >= i / 3 - 0.02));
+      // Four discrete stops instead of a continuous countdown: scroll snaps to a stop, the counter tweens to its value.
+      const STOPS = [150, 75, 35, 12];
+      const shown = { v: STOPS[0] };
+      let stage = 0;
+      const setStage = (i: number) => {
+        if (i === stage && shown.v === STOPS[i]) return;
+        stage = i;
+        gsap.to(shown, {
+          v: STOPS[i],
+          duration: 0.6,
+          ease: "power2.out",
+          overwrite: true,
+          onUpdate: () => {
+            if (numRef.current) numRef.current.textContent = String(Math.round(shown.v));
           },
-        },
-        onUpdate: () => {
-          const m = Math.round(state.min);
-          if (numRef.current) numRef.current.textContent = String(m);
-          const i = stateFor(m);
-          if (i !== idxRef.current) {
-            idxRef.current = i;
-            setIdx(i);
-          }
-        },
+        });
+        gsap.to(ring, { strokeDashoffset: 1 - i / 3, duration: 0.6, ease: "power2.out", overwrite: true });
+        dots.forEach((d, k) => d.classList.toggle(styles.dotOn, k <= i));
+        idxRef.current = i;
+        setIdx(i);
+      };
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top top",
+        end: desktop ? "+=140%" : "+=120%",
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        snap: { snapTo: 1 / 3, duration: { min: 0.15, max: 0.4 }, ease: "power1.inOut" },
+        onUpdate: (self) => setStage(Math.min(3, Math.floor(self.progress * 4))),
       });
     },
     { scope: root },
