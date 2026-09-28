@@ -50,11 +50,23 @@
 .enc span { width: 24px; height: 24px; border-radius: 50%; background: #5ec165; display: grid; place-items: center; color: #fff; }
 
 @media (max-width: 1023px) {
-  .grid { grid-template-columns: 1fr; gap: 40px; }
-  .panel { min-height: 0; padding: 28px 22px 90px; }
-  .receipt { width: 100%; margin: 0; }
-  .chatQ { position: static; margin-top: 16px; margin-left: auto; }
-  .chatA { position: static; margin-top: 10px; }
-  .enc { left: 22px; bottom: 26px; }
+  /* mobile: the pinned timeline drives these, not the reveal observer */
+  .sec [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .sec { padding-block: 0; }
+  .grid { grid-template-columns: 1fr; gap: 16px; min-height: 100svh; align-content: start; padding-top: 84px; padding-bottom: 16px; }
+  .copy { gap: 10px; }
+  .copy :global(.h2) { font-size: clamp(26px, 7vw, 36px); }
+  .copy :global(.lede) { display: none; }
+  .copy :global(.btn) { display: none; }
+  .list { grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0 0; }
+  .list li { gap: 10px; align-items: center; padding: 10px; border-radius: 14px; background: var(--paper); }
+  .list b { font-size: 14px; margin: 0; }
+  .list p { display: none; }
+  .ic { width: 34px; height: 34px; border-radius: 10px; background: #fff; }
+  .panel { min-height: 0; padding: 22px 18px 64px; border-radius: 26px; }
+  .receipt { width: min(300px, 82%); margin: 0 auto 0 0; padding: 14px 16px 22px; }
+  .rAmount { font-size: 32px; }
+  .chatQ { top: 6%; right: 4%; max-width: 46%; font-size: 12px; }
+  .chatA { right: 3%; bottom: 14%; max-width: 62%; font-size: 12px; }
+  .enc { left: 18px; bottom: 16px; font-size: 11px; }
 }
-@media (max-width: 600px) { .list { grid-template-columns: 1fr; } }

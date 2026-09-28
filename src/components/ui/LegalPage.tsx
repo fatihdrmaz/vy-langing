@@ -17,7 +17,7 @@ export function LegalPage({ kind, locale }: { kind: keyof typeof COPY; locale: s
   const c = COPY[kind][locale === "tr" ? "tr" : "en"];
   return (
     <>
-      <Nav />
+      <Nav solid />
       <main className="light" style={{ paddingTop: 140, minHeight: "70vh" }}>
         <article className="wrap" style={{ maxWidth: 820, paddingBottom: 120 }}>
           <h1 className="h2" style={{ marginBottom: 28 }}>{c.title}</h1>

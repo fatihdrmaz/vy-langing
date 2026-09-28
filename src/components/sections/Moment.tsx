@@ -58,7 +58,7 @@ export function Moment() {
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
-        snap: { snapTo: 1 / 3, duration: { min: 0.15, max: 0.4 }, ease: "power1.inOut" },
+        snap: { snapTo: 1 / 3, duration: { min: 0.15, max: 0.4 }, ease: "power1.inOut", inertia: false },
         onUpdate: (self) => setStage(Math.min(3, Math.floor(self.progress * 4))),
       });
     },

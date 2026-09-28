@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion } from "@/lib/gsap";
+import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import { Icon } from "@/components/phone/Icons";
 import { Mark } from "@/components/ui/Logo";
 import styles from "./HowItWorks.module.css";
@@ -18,6 +18,31 @@ export function HowItWorks() {
       const el = root.current!;
       const fill = el.querySelector<HTMLElement>(`.${styles.fill}`)!;
       const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
+
+      if (!isDesktop()) {
+        // Phone: pinned deck — each card slides up and lands on the previous one; the counter follows
+        const counter = el.querySelector<HTMLElement>(`.${styles.mCount}`);
+        const mFill = el.querySelector<HTMLElement>(`.${styles.mFill}`);
+        const H = () => window.innerHeight * 0.8;
+        cards.forEach((c, k) => { gsap.set(c, { y: k === 0 ? 0 : H(), zIndex: k + 1 }); if (k === 0) c.classList.add(styles.live); });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: el, start: "top top", end: "+=" + (cards.length - 1) * 70 + "%", pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true,
+            snap: { snapTo: 1 / (cards.length - 1), duration: { min: 0.15, max: 0.4 }, ease: "power1.inOut", inertia: false },
+            onUpdate: (self) => {
+              const k = Math.min(cards.length - 1, Math.round(self.progress * (cards.length - 1)));
+              if (counter) counter.textContent = `0${k + 1}`;
+              if (mFill) mFill.style.transform = `scaleX(${(k + 1) / cards.length})`;
+              cards.forEach((c, j) => { if (j <= k) c.classList.add(styles.live); });
+            },
+          },
+        });
+        for (let k = 1; k < cards.length; k++) {
+          tl.to(cards[k], { y: k * 10, duration: 1, ease: "power2.out" }, (k - 1) * 1.05);
+          for (let j = 0; j < k; j++) tl.to(cards[j], { scale: 1 - (k - j) * 0.04, y: j * 10 - (k - j) * 6, duration: 1, ease: "power2.out" }, (k - 1) * 1.05);
+        }
+        return;
+      }
       gsap.fromTo(fill, { scaleX: 0 }, { scaleX: 1, ease: "none", scrollTrigger: { trigger: el.querySelector(`.${styles.rail}`), start: "top 80%", end: "bottom 35%", scrub: true } });
       gsap.from(cards, { y: 40, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out", scrollTrigger: { trigger: cards[0], start: "top 85%", once: true } });
       cards.forEach((c) => {
@@ -42,6 +67,12 @@ export function HowItWorks() {
           <p className="lede muted" data-reveal data-reveal-delay="2">
             {t("intro")}
           </p>
+        </div>
+
+        <div className={styles.mProgress} aria-hidden="true">
+          <b className={styles.mCount}>01</b>
+          <span className={styles.mTrack}><i className={styles.mFill} /></span>
+          <small>04</small>
         </div>
 
         <div className={styles.rail} aria-hidden="true">

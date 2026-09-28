@@ -8,7 +8,7 @@ import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { WEB_APP_URL } from "@/lib/seo";
 import styles from "./Nav.module.css";
 
-export function Nav() {
+export function Nav({ solid = false }: { solid?: boolean }) {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
@@ -69,7 +69,7 @@ export function Nav() {
   ] as const;
 
   return (
-    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
+    <header className={`${styles.nav} ${scrolled || solid ? styles.scrolled : ""}`}>
       <div className={`wrap ${styles.bar}`}>
         <a href="#top" className={styles.logo} aria-label="Voyola">
           <Logo height={34} />

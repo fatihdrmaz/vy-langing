@@ -1,4 +1,8 @@
+"use client";
+
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
+import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import { Icon } from "@/components/phone/Icons";
 import { Link } from "@/i18n/navigation";
 import styles from "./Trust.module.css";
@@ -6,6 +10,29 @@ import styles from "./Trust.module.css";
 // Section 08: calm and concrete — trust claims on the left, a real-looking transaction receipt + support thread on the right.
 export function Trust() {
   const t = useTranslations("trust");
+  const root = useRef<HTMLElement>(null);
+
+  useGSAP(
+    () => {
+      if (prefersReducedMotion() || isDesktop()) return;
+      const el = root.current!;
+      const items = gsap.utils.toArray<HTMLElement>(`.${styles.list} li`);
+      const receipt = el.querySelector(`.${styles.receipt}`)!;
+      const q = el.querySelector(`.${styles.chatQ}`)!;
+      const a = el.querySelector(`.${styles.chatA}`)!;
+      const enc = el.querySelector(`.${styles.enc}`)!;
+      const tl = gsap.timeline({
+        scrollTrigger: { trigger: el, start: "top top", end: "+=140%", pin: true, scrub: 0.6, anticipatePin: 1, invalidateOnRefresh: true },
+      });
+      tl.from(items, { y: 24, opacity: 0, stagger: 0.12, duration: 0.5, ease: "power2.out" }, 0)
+        .from(receipt, { y: 60, opacity: 0, scale: 0.94, duration: 0.6, ease: "power2.out" }, 0.4)
+        .from(q, { x: 80, opacity: 0, duration: 0.5, ease: "power2.out" }, 1.0)
+        .from(a, { x: -80, opacity: 0, duration: 0.5, ease: "power2.out" }, 1.4)
+        .from(enc, { scale: 0.6, opacity: 0, duration: 0.4, ease: "back.out(1.7)" }, 1.8)
+        .to({}, { duration: 0.3 });
+    },
+    { scope: root },
+  );
   const items = [
     { key: "data", icon: Icon.lock },
     { key: "pay", icon: Icon.shield },
@@ -14,7 +41,7 @@ export function Trust() {
   ] as const;
 
   return (
-    <section className={styles.sec} aria-labelledby="trust-title">
+    <section ref={root} className={styles.sec} aria-labelledby="trust-title">
       <div className={`wrap ${styles.grid}`}>
         <div className={styles.copy}>
           <span className="eyebrow" data-reveal>
