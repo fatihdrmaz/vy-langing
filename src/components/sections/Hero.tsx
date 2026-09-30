@@ -31,7 +31,6 @@ export function Hero() {
       const figure = el.querySelector<HTMLElement>(`.${styles.figure}`)!;
       const ground = el.querySelector<HTMLElement>(`.${styles.ground}`)!;
       const bg = el.querySelector<HTMLElement>(`.${styles.bgImg}`)!;
-      const copy = el.querySelector<HTMLElement>(`.${styles.copy}`)!;
       const notes = gsap.utils.toArray<HTMLElement>(`.${styles.note}`);
       const scrollHint = el.querySelector<HTMLElement>(`.${styles.scrollHint}`)!;
       const zoom = el.querySelector<HTMLElement>(`.${styles.zoom}`)!;
@@ -45,44 +44,43 @@ export function Hero() {
         return;
       }
 
-      // Intro (no scroll needed)
-      gsap.from(figure, { opacity: 0, x: -40, duration: 1.2, ease: "power3.out", delay: 0.3 });
+      // Autoplay: the hero tells its story on its own (no pin, no scroll-jacking). Starts 1.2s after load;
+      // if the visitor scrolls before it finishes, it fast-forwards instead of being cut off.
+      gsap.from(figure, { opacity: 0, x: -40, duration: 1.0, ease: "power3.out", delay: 0.3 });
 
-      // Scroll-driven walk: pin the stage, traveller walks into the terminal (away from camera → smaller, higher).
       const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start: "top top",
-          end: "+=85%",
-          pin: stage,
-          scrub: 0.6,
-          anticipatePin: 1,
-          onUpdate: (self) => {
-            const p = Math.min(1, self.progress / 0.45);
-            walker.current?.setProgress(p, 1);
-            reflection.current?.setProgress(p, 1);
-          },
+        delay: 1.2,
+        defaults: { ease: "none" },
+        onUpdate: () => {
+          const p = Math.min(1, tl.progress() / 0.55);
+          walker.current?.setProgress(p, 1);
+          reflection.current?.setProgress(p, 1);
         },
       });
-
-      tl.to(figure, { xPercent: 105, yPercent: -22, scale: 0.55, ease: "none", duration: 0.45 }, 0)
-        .to(ground, { xPercent: -22, ease: "none", duration: 1 }, 0)
-        .to(bg, { scale: 1.16, xPercent: -3, ease: "none", duration: 1 }, 0)
-        .to(scrollHint, { opacity: 0, duration: 0.1 }, 0)
-        .to(copy, { yPercent: -2, ease: "none", duration: 0.45 }, 0)
-        // hand-off: phone emerges near the traveller, settles centre, then its screen swallows the viewport
-        .fromTo(zoom, { opacity: 0, scale: 0.3, yPercent: 30, xPercent: 50 }, { opacity: 1, scale: 1, yPercent: 0, xPercent: 0, duration: 0.3, ease: "power2.out" }, 0.45)
-        .to([copy, figureWrap], { opacity: 0, duration: 0.15, ease: "power1.in" }, 0.5)
-        .to(zoom, { yPercent: -3, duration: 0.25, ease: "none" }, 0.75);
-
-      // Journey notes pop in along the path
-      // Journey notes: appear one after another and stay (a growing trail), previous ones dim slightly
+      // 0 → 0.55: the walk (12 frames once), traveller recedes into the terminal
+      tl.to(figure, { xPercent: 105, yPercent: -22, scale: 0.55, duration: 2.2 }, 0)
+        .to(ground, { xPercent: -14, duration: 4 }, 0)
+        .to(bg, { scale: 1.1, xPercent: -2, duration: 4 }, 0)
+        .to(scrollHint, { opacity: 0, duration: 0.3 }, 0);
+      // journey notes pop in along the way and stay as a trail
       notes.forEach((n, i) => {
-        const at = 0.03 + i * 0.13;
-        tl.fromTo(n, { opacity: 0, y: 22, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.1, ease: "back.out(1.6)" }, at);
-        if (i < notes.length - 1) tl.to(n, { opacity: 0.55, scale: 0.96, duration: 0.08 }, at + 0.13);
-        tl.to(n, { opacity: 0, y: -14, duration: 0.08 }, 0.5);
+        const at = 0.2 + i * 0.55;
+        tl.fromTo(n, { opacity: 0, y: 22, scale: 0.92 }, { opacity: 1, y: 0, scale: 1, duration: 0.4, ease: "back.out(1.6)" }, at);
+        if (i < notes.length - 1) tl.to(n, { opacity: 0.55, scale: 0.96, duration: 0.3, ease: "power1.out" }, at + 0.55);
       });
+      // 0.55 → 1: the phone emerges from the traveller's hand and settles centre-right; notes retire
+      tl.fromTo(zoom, { opacity: 0, scale: 0.3, yPercent: 30, xPercent: 50 }, { opacity: 1, scale: 1, yPercent: 0, xPercent: 0, duration: 1.1, ease: "power2.out" }, 2.2)
+        .to(figureWrap, { opacity: 0, duration: 0.6, ease: "power1.in" }, 2.4)
+        .to(notes, { opacity: 0, y: -14, duration: 0.4, ease: "power1.in" }, 2.4);
+
+      // Early scroll → finish quickly rather than leaving the scene half-told
+      const hurry = () => { if (tl.progress() < 1) tl.timeScale(3.5); };
+      window.addEventListener("scroll", hurry, { passive: true, once: true });
+
+      // Gentle parallax while the hero scrolls away (no pin)
+      gsap.to(stage, { yPercent: 18, ease: "none", scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true } });
+
+      return () => window.removeEventListener("scroll", hurry);
     },
     { scope: root },
   );

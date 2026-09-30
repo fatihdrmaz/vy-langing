@@ -123,11 +123,11 @@
 
 /* ── Hand-off phone + curtain ── */
 .zoom {
-  position: absolute; left: 50%; top: 52%; z-index: 4;
+  position: absolute; left: 70%; top: 50%; z-index: 4;
   transform: translate(-50%, -50%); transform-origin: 50% 38%; opacity: 0; will-change: transform, opacity; pointer-events: none;
 }
-.zoomPhone { --ps: 1; }
-@media (max-width: 1023px) { .zoomPhone { --ps: 0.68; } }
+.zoomPhone { --ps: 0.9; }
+@media (max-width: 1023px) { .zoomPhone { --ps: 0.55; } .zoom { left: 66%; top: 66%; } }
 
 .scrollHint {
   position: absolute; left: var(--gut); bottom: 24px; z-index: 3;
