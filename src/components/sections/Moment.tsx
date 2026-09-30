@@ -3,8 +3,8 @@
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
-import { Phone, StatusBar } from "@/components/phone/Phone";
-import { TabBar } from "@/components/phone/TabBar";
+import { Phone } from "@/components/phone/Phone";
+import { Shot } from "@/components/phone/Shot";
 import { Icon, type IconName } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
 import { RollingNumber } from "@/components/motion/RollingNumber";
@@ -110,26 +110,8 @@ export function Moment() {
 
         <div className={styles.phoneWrap}>
           <Phone className={styles.phone}>
-            <StatusBar />
-            <div className={s.app}>
-              <div className={s.top}>
-                <div>
-                  <small>IST → LHR · TK 1985</small>
-                  <b>
-                    {t("gate")} F7 · {t("boarding")} 18:05
-                  </b>
-                </div>
-              </div>
-              <div className={styles.mapCard} aria-hidden="true">
-                <svg viewBox="0 0 280 120" className={styles.map}>
-                  <path d="M10 90 C 60 80, 90 30, 150 40 S 240 70, 270 30" fill="none" stroke="rgba(33,10,96,0.25)" strokeWidth="2" strokeDasharray="4 5" />
-                  <circle cx="10" cy="90" r="5" fill="#ab04f2" />
-                  <circle cx="270" cy="30" r="6" fill="#ef2ef2" />
-                  <circle cx="150" cy="40" r="3" fill="#210a60" />
-                </svg>
-                <span className={styles.you}>{t("gate")} F7</span>
-              </div>
-
+            <Shot name="notifications" />
+            <div className={styles.overlay}>
               <div key={st.key} className={`${s.suggest} ${styles.suggest}`}>
                 <span className={s.tag}>{t(`states.${st.key}.tag`)}</span>
                 <div className={styles.sugHead}>
@@ -142,8 +124,6 @@ export function Moment() {
                   {st.soon ? <span className={styles.soonTag}>{t("soon")}</span> : Icon.arrow({ size: 16 })}
                 </span>
               </div>
-
-              <TabBar active="home" />
             </div>
           </Phone>
         </div>

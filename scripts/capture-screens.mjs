@@ -8,7 +8,7 @@ const REPLACE = [
   [/Çağdaş Karademir|Zeynep Özkan/g, "Deniz Kaya"], [/ÇK|ZÖ/g, "DK"], [/Wallet top-up/g, "Top-up"], [/^Wallet$/g, "Points"],
   [/2× Aura/g, "2× puan"], [/\bAura\b/g, "Puan"],
   [/Simit Sarayı/g, "Fırın & Simit"], [/Starbucks/g, "Kahve Durağı"], [/Chanel|CHANEL/g, "Parfüm"], [/N°5[^|]*/g, "Signature"], [/Unifree Duty Free|Unifree/g, "Duty Free"],
-  [/One wallet for your whole journey/g, "Your airport, in one app"], [/\bwallet\b/gi, "account"],
+  [/One wallet for your whole journey/g, "Your airport, in one app"], [/IGA Lounge/g, "the lounge"], [/\bwallet\b/gi, "account"],
 ];
 const sanitize = () => {
   const map = window.__REPLACE.map(([r, to]) => [new RegExp(r.source, r.flags), to]);
@@ -26,6 +26,8 @@ const shots = [
   { name: "pay", url: "/templates/mobile-5-pay/Pay.dc.html" },
   { name: "campaigns", url: "/templates/mobile-7-campaigns/Campaigns.dc.html", after: async (p) => { await p.evaluate((site) => { const pics = ["fnb-restaurant.jpg", "campaign-kv.jpg", "svc-lounge.jpg", "svc-fasttrack.jpg", "svc-meetgreet.jpg"]; document.querySelectorAll('img[src*="unsplash"]').forEach((img, i) => { img.src = `${site}/media/${pics[i % pics.length]}`; }); }, SITE); await p.waitForTimeout(1500); } },
   { name: "webauth", url: "/templates/web-1-auth/WebAuth.dc.html" },
+  { name: "paysuccess", url: "/templates/mobile-5.3-pay-success/PaySuccess.dc.html" },
+  { name: "notifications", url: "/templates/mobile-3.2-dashboard-notifications/Notifications.dc.html" },
 ];
 for (const s of shots) {
   const p = await ctx.newPage();

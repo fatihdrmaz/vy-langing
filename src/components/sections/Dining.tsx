@@ -4,10 +4,8 @@ import Image from "next/image";
 import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
-import { Phone, StatusBar } from "@/components/phone/Phone";
+import { Phone } from "@/components/phone/Phone";
 import { Shot } from "@/components/phone/Shot";
-import { Icon } from "@/components/phone/Icons";
-import s from "@/components/phone/screens.module.css";
 import styles from "./Dining.module.css";
 
 // Section 04: sticky copy + sticky phone; three beats scroll past on the right and switch the phone screen.
@@ -94,23 +92,9 @@ export function Dining() {
               <div className={styles.screen}>
                 <Shot name="pay" />
               </div>
-              {/* Screen 3: paid */}
-              <div className={`${styles.screen} ${styles.stack}`}>
-                <StatusBar />
-                <div className={s.app}>
-                <div className={s.top}>
-                  <div>
-                    <small>Pay</small>
-                    <b>{t("paySteps.2")}</b>
-                  </div>
-                </div>
-                <div className={styles.paidBody}>
-                  <span className={styles.tick}>{Icon.check({ size: 28 })}</span>
-                  <b>₺186,00</b>
-                  <span>{t("sample.0.n")}</span>
-                  <span className={styles.pts}>+24 Voyola Points</span>
-                </div>
-                </div>
+              {/* Screen 3: payment summary (real) */}
+              <div className={styles.screen}>
+                <Shot name="paysuccess" />
               </div>
             </div>
           </Phone>
