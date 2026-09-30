@@ -22,6 +22,7 @@
 .phone { --ps: 1; }
 .screens { position: relative; flex: 1; min-height: 0; }
 .screen { position: absolute; inset: 0; }
+.stack { display: flex; flex-direction: column; }
 .scan { top: 12px; }
 
 .paidBody { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; text-align: center; }

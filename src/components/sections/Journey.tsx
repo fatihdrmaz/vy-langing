@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import { Phone } from "@/components/phone/Phone";
-import { DashboardScreen, DASH_ROWS } from "@/components/phone/DashboardScreen";
+import { DASH_ROWS } from "@/components/phone/DashboardScreen";
+import { Shot } from "@/components/phone/Shot";
 import { Icon } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
 import styles from "./Journey.module.css";
@@ -68,7 +69,7 @@ export function Journey() {
 
         <div className={styles.orbit}>
           <Phone className={styles.phone}>
-            <DashboardScreen rowAttr={{ "data-row": "" }} />
+            <Shot name="dashboard" />
           </Phone>
 
           <div className={styles.pills}>

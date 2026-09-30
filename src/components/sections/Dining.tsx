@@ -5,6 +5,7 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, useGSAP, prefersReducedMotion } from "@/lib/gsap";
 import { Phone, StatusBar } from "@/components/phone/Phone";
+import { Shot } from "@/components/phone/Shot";
 import { Icon } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
 import styles from "./Dining.module.css";
@@ -53,7 +54,6 @@ export function Dining() {
     { scope: root },
   );
 
-  const sample = [0, 1, 2, 3] as const;
 
   return (
     <section ref={root} className={styles.sec} aria-labelledby="dining-title">
@@ -85,59 +85,19 @@ export function Dining() {
         {/* Col 2: phone (sticky) */}
         <div className={styles.phoneCol}>
           <Phone className={styles.phone}>
-            <StatusBar />
             <div className={styles.screens}>
-              {/* Screen 1: discovery */}
-              <div className={`${s.app} ${styles.screen}`}>
-                <div className={s.top}>
-                  <div>
-                    <small>{t("eyebrow")}</small>
-                    <b>Gate F · 12 {t("filters.near").toLowerCase()}</b>
-                  </div>
-                </div>
-                <div className={s.chips}>
-                  {(["all", "coffee", "quick", "sit", "near"] as const).map((f, i) => (
-                    <span key={f} className={i === 0 ? s.on : undefined}>
-                      {t(`filters.${f}`)}
-                    </span>
-                  ))}
-                </div>
-                {sample.map((i) => (
-                  <div key={i} className={s.row}>
-                    <span className={s.thumb} />
-                    <span className={s.tx}>
-                      <b>{t(`sample.${i}.n`)}</b>
-                      <span>{t(`sample.${i}.m`)}</span>
-                    </span>
-                    {t(`sample.${i}.tag`) && <span className={s.soon}>{t(`sample.${i}.tag`)}</span>}
-                  </div>
-                ))}
+              {/* Screen 1: campaigns (real) */}
+              <div className={styles.screen}>
+                <Shot name="campaigns" />
               </div>
-              {/* Screen 2: scanning */}
-              <div className={`${s.app} ${styles.screen}`}>
-                <div className={s.top}>
-                  <div>
-                    <small>Pay</small>
-                    <b>{t("paySteps.0")}</b>
-                  </div>
-                </div>
-                <div className={s.qr}>
-                  <div className={s.qrBox}>
-                    <span className={`${s.scanline} ${styles.scan}`} />
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#210a60" strokeWidth="2">
-                      <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" />
-                      <path d="M14 14h3v3h-3zM20 14v3M17 20h3M14 20h1" />
-                    </svg>
-                  </div>
-                </div>
-                <div className={s.sheet}>
-                  <span className={s.merchant}>{t("sample.0.n")}</span>
-                  <b className={s.amt}>₺186,00</b>
-                  <span className={s.cta}>{t("paySteps.1")}</span>
-                </div>
+              {/* Screen 2: pay QR (real) */}
+              <div className={styles.screen}>
+                <Shot name="pay" />
               </div>
               {/* Screen 3: paid */}
-              <div className={`${s.app} ${styles.screen}`}>
+              <div className={`${styles.screen} ${styles.stack}`}>
+                <StatusBar />
+                <div className={s.app}>
                 <div className={s.top}>
                   <div>
                     <small>Pay</small>
@@ -149,6 +109,7 @@ export function Dining() {
                   <b>₺186,00</b>
                   <span>{t("sample.0.n")}</span>
                   <span className={styles.pts}>+24 Voyola Points</span>
+                </div>
                 </div>
               </div>
             </div>

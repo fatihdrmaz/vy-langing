@@ -1,7 +1,7 @@
-import { Phone, StatusBar } from "@/components/phone/Phone";
+import { Phone } from "@/components/phone/Phone";
+import { Shot } from "@/components/phone/Shot";
 import { Waitlist } from "@/components/ui/Waitlist";
 import { WEB_APP_URL } from "@/lib/seo";
-import s from "@/components/phone/screens.module.css";
 import styles from "./Download.module.css";
 import { StoreBadges } from "@/components/ui/StoreBadges";
 import { QrBox } from "@/components/ui/QrBox";
@@ -38,27 +38,7 @@ export async function Download() {
             <QrBox label={t("qr")} locale={locale} />
           </div>
           <Phone className={styles.phone} glow={false}>
-            <StatusBar />
-            <div className={s.app}>
-              <div className={s.hero}>
-                <small>Voyola Points</small>
-                <span className={s.big}>1.240</span>
-                <div className={s.tags}>
-                  <span>IST</span>
-                  <span>TK 1985</span>
-                </div>
-              </div>
-              <div className={s.row}><span className={s.thumb} /><span className={s.tx}><b>Lounge</b><span>{t("soon")}</span></span></div>
-              <div className={s.row}><span className={s.thumb} /><span className={s.tx}><b>Fast Track</b><span>{t("soon")}</span></span></div>
-              <div className={s.row}><span className={s.thumb} /><span className={s.tx}><b>Pay with QR</b><span>Gate F · 3 min</span></span></div>
-              <div className={s.tabbar}>
-                <span className={s.tabOn}><i />Home</span>
-                <span><i />Services</span>
-                <span><i className={s.fab} />Pay</span>
-                <span><i />Purchases</span>
-                <span><i />Wallet</span>
-              </div>
-            </div>
+            <Shot name="dashboard" />
           </Phone>
         </div>
       </div>

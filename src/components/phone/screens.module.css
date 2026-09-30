@@ -1,3 +1,6 @@
+/* Real app screen capture (public/screens/*.webp, 390×844 @2x) */
+.shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+
 /* Shared app-screen primitives (mirrors DS hi-fi rules: light canvas, white borderless cards, aura only on wallet hero) */
 .app { flex: 1; padding: 6px 14px 34px; display: flex; flex-direction: column; gap: 8px; min-height: 0; overflow: hidden; }
 .app > * { flex-shrink: 0; }
