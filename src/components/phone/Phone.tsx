@@ -1,14 +1,13 @@
 import styles from "./Phone.module.css";
 
-// iPhone-ish frame; children = screen. Kept CSS-only so it renders in SSR and animates cheaply.
+// iPhone-ish frame; children = screen. The real screen captures carry their own status bar, Dynamic Island
+// and home indicator, so the frame draws only the bezel.
 export function Phone({ children, className, glow = true }: { children: React.ReactNode; className?: string; glow?: boolean }) {
   return (
     <div className={`${styles.phone} ${className ?? ""}`} aria-hidden="true">
       {glow && <div className={styles.glow} />}
       <div className={styles.body}>
-        <div className={styles.island} />
         <div className={styles.screen}>{children}</div>
-        <div className={styles.home} />
       </div>
     </div>
   );
