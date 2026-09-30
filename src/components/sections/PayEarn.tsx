@@ -92,7 +92,7 @@ export function PayEarn() {
           <div className={styles.cardWrap}>
             <div ref={cardRef} className={styles.card}>
               <div className={styles.cardTop}>
-                <Logo height={20} ink="#fff" />
+                <Logo height={26} ink="#fff" />
                 <span className={styles.cardChip} />
               </div>
               <div className={styles.cardMid}>

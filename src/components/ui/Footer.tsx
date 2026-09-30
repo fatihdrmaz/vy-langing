@@ -15,7 +15,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={`wrap ${styles.grid}`}>
         <div className={styles.brand}>
-          <Logo height={30} ink="#fff" />
+          <Logo height={40} ink="#fff" />
           <p>{t("tagline")}</p>
           <span className={styles.loc}>{t("location")}</span>
           <LiveStrip />

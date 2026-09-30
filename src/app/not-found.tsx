@@ -13,7 +13,7 @@ export default function NotFound() {
       <body style={{ minHeight: "100vh", display: "grid", placeItems: "center", background: "radial-gradient(80% 60% at 70% 0%, rgba(171,4,242,0.25), transparent 60%), #100535", padding: 24 }}>
         <main style={{ maxWidth: 560, width: "100%", textAlign: "left" }}>
           <Link href="/" aria-label="Voyola" style={{ color: "#fff", display: "inline-flex" }}>
-            <Logo height={30} ink="#fff" />
+            <Logo height={40} ink="#fff" />
           </Link>
           <div style={{ marginTop: 40, padding: "18px 22px", borderRadius: 18, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", display: "grid", gridTemplateColumns: "auto 1fr auto", gap: 18, alignItems: "center", fontVariantNumeric: "tabular-nums" }}>
             <b style={{ fontFamily: "var(--font-display)", fontSize: 28, letterSpacing: "-0.03em" }}>404</b>

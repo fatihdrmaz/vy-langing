@@ -75,7 +75,7 @@ export function Nav({ solid = false }: { solid?: boolean }) {
     <header className={`${styles.nav} ${scrolled || solid ? styles.scrolled : ""}`}>
       <div className={`wrap ${styles.bar}`}>
         <Link href="/" className={styles.logo} aria-label="Voyola">
-          <Logo height={34} />
+          <Logo height={40} />
         </Link>
 
         <nav className={styles.links} aria-label="Primary">

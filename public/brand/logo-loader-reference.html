@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Voyola — Logo Loader</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700&amp;display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#fff;font-family:system-ui,sans-serif}a{color:#9D28ED}a:hover{color:#0F0634}
+body.dark{background:#0F0634}
+.wrap{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:40px}
+.loader{width:min(420px,75vw)}.loader svg{display:block;width:100%;height:auto}
+#clipR{transform-box:fill-box;transform-origin:left center;transform:scaleX(0)}
+.indeterminate #clipR{animation:grow 1.8s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes grow{0%{transform:scaleX(0);transform-origin:left center}50%{transform:scaleX(1);transform-origin:left center}50.01%{transform:scaleX(1);transform-origin:right center}100%{transform:scaleX(0);transform-origin:right center}}
+#word{fill:#0F0634}.dark #word{fill:#fff}#track{fill:#0F0634;opacity:.08}.dark #track{fill:#fff;opacity:.14}
+.ctrl{display:flex;gap:8px}.ctrl button{font:inherit;font-size:14px;padding:8px 14px;border:1px solid #9D28ED55;background:transparent;color:#9D28ED;border-radius:8px;cursor:pointer}.ctrl button:hover{background:#9D28ED14}
+</style></head>
+<body><div class="wrap">
+<div class="loader indeterminate" id="loader" role="progressbar" aria-label="Loading">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="4 6 104 46">
+<defs>
+<linearGradient id="auraH" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2C1AA4"></stop><stop offset=".6" stop-color="#9D28ED"></stop><stop offset="1" stop-color="#DC48EE"></stop></linearGradient>
+<clipPath id="reveal"><rect id="clipR" x="9" y="30" width="95" height="22"></rect></clipPath>
+</defs>
+<text id="word" x="8" y="34" font-family="Archivo" font-weight="700" font-size="30" letter-spacing="-.5">voyola</text>
+<path id="track" d="M10 46 C 40 50, 75 47, 102 37 C 78 45, 42 47, 10 43 Z"></path>
+<path d="M10 46 C 40 50, 75 47, 102 37 C 78 45, 42 47, 10 43 Z" fill="url(#auraH)" clip-path="url(#reveal)"></path>
+</svg></div>
+<div class="ctrl"><button onclick="VoyolaLoader.indeterminate()">Loop</button><button onclick="demo()">Progress 0→100</button><button onclick="document.body.classList.toggle('dark')">Light / Dark</button></div>
+</div>
+<script>
+const L=document.getElementById('loader'),R=document.getElementById('clipR');
+window.VoyolaLoader={
+ set(p){L.classList.remove('indeterminate');p=Math.max(0,Math.min(1,p));R.style.transition='transform .3s ease-out';R.style.transform='scaleX('+p+')';L.setAttribute('aria-valuenow',Math.round(p*100))},
+ indeterminate(){R.style.transition='';R.style.transform='';L.classList.add('indeterminate')}
+};
+let t;function demo(){clearInterval(t);let p=0;VoyolaLoader.set(0);t=setInterval(()=>{p+=Math.random()*.12;VoyolaLoader.set(p);if(p>=1)clearInterval(t)},250)}
+</script>
+</body></html>

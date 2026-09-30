@@ -1,9 +1,14 @@
 .curtain {
   position: fixed; inset: 0; z-index: 200; background: var(--ink); display: grid; place-items: center; pointer-events: none;
-  animation: lift 0.55s cubic-bezier(0.7, 0, 0.3, 1) 0.75s forwards;
+  animation: lift 0.6s cubic-bezier(0.7, 0, 0.3, 1) 1.15s forwards;
 }
-.mark { animation: markIn 0.6s var(--ease-out) both, markOut 0.3s ease-in 0.7s forwards; filter: drop-shadow(0 0 24px rgba(239,46,242,0.55)); }
-@keyframes markIn { from { opacity: 0; transform: scale(0.6) translateY(10px); } to { opacity: 1; transform: none; } }
-@keyframes markOut { to { opacity: 0; transform: scale(1.4); } }
+.loader { width: min(260px, 56vw); animation: wordIn 0.5s var(--ease-out) both, out 0.35s ease-in 1.05s forwards; }
+.loader svg { display: block; width: 100%; height: auto; }
+.word { fill: #fff; }
+.track { fill: #fff; opacity: 0.12; }
+.clip { transform-box: fill-box; transform-origin: left center; transform: scaleX(0); animation: grow 0.85s cubic-bezier(0.65, 0, 0.35, 1) 0.25s forwards; }
+@keyframes grow { to { transform: scaleX(1); } }
+@keyframes wordIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@keyframes out { to { opacity: 0; transform: scale(1.06); } }
 @keyframes lift { to { transform: translateY(-100%); border-radius: 0 0 40px 40px; } }
 @media (prefers-reduced-motion: reduce) { .curtain { display: none; } }

@@ -22,7 +22,7 @@ export async function JsonLd({ locale }: { locale: Locale }) {
         "@id": `${SITE_URL}/#org`,
         name: "Voyola",
         url: SITE_URL,
-        logo: `${SITE_URL}/brand/voyola-appicon.svg`,
+        logo: `${SITE_URL}/brand/voyola-ribbon-light.svg`,
         sameAs: [],
       },
       {

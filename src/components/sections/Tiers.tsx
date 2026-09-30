@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import styles from "./Tiers.module.css";
+import { Logo } from "@/components/ui/Logo";
 
 const TIERS = ["silver", "gold", "platinum", "diamond"] as const;
 
@@ -95,7 +96,7 @@ export function Tiers() {
             <div key={key} className={`${styles.card} ${styles[key]}`}>
               <div className={styles.cardIn}>
                 <div className={styles.row}>
-                  <b className={styles.brand}>voyola</b>
+                  <Logo height={22} ink="currentColor" />
                   <span>
                     {t("level")} {i + 1}
                   </span>
