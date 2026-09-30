@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { gsap, ScrollTrigger, useGSAP, prefersReducedMotion, isDesktop } from "@/lib/gsap";
 import { Phone, StatusBar } from "@/components/phone/Phone";
+import { TabBar } from "@/components/phone/TabBar";
 import { Icon, type IconName } from "@/components/phone/Icons";
 import s from "@/components/phone/screens.module.css";
 import { RollingNumber } from "@/components/motion/RollingNumber";
@@ -142,13 +143,7 @@ export function Moment() {
                 </span>
               </div>
 
-              <div className={s.tabbar}>
-                <span className={s.tabOn}><i />Home</span>
-                <span><i />Services</span>
-                <span><i className={s.fab} />Pay</span>
-                <span><i />Purchases</span>
-                <span><i />Wallet</span>
-              </div>
+              <TabBar active="home" />
             </div>
           </Phone>
         </div>

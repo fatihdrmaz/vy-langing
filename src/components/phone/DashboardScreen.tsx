@@ -2,6 +2,7 @@ import { useTranslations } from "next-intl";
 import { StatusBar } from "./Phone";
 import { Icon, type IconName } from "./Icons";
 import s from "./screens.module.css";
+import { TabBar } from "./TabBar";
 
 export const DASH_ROWS: { key: "food" | "premium" | "pay" | "benefits" | "discover"; icon: IconName }[] = [
   { key: "food", icon: "food" },
@@ -44,13 +45,7 @@ export function DashboardScreen({ rowAttr }: { rowAttr?: Record<string, string> 
             <span className={s.go}>›</span>
           </div>
         ))}
-        <div className={s.tabbar}>
-          <span className={s.tabOn}><i />Home</span>
-          <span><i />Services</span>
-          <span><i className={s.fab} />Pay</span>
-          <span><i />Purchases</span>
-          <span><i />Wallet</span>
-        </div>
+        <TabBar active="home" />
       </div>
     </>
   );

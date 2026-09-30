@@ -31,14 +31,18 @@
 .soon { font-size: 10px; font-weight: 700; color: var(--mag-deep); background: var(--soft); border-radius: 999px; padding: 3px 8px; }
 
 .tabbar {
-  margin-top: auto; border-radius: 18px; background: var(--ink); color: var(--muted-2);
-  padding: 10px 6px; display: grid; grid-template-columns: repeat(5, 1fr); font-size: 9px; font-weight: 600; text-align: center; align-items: end; gap: 2px;
+  margin-top: auto; border-radius: 22px; background: #fff; color: #8a8797;
+  padding: 10px 6px 8px; display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; gap: 2px;
+  box-shadow: 0 -6px 24px rgba(33,10,96,0.08), 0 1px 0 rgba(33,10,96,0.04);
 }
-.tabbar span { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-.tabbar i { width: 18px; height: 18px; border-radius: 6px; background: currentColor; opacity: 0.35; }
-.tabOn { color: #fff; }
-.tabOn i { opacity: 1; background: var(--mag); }
-.fab { width: 40px !important; height: 40px !important; border-radius: 50% !important; background: var(--gradient-aura-site) !important; opacity: 1 !important; margin-top: -18px; box-shadow: 0 8px 20px rgba(171,4,242,0.4); }
+.tab { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 9px; font-weight: 600; letter-spacing: 0.01em; }
+.tab svg { width: 20px; height: 20px; }
+.tabOn { color: var(--mag-deep); }
+.tabFab {
+  width: 44px; height: 44px; margin: -22px auto 0; border-radius: 50%; display: grid; place-items: center;
+  background: linear-gradient(145deg, #2f16a8, #ab04f2 60%, #ef2ef2); box-shadow: 0 10px 22px rgba(171,4,242,0.45), inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.tabFab svg { width: 20px; height: 20px; }
 
 /* Suggestion card (Moment) */
 .suggest { border-radius: 20px; background: #fff; padding: 16px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 20px 50px rgba(33,10,96,0.12); }
