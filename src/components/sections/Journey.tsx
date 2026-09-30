@@ -73,7 +73,7 @@ export function Journey() {
 
           <div className={styles.pills}>
             {CARDS.map((c, i) => (
-              <article key={c.key} className={`${styles.card} ${styles[`c${i}` as "c0"]}`} data-magnetic="5" data-track="service_click" role="button" tabIndex={0}>
+              <article key={c.key} className={`${styles.card} ${styles[`c${i}` as "c0"]}`} data-track="service_click" role="button" tabIndex={0}>
                 <span className={styles.cardIc}>{Icon[c.icon]({ size: 22 })}</span>
                 <h3>{t(`cards.${c.key}.t`)}</h3>
                 <p>{t(`cards.${c.key}.d`)}</p>

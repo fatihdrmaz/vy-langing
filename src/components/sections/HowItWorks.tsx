@@ -86,7 +86,7 @@ export function HowItWorks() {
 
         <ol className={styles.grid}>
           {/* 01 download */}
-          <li className={styles.card} data-magnetic="5">
+          <li className={styles.card}>
             <div className={styles.mini}>
               <div className={styles.appIcon}>
                 <Mark size={26} />
@@ -104,7 +104,7 @@ export function HowItWorks() {
             <Step t={t} i={0} />
           </li>
           {/* 02 account */}
-          <li className={styles.card} data-magnetic="5">
+          <li className={styles.card}>
             <div className={styles.mini}>
               <div className={styles.field}>
                 <span>{t("mini.phone")}</span>
@@ -130,7 +130,7 @@ export function HowItWorks() {
             <Step t={t} i={1} />
           </li>
           {/* 03 discover */}
-          <li className={styles.card} data-magnetic="5">
+          <li className={styles.card}>
             <div className={styles.mini}>
               <small className={styles.pin}>
                 {Icon.pin({ size: 12 })} {t("mini.near")}
@@ -149,7 +149,7 @@ export function HowItWorks() {
             <Step t={t} i={2} />
           </li>
           {/* 04 choose & earn */}
-          <li className={styles.card} data-magnetic="5">
+          <li className={styles.card}>
             <div className={`${styles.mini} ${styles.miniEarn}`}>
               <span className={styles.tick}>{Icon.check({ size: 22 })}</span>
               <b className={styles.earnAmt}>₺186,00</b>
