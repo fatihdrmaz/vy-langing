@@ -69,7 +69,7 @@ export function Journey() {
 
         <div className={styles.orbit}>
           <Phone className={styles.phone}>
-            <Shot name="dashboard" />
+            <Shot name="dashboard-services" />
           </Phone>
 
           <div className={styles.pills}>

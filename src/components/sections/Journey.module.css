@@ -19,11 +19,11 @@
 .card p { font-size: 14px; color: var(--paper-muted); }
 .cardIc { width: 46px; height: 46px; border-radius: 14px; background: var(--soft); color: var(--violet); display: grid; place-items: center; }
 
-.c0 { left: 4%; top: 6%; }
-.c1 { right: 4%; top: 30%; }
-.c2 { left: 10%; bottom: 10%; }
-.c3 { right: 8%; bottom: 14%; }
-.c4 { left: calc(50% + 190px); top: -1%; }
+.c0 { left: 4%; top: 8%; }
+.c2 { left: 8%; top: 56%; }
+.c4 { right: 6%; top: 0; }
+.c1 { right: 3%; top: 34%; }
+.c3 { right: 7%; top: 68%; }
 
 @media (max-width: 1023px) {
   .stage { min-height: 100svh; padding-block: 84px 16px; gap: 14px; justify-content: flex-start; }
